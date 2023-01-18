@@ -1,0 +1,44 @@
+{% load static %}
+<div id="aside" class="app-aside modal nav-dropdown">
+  	<!-- fluid app aside -->
+    <div class="left navside dark dk" data-layout="column">
+  	    <div class="navbar no-radius">
+        <!-- brand -->
+        <a class="navbar-brand">
+        	{% comment %}<img src="../static/landingpage/img/side_logo.png" alt="." >{% endcomment %}
+        	<span class="hidden-folded inline text-primary">Greyhound</span>
+        </a>
+        <!-- / brand -->
+        </div>
+        <div class="hide-scroll" data-flex>
+            <nav class="scroll nav-light">
+                <ul class="nav" ui-nav>
+                {% comment %}<li class="nav-header hidden-folded">
+                  <small class="text-muted">Main</small>
+                </li>{% endcomment %}
+      <!-- Data Management -->
+                    <li>
+                        <a>
+                            <span class="nav-caret">
+                                <i class="fa fa-caret-down"></i>
+                            </span>
+                            <span class="nav-icon">
+                                <i class="material-icons">&#xe3c7;
+                                    <span ui-include="'../assets/images/i_2.svg'"></span>
+                                </i>
+                            </span>
+                            <span class="nav-text">Data</span>
+                        </a>
+                        <ul class="nav-sub">
+                            <li>
+                                <a href="{% url 'greyhound_data' %}" >
+                                    <span class="nav-text">Greyhound</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>

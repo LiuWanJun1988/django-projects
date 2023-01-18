@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Greyhound Analysis</title>
+  <meta name="description" content="Admin, Dashboard, Bootstrap, Bootstrap 4, Angular, AngularJS" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  {% load static %}
+  <!-- for ios 7 style, multi-resolution icon of 152x152 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+  <link rel="apple-touch-icon" href="{% static 'user/assets/images/logo.png' %}">
+  <meta name="apple-mobile-web-app-title" content="Flatkit">
+  <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  {% comment %}<link rel="shortcut icon" sizes="196x196" href="{% static 'user/assets/images/logo.png' %}">{% endcomment %}
+  {% comment %}<link rel="icon" type="image/png" href="{% static 'landingpage/icon/favicon-32x32.png' %}" sizes="32x32">
+  <link rel="apple-touch-icon" href="{% static 'landingpage/icon/favicon-32x32.png' %}">{% endcomment %}
+  <!-- style -->
+  <link rel="stylesheet" href="{% static 'user/assets/animate.css/animate.min.css' %}" type="text/css" />
+  <link rel="stylesheet" href="{% static 'user/assets/glyphicons/glyphicons.css' %}" type="text/css" />
+  <link rel="stylesheet" href="{% static 'user/assets/font-awesome/css/font-awesome.min.css' %}" type="text/css" />
+  <link rel="stylesheet" href="{% static 'user/assets/material-design-icons/material-design-icons.css' %}" type="text/css" />
+  <link rel="stylesheet" href="{% static 'user/libs/jquery/nestable/jquery.nestable.css' %}" type="text/css" />
+
+  <link rel="stylesheet" href="{% static 'user/assets/bootstrap/dist/css/bootstrap.min.css' %}" type="text/css" />
+  <!-- build:css ../assets/styles/app.min.css -->
+  <link rel="stylesheet" href="{% static 'user/assets/styles/app.css' %}" type="text/css" />
+  <!-- endbuild -->
+  <link rel="stylesheet" href="{% static 'user/assets/styles/font.css' %}" type="text/css" />
+  {% comment %}<link rel="stylesheet" type="text/css" href="{% static 'user/libs/jquery/footable/css/footable.core.css' %}"  />{% endcomment %}
+</head>
+<body class="dark">
+  <div class="app" id="app">
+
+<!-- ############ LAYOUT START-->
+
+  <!-- aside -->
+  {% include 'main/aside.html' %}
+  <!-- / -->
+
+
+  <!-- content -->
+  <div id="content" class="app-content box-shadow-z0" role="main">
+    <div class="app-header white box-shadow">
+        <div class="navbar navbar-toggleable-sm flex-row align-items-center">
+            <!-- Open side - Naviation on mobile -->
+            <a data-toggle="modal" data-target="#aside" class="hidden-lg-up mr-3">
+              <i class="material-icons">&#xe5d2;</i>
+            </a>
+            <!-- / -->
+
+            <!-- Page title - Bind to $state's title -->
+            <div class="mb-0 h5 no-wrap" ng-bind="$state.current.data.title" id="pageTitle"></div>
+
+            <!-- navbar collapse -->
+            <div class="collapse navbar-collapse" id="collapse">
+
+              <ul class="nav navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <h3 style="margin-bottom: 0px">Greyhound Data</h3>
+                </li>
+              </ul>
+              <div ui-include="{% static 'user/views/blocks/navbar.form.html' %}"></div>
+              <!-- / -->
+            </div>
+
+        </div>
+    </div>
+    <div class="app-footer">
+      <div class="p-2 text-xs">
+        <div class="pull-right text-muted py-1">
+          &copy; <strong>Greyhound Analysis</strong> {% comment %}<span class="hidden-xs-down">- Analytical Option Navigator <img width="20px" height="22px" src="../../../../static/landingpage/icon/heart.png"></span>{% endcomment %}
+        </div>
+      </div>
+    </div>
+    <div ui-view class="app-body" id="view">
+
+<!-- ############ PAGE START-->
+{% comment %}<div class="p-a white lt box-shadow">
+    <form id="run_backtest" method="post">{% csrf_token %}
+        <div class="row" style="">
+            <div class="col-sm-11">
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <label class="col-sm-4 form-control-label text-right" >States</label>
+                        <div class="col-sm-8 input-group select2-bootstrap-prepend">
+                            <select required name="greyhound_states" id="greyhound_states" style="background-color: rgb(72,87,103);" class="form-control">
+                                {% if states_list %}
+                                    {% for states in states_list %}
+                                        <option value="{{ states }}">{{ states }}</option>
+                                    {% endfor %}
+                                {% endif %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="col-sm-4 form-control-label text-right" >City</label>
+                        <div class="col-sm-8 input-group select2-bootstrap-prepend">
+                            <select required name="greyhound_city" id="greyhound_city" style="background-color: rgb(72,87,103);" class="form-control">
+                                {% if city_list %}
+                                    {% for city in city_list %}
+                                        <option value="{{ city }}">{{ city }}</option>
+                                    {% endfor %}
+                                {% endif %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="col-sm-4 form-control-label text-right" >From</label>
+                        <div class="col-sm-8 input-group select2-bootstrap-prepend">
+                            <div class="form-group">
+                                <div class='input-group date' ui-jp="datetimepicker" ui-options="{
+                                    format: 'YYYY-MM-DD',
+                                    icons: {
+                                    time: 'fa fa-clock-o',
+                                    date: 'fa fa-calendar',
+                                    up: 'fa fa-chevron-up',
+                                    down: 'fa fa-chevron-down',
+                                    previous: 'fa fa-chevron-left',
+                                    next: 'fa fa-chevron-right',
+                                    today: 'fa fa-screenshot',
+                                    clear: 'fa fa-trash',
+                                    close: 'fa fa-remove'
+                                    }
+                                }">
+                                    <input required type='text' class="form-control" id="greyhound_date" name="greyhound_date"/>
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+		    </div>
+            <div class="col-sm-1">
+                <button type="submit" class="btn btn-fw info" >Display</button>
+		    </div>
+	    </div>
+    </form>
+
+</div>{% endcomment %}
+
+<div class="padding">
+    <div class="text-center" id='loader' style="display: none;width: 100%;height: 100%;position: fixed;z-index: 9999;top: 0;left: 0;text-align: center; background-color: rgba(0, 0, 0, 0.85)">
+        <img src="{% static 'landingpage/img/primary_loader.svg' %}" style="margin: auto; " {% comment %}width='200px' height='200px'{% endcomment %}>
+    </div>
+    <form id="race_data_search_form" method="post">{% csrf_token %}
+        <div class="box">
+            <div class="box-header">
+                <div class="form-group row">
+                        <div class="form-group row col-sm-3">
+                            <label class="col-sm-3 form-control-label text-right" >City</label>
+                            <div class="col-sm-9 input-group select2-bootstrap-prepend">
+                                <select required name="greyhound_city" id="greyhound_city" style="background-color: rgb(72,87,103);" class="form-control">
+                                    <option value=""></option>
+                                    {% if city_list %}
+                                        {% for item in city_list %}
+                                            <option value="{{ item.id }}">{{ item.city }}  ({{ item.states }})</option>
+                                        {% endfor %}
+                                    {% endif %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row col-sm-4">
+                            <label class="col-sm-4 form-control-label text-right" >From</label>
+                            <div class="col-sm-8 input-group select2-bootstrap-prepend">
+                                <div class="form-group">
+                                    <div class='input-group date' ui-jp="datetimepicker" ui-options="{
+                                        format: 'YYYY-MM-DD',
+                                        icons: {
+                                        time: 'fa fa-clock-o',
+                                        date: 'fa fa-calendar',
+                                        up: 'fa fa-chevron-up',
+                                        down: 'fa fa-chevron-down',
+                                        previous: 'fa fa-chevron-left',
+                                        next: 'fa fa-chevron-right',
+                                        today: 'fa fa-screenshot',
+                                        clear: 'fa fa-trash',
+                                        close: 'fa fa-remove'
+                                        }
+                                    }">
+                                        <input required type='text' class="form-control" id="greyhound_start_date" name="greyhound_start_date"/>
+                                        <span class="input-group-addon">
+                                            <span class="fa fa-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row col-sm-4">
+                            <label class="col-sm-4 form-control-label text-right" >To</label>
+                            <div class="col-sm-8 input-group select2-bootstrap-prepend">
+                                <div class="form-group">
+                                    <div class='input-group date' ui-jp="datetimepicker" ui-options="{
+                                        format: 'YYYY-MM-DD',
+                                        icons: {
+                                        time: 'fa fa-clock-o',
+                                        date: 'fa fa-calendar',
+                                        up: 'fa fa-chevron-up',
+                                        down: 'fa fa-chevron-down',
+                                        previous: 'fa fa-chevron-left',
+                                        next: 'fa fa-chevron-right',
+                                        today: 'fa fa-screenshot',
+                                        clear: 'fa fa-trash',
+                                        close: 'fa fa-remove'
+                                        }
+                                    }">
+                                        <input type='text' class="form-control" id="greyhound_end_date" name="greyhound_end_date"/>
+                                        <span class="input-group-addon">
+                                            <span class="fa fa-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-1 text-center">
+                            <button type="submit" class="btn info" >Display</button>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="row col-sm-12" id="search_result">
+
+        </div>
+    </form>
+
+</div>
+<!-- ############ PAGE END-->
+
+    </div>
+  </div>
+
+  </div>
+
+<!-- build:js scripts/app.html.js -->
+<!-- jQuery -->
+  <script src="{% static 'user/libs/jquery/jquery/dist/jquery.js' %}"></script>
+<!-- Bootstrap -->
+  <script src="{% static 'user/libs/jquery/tether/dist/js/tether.min.js' %}"></script>
+  <script src="{% static 'user/libs/jquery/bootstrap/dist/js/bootstrap.js' %}"></script>
+<!-- core -->
+  <script src="{% static 'user/libs/jquery/underscore/underscore-min.js' %}"></script>
+  <script src="{% static 'user/libs/jquery/jQuery-Storage-API/jquery.storageapi.min.js' %}"></script>
+  <script src="{% static 'user/libs/jquery/PACE/pace.min.js' %}"></script>
+  <script src="{% static 'user/libs/jquery/nestable/jquery.nestable.js' %}"></script>
+
+  <script src="{% static 'user/scripts/config.lazyload.js' %}"></script>
+
+  <script src="{% static 'user/scripts/palette.js' %}"></script>
+  <script src="{% static 'user/scripts/ui-load.js' %}"></script>
+  <script src="{% static 'user/scripts/ui-jp.js' %}"></script>
+  <script src="{% static 'user/scripts/ui-include.js' %}"></script>
+  <script src="{% static 'user/scripts/ui-device.js' %}"></script>
+  <script src="{% static 'user/scripts/ui-form.js' %}"></script>
+  <script src="{% static 'user/scripts/ui-nav.js' %}"></script>
+  <script src="{% static 'user/scripts/ui-screenfull.js' %}"></script>
+  <script src="{% static 'user/scripts/ui-scroll-to.js' %}"></script>
+  <script src="{% static 'user/scripts/ui-toggle-class.js' %}"></script>
+
+  <script src="{% static 'user/scripts/app.js' %}"></script>
+
+  <!-- ajax -->
+  <script src="{% static 'user/libs/jquery/jquery-pjax/jquery.pjax.js' %}"></script>
+  <script src="{% static 'user/scripts/ajax.js' %}"></script>
+<!-- endbuild -->
+
+  <script src="https://code.highcharts.com/stock/highstock.js"></script>
+  <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#race_data_search_form").on("submit", function (e) {
+            e.preventDefault();
+            var time_from = $("#greyhound_start_date").val();
+            var time_to = $("#greyhound_end_date").val();
+            var city_id = $("#greyhound_city").val();
+            var csrf_token = $('input[name=csrfmiddlewaretoken]').val();
+            $("#search_result").html("");
+            $.ajax({
+                method: "POST",
+                url: "/greyhound_search/",
+                data: {city: city_id, start_date: time_from, end_date: time_to, csrfmiddlewaretoken: csrf_token},
+                beforeSend: function() { $("#loader").css('display', 'flex');},
+                success: function(result){
+                    $("#loader").hide();
+                    var data = result.data;
+                    {% comment %}var result_html = '<div ui-jp="nestable"  class="dd" style="max-width: 100%!important; width:100%"><ol class="dd-list dd-list-handle">';
+                    for(var key1 in data){
+                        result_html += '<li class="dd-item" data-id="' + key1 + '"><div class="dd-content box"><div class="dd-handle"><i class="fa fa-reorder text-muted"></i></div>' + key1 + '</div><ol class="dd-list dd-list-handle">'
+                        data[key1].forEach(function (value1) {
+                            var race_sum = value1["summary"];
+                            if(typeof race_sum["level"] === "number") var level = "Grade " + race_sum["level"];
+                            else var level = race_sum["level"];
+                            var row_html = '<div class="row col-sm-11"><div class="col-sm-1">Race '+race_sum["number"]+'</div><div class="col-sm-3">'+race_sum["name"]+'</div><div class="col-sm-2">'+race_sum["length"]+'m</div><div class="col-sm-2">'+level+'</div><div class="col-sm-2">'+race_sum["money"]+'</div><div class="col-sm-2">'+race_sum["splits"]+'</div></div>'
+                            //var sum_html = '<li class="dd-item" data-id="' + race_sum["id"] + '"><div class="dd-content box"><span>Race ' + race_sum["number"] + '   ' + race_sum["name"] + '   ' + race_sum["length"] + 'm   ' + level + '   ' + race_sum["money"] + '   ' + race_sum["splits"] + '</span></div><ol class="dd-list"><li class="dd-item" data-id="' + race_sum["id"] + '_table">'
+                            var sum_html = '<li class="dd-item" data-id="' + race_sum["id"] + '"><div class="dd-content box row"><div class="dd-handle"><i class="fa fa-reorder text-muted"></i></div>' + row_html + '</div><ol class="dd-list dd-list-handle"><li class="dd-item" data-id="' + race_sum["id"] + '_table">'
+                            var table_html = sum_html + '<table class="table table-striped b-t"><thead><tr><td>Rank</td><td>Box</td><td>Name</td><td>Time</td><td>Margin</td><td>Split</td><td>In Run</td><td>Weight</td><td>SP</td></tr></thead><tbody>'
+                            value1["data"].forEach(function (value2) {
+                                table_html += '<tr>\n' +
+                                    '              <td>' + value2["rank"] + '</td>\n' +
+                                    '              <td>' + value2["box"] + '</td>\n' +
+                                    '              <td>' + value2["name"] + '</td>\n' +
+                                    '              <td>' + value2["time"] + '</td>\n' +
+                                    '              <td>' + value2["margin"] + '</td>\n' +
+                                    '              <td>' + value2["split"] + '</td>\n' +
+                                    '              <td>' + value2["in_run"] + '</td>\n' +
+                                    '              <td>' + value2["weight"] + '</td>\n' +
+                                    '              <td>' + value2["sp"] + '</td>\n' +
+                                    '            </tr>'
+                            });
+                            table_html = table_html + "</tbody></table></li></ol><li>";
+                            result_html += table_html;
+                        });
+                        result_html += "</ol></li>";
+                    }
+                    result_html = result_html + '</ol></div>';{% endcomment %}
+
+
+
+                    var result_html = '<div ui-jp="nestable"  class="dd" style="max-width: 100%!important; width:100%"><ol class="dd-list dd-list-handle">';
+                    for(var key1 in data){
+                        result_html += '<li class="dd-item" data-id="' + key1 + '"><div class="dd-handle box">' + key1 + '</div><ol class="dd-list dd-list-handle">'
+                        data[key1].forEach(function (value1) {
+                            var race_sum = value1["summary"];
+                            if(typeof race_sum["level"] === "number") var level = "Grade " + race_sum["level"];
+                            else var level = race_sum["level"];
+                            var row_html = '<div class="row col-sm-11"><div class="col-sm-1">Race '+race_sum["number"]+'</div><div class="col-sm-3">'+race_sum["name"]+'</div><div class="col-sm-2">'+race_sum["length"]+'m</div><div class="col-sm-2">'+level+'</div><div class="col-sm-2">'+race_sum["money"]+'</div><div class="col-sm-2">Splits: '+race_sum["splits"]+'</div></div>'
+                            //var sum_html = '<li class="dd-item" data-id="' + race_sum["id"] + '"><div class="dd-handle box"><span>Race ' + race_sum["number"] + '   ' + race_sum["name"] + '   ' + race_sum["length"] + 'm   ' + level + '   ' + race_sum["money"] + '   ' + race_sum["splits"] + '</span></div><ol class="dd-list"><li class="dd-item" data-id="' + race_sum["id"] + '_table">'
+                            var sum_html = '<li class="dd-item" data-id="' + race_sum["id"] + '"><div class="dd-handle box row">' + row_html + '</div><ol class="dd-list dd-list-handle"><li class="dd-item" data-id="' + race_sum["id"] + '_table">'
+                            var table_html = sum_html + '<table class="table table-striped b-t"><thead><tr><td>Rank</td><td>Box</td><td>Name</td><td>Time</td><td>Margin</td><td>Split</td><td>In Run</td><td>Weight</td><td>SP</td></tr></thead><tbody>'
+                            value1["data"].forEach(function (value2) {
+                                table_html += '<tr>\n' +
+                                    '              <td>' + value2["rank"] + '</td>\n' +
+                                    '              <td>' + value2["box"] + '</td>\n' +
+                                    '              <td>' + value2["name"] + '</td>\n' +
+                                    '              <td>' + value2["time"] + '</td>\n' +
+                                    '              <td>' + value2["margin"] + '</td>\n' +
+                                    '              <td>' + value2["split"] + '</td>\n' +
+                                    '              <td>' + value2["in_run"] + '</td>\n' +
+                                    '              <td>' + value2["weight"] + '</td>\n' +
+                                    '              <td>' + value2["sp"] + '</td>\n' +
+                                    '            </tr>'
+                            });
+                            table_html = table_html + "</tbody></table></li></ol><li>";
+                            result_html += table_html;
+                        });
+                        result_html += "</ol></li>";
+                    }
+                    result_html = result_html + '</ol></div>';
+                    //console.log(result_html);
+                    $("#search_result").html(result_html);
+                    $('[ui-jp]').uiJp();
+                    $('body').uiInclude();
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+numpy
+pandas
+plotly
+scipy
+pandas-datareader
+ipykernel
+nbformat>=4.2.0

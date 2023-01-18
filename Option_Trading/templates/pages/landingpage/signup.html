@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600%7CRoboto:400,400i,500,700" rel="stylesheet">
+
+	{% load staticfiles %}
+	<!-- Icons -->
+	<link rel="stylesheet" href="{% static 'landingpage/css/themify-icons.css' %}">
+	<link rel="stylesheet" href="{% static 'landingpage/css/cryptocoins.css' %}">
+	<link rel="stylesheet" href="{% static 'landingpage/css/cryptocoins-colors.css' %}">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="{% static 'landingpage/css/bootstrap-reboot.min.css' %}">
+	<link rel="stylesheet" href="{% static 'landingpage/css/bootstrap-grid.min.css' %}">
+	<link rel="stylesheet" href="{% static 'landingpage/css/owl.carousel.min.css' %}">
+	<link rel="stylesheet" href="{% static 'landingpage/css/magnific-popup.css' %}">
+	<link rel="stylesheet" href="{% static 'landingpage/css/main-color1.css' %}">
+
+	<link rel="stylesheet" href="../static/user/assets/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../static/user/assets/styles/app.css" type="text/css" />
+    <link rel="stylesheet" href="../static/user/assets/styles/new_defined.css" type="text/css" />
+
+    <!-- Favicons -->
+	<link rel="icon" type="image/png" href="{% static 'landingpage/icon/favicon-32x32.png' %}" sizes="32x32">
+	<link rel="apple-touch-icon" href="{% static 'landingpage/icon/favicon-32x32.png' %}">
+	<link rel="apple-touch-icon" sizes="72x72" href="{% static 'landingpage/icon/apple-touch-icon-72x72.png' %}">
+	<link rel="apple-touch-icon" sizes="114x114" href="{% static 'landingpage/icon/apple-touch-icon-114x114.png' %}">
+	<link rel="apple-touch-icon" sizes="144x144" href="{% static 'landingpage/icon/apple-touch-icon-144x144.png' %}">
+
+	<meta name="description" content="Cryptocurrency trading bot">
+	<meta name="keywords" content="tradebot, robot, crypto, trading, ea, autotrading, bitcoin">
+	
+	<title>Sign up - Cryptobyrd.io Crypto Trading Bot</title>
+
+</head>
+<body style="background-color: #292b2c">
+	
+	<!-- sign form -->
+	<div class="sign" style="background-color: #292b2c">
+		<!-- particles -->
+		<div id="particles-js" class="sign__particles"></div>
+		<!-- end particles -->
+
+		<div class="sign__content" style="background-color: #292b2c">
+			<!-- form -->
+			<form action="{%  url 'user_info_regist' %}" class="sign__form" style="background-color: #292b2c; border: 1px solid #fcc100" method="post">{% csrf_token %}
+				<a href="/"><img class="sign__logo" style="height:45px;" src="{% static 'landingpage/img/logo.png' %}" alt=""></a>
+
+				{% comment %}<input type="text" class="form__input" name="username" placeholder="Username" required>
+
+                <input type="text" class="form__input" name="first_name" placeholder="First Name" required>
+
+                <input type="text" class="form__input" name="last_name" placeholder="Last Name" required>
+
+				<input type="text" class="form__input" name="email" placeholder="Email" required>
+
+				<input type="password" class="form__input" name="password" placeholder="Password" required>{% endcomment %}
+
+                <div class="md-form-group float-label col-sm-8">
+                    <input type="text" class="md-input " name="username" required>
+                    <label>UserName</label>
+                </div>
+                <div class="row md-form-group float-label col-sm-8">
+                    <div class="col-sm-6">
+                        <label class="md-check">
+                            <input type="radio" id="male" name="gender" value="male" checked>
+                            <i class="blue"></i>
+                            Male
+                        </label>
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="md-check">
+                            <input type="radio" id="female" name="gender" value="female">
+                            <i class="blue"></i>
+                            Female
+                        </label>
+                    </div>
+                </div>
+                <div class="md-form-group float-label col-sm-8">
+                    <input type="text" class="md-input " name="first_name" required>
+                    <label>First Name</label>
+                </div>
+                <div class="md-form-group float-label col-sm-8">
+                    <input type="text" class="md-input" name="last_name" required>
+                    <label>Last Name</label>
+                </div>
+                <div class="md-form-group float-label col-sm-8">
+                    <input type="text" class="md-input " name="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="md-form-group float-label col-sm-8">
+                    <input type="password" class="md-input " name="password" required>
+                    <label>Password</label>
+                </div>
+                <p style="color: rgb(255,0,0)">{{ login_error }}</p>
+
+				{% comment %}<button class="btn" type="submit">Sign Up</button>{% endcomment %}
+                <button class="btn btn-outline b-warn text-warn" style="width: 100px; height: 40px; font-size: 16px; text-transform: none" type="submit">Next</button>
+
+                {% comment %}<center><br>
+                <a href="{% url 'social:begin' 'google-oauth2' %}"><img src="{% static 'landingpage/img/google_signin.png' %}" style="width:50%;" alt="Log with Google"></a></center>
+                {% endcomment %}
+				<div class="form__group">
+					<input class="warn" id="terms" name="terms" type="checkbox" value="On">
+					<label for="terms">I agree to the <a href="#" target="_blank">Privacy Policy</a></label>
+				</div>
+
+                <div class="sign__box">
+				    <p>Already have an account? <a href="/login">Log in</a></p>
+			    </div>
+			</form>
+			<!-- end form -->
+
+
+		</div>
+	</div>
+	<!-- end sign form -->
+
+	<script src="{% static 'landingpage/js/jquery-3.2.1.slim.min.js' %}"></script>
+	<script src="{% static 'landingpage/js/bootstrap.bundle.min.js' %}"></script>
+	<script src="{% static 'landingpage/js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'landingpage/js/smooth-scroll.min.js' %}"></script>
+	<script src="{% static 'landingpage/js/jquery.magnific-popup.min.js' %}"></script>
+	<script src="{% static 'landingpage/js/particles.min.js' %}"></script>
+	<script src="{% static 'landingpage/js/particles-app.js' %}"></script>
+	<script src="{% static 'landingpage/js/main.js' %}"></script>
+
+<!-- Bootstrap -->
+  <script src="../static/user/libs/jquery/tether/dist/js/tether.min.js"></script>
+  <script src="../static/user/libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
+<!-- core -->
+  <script src="../static/user/libs/jquery/underscore/underscore-min.js"></script>
+  <script src="../static/user/libs/jquery/jQuery-Storage-API/jquery.storageapi.min.js"></script>
+  <script src="../static/user/libs/jquery/PACE/pace.min.js"></script>
+
+  <script src="../static/user/scripts/config.lazyload.js"></script>
+
+  <script src="../static/user/scripts/palette.js"></script>
+  <script src="../static/user/scripts/ui-load.js"></script>
+  <script src="../static/user/scripts/ui-jp.js"></script>
+  <script src="../static/user/scripts/ui-include.js"></script>
+  <script src="../static/user/scripts/ui-device.js"></script>
+  <script src="../static/user/scripts/ui-form.js"></script>
+  <script src="../static/user/scripts/ui-nav.js"></script>
+  <script src="../static/user/scripts/ui-screenfull.js"></script>
+  <script src="../static/user/scripts/ui-scroll-to.js"></script>
+  <script src="../static/user/scripts/ui-toggle-class.js"></script>
+
+  <script src="../static/user/scripts/app.js"></script>
+<script>
+</script>
+</body>
+</html>

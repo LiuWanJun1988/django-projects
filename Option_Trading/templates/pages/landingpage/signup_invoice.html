@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600%7CRoboto:400,400i,500,700" rel="stylesheet">
+
+	{% load staticfiles %}
+	<!-- Icons -->
+	<link rel="stylesheet" href="{% static 'landingpage/css/themify-icons.css' %}">
+	<link rel="stylesheet" href="{% static 'landingpage/css/cryptocoins.css' %}">
+	<link rel="stylesheet" href="{% static 'landingpage/css/cryptocoins-colors.css' %}">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="{% static 'landingpage/css/bootstrap-reboot.min.css' %}">
+	<link rel="stylesheet" href="{% static 'landingpage/css/bootstrap-grid.min.css' %}">
+	<link rel="stylesheet" href="{% static 'landingpage/css/owl.carousel.min.css' %}">
+	<link rel="stylesheet" href="{% static 'landingpage/css/magnific-popup.css' %}">
+	<link rel="stylesheet" href="{% static 'landingpage/css/main-color1.css' %}">
+
+	<link rel="stylesheet" href="../static/user/assets/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../static/user/assets/styles/app.css" type="text/css" />
+    <link rel="stylesheet" href="../static/user/assets/styles/new_defined.css" type="text/css" />
+
+    <!-- Favicons -->
+	<link rel="icon" type="image/png" href="{% static 'landingpage/icon/favicon-32x32.png' %}" sizes="32x32">
+	<link rel="apple-touch-icon" href="{% static 'landingpage/icon/favicon-32x32.png' %}">
+	<link rel="apple-touch-icon" sizes="72x72" href="{% static 'landingpage/icon/apple-touch-icon-72x72.png' %}">
+	<link rel="apple-touch-icon" sizes="114x114" href="{% static 'landingpage/icon/apple-touch-icon-114x114.png' %}">
+	<link rel="apple-touch-icon" sizes="144x144" href="{% static 'landingpage/icon/apple-touch-icon-144x144.png' %}">
+
+	<meta name="description" content="Cryptocurrency trading bot">
+	<meta name="keywords" content="tradebot, robot, crypto, trading, ea, autotrading, bitcoin">
+
+	<title>Sign up - Cryptobyrd.io Crypto Trading Bot</title>
+
+</head>
+<body style="background-color: #292b2c">
+
+	<!-- sign form -->
+	<div class="sign" style="background-color: #292b2c">
+		<!-- particles -->
+		<div id="particles-js" class="sign__particles"></div>
+		<!-- end particles -->
+
+		<div class="sign__content" style="background-color: #292b2c">
+			<!-- form -->
+			<form action="{%  url 'user_register' %}" class="sign__form" style="background-color: #292b2c; border: 1px solid #fcc100" method="post">{% csrf_token %}
+				<a href="/"><img class="sign__logo" style="height:45px;" src="{% static 'landingpage/img/logo.png' %}" alt=""></a>
+
+				<input type="hidden" name="username" value="{{ username }}">
+                <input type="hidden" name="gender" value="{{ gender }}">
+                <input type="hidden" name="first_name" value="{{ first_name }}">
+
+                <input type="hidden" name="last_name" value="{{ last_name }}">
+
+				<input type="hidden" name="email" value="{{ email }}">
+
+				<input type="hidden" name="password" value="{{ password }}">
+                <div class="md-form-group float-label col-sm-8">
+                    <input type="text" class="md-input " name="country" value="{{ country }}" required>
+                    <label>Country</label>
+                </div>
+                <div class="md-form-group float-label col-sm-8">
+                    <input type="text" class="md-input " name="city" value="{{ city }}" required>
+                    <label>City</label>
+                </div>
+                <div class="md-form-group float-label col-sm-8">
+                    <input type="text" class="md-input " name="district" value="{{ district }}" required>
+                    <label>District</label>
+                </div>
+                <div class="md-form-group float-label col-sm-8">
+                    <input type="text" class="md-input " name="street" value="{{ street }}" required>
+                    <label>Street</label>
+                </div>
+                <div class="md-form-group float-label col-sm-8">
+                    <input type="text" class="md-input " name="phone" value="{{ phone }}" required>
+                    <label>Phone</label>
+                </div>
+                <div class="md-form-group float-label col-sm-8">
+                    <input type="text" class="md-input " name="mobile" value="{{ mobile }}" required>
+                    <label>Mobile</label>
+                </div>
+                <div class="md-form-group float-label col-sm-8">
+                    <input type="text" class="md-input " name="zip_code" value="{{ zip_code }}" required>
+                    <label>Zip Code</label>
+                </div>
+
+                <p class="text-warn">Please choose customer type:</p>
+
+                <ul class="list-unstyled m-t-n-sm">
+                    <li class="checkbox">
+                        <label class="ui-check">
+                            <input type="checkbox" id="with_tax_id" name="with_tax_id" class="has-value"><i></i> Company with Tax ID
+                        </label>
+                    </li>
+                    <li class="input-sm ">
+                        <input type="text" class="m-b-md" style="display: none" id="tax_id" name="tax_id" placeholder="Tax ID">
+                    </li>
+                    <li class="checkbox">
+                        <label class="ui-check">
+                            <input type="checkbox" id="without_tax_id" name="without_tax_id" class="has-value"><i></i> Company without Tax ID
+                        </label>
+                    </li>
+
+                    <li class="checkbox">
+                        <label class="ui-check">
+                            <input type="checkbox" id="personal" name="personal" class="has-value"><i></i> Personal
+                        </label>
+                    </li>
+                </ul>
+                <p style="color: rgb(255,0,0)">{{ login_error }}</p>
+				{% comment %}<button class="btn" type="submit">Sign Up</button>{% endcomment %}
+                <button class="btn btn-outline b-warn text-warn" style="width: 100px; height: 40px; font-size: 16px; text-transform: none" type="submit">Sign Up</button>
+
+                <div class="sign__box">
+				    <p>Already have an account? <a href="/login">Log in</a></p>
+			    </div>
+			</form>
+		</div>
+	</div>
+	<!-- end sign form -->
+
+	<script src="{% static 'landingpage/js/jquery-3.2.1.slim.min.js' %}"></script>
+	<script src="{% static 'landingpage/js/bootstrap.bundle.min.js' %}"></script>
+	<script src="{% static 'landingpage/js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'landingpage/js/smooth-scroll.min.js' %}"></script>
+	<script src="{% static 'landingpage/js/jquery.magnific-popup.min.js' %}"></script>
+	<script src="{% static 'landingpage/js/particles.min.js' %}"></script>
+	<script src="{% static 'landingpage/js/particles-app.js' %}"></script>
+	<script src="{% static 'landingpage/js/main.js' %}"></script>
+
+<!-- Bootstrap -->
+  <script src="../static/user/libs/jquery/tether/dist/js/tether.min.js"></script>
+  <script src="../static/user/libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
+<!-- core -->
+  <script src="../static/user/libs/jquery/underscore/underscore-min.js"></script>
+  <script src="../static/user/libs/jquery/jQuery-Storage-API/jquery.storageapi.min.js"></script>
+  <script src="../static/user/libs/jquery/PACE/pace.min.js"></script>
+
+  <script src="../static/user/scripts/config.lazyload.js"></script>
+
+  <script src="../static/user/scripts/palette.js"></script>
+  <script src="../static/user/scripts/ui-load.js"></script>
+  <script src="../static/user/scripts/ui-jp.js"></script>
+  <script src="../static/user/scripts/ui-include.js"></script>
+  <script src="../static/user/scripts/ui-device.js"></script>
+  <script src="../static/user/scripts/ui-form.js"></script>
+  <script src="../static/user/scripts/ui-nav.js"></script>
+  <script src="../static/user/scripts/ui-screenfull.js"></script>
+  <script src="../static/user/scripts/ui-scroll-to.js"></script>
+  <script src="../static/user/scripts/ui-toggle-class.js"></script>
+
+  <script src="../static/user/scripts/app.js"></script>
+
+<script>
+    $(document).ready(function(){
+        console.log($('#with_tax_id').val());
+        console.log($('#without_tax_id').val());
+        console.log($('#with_tax_id').is(':checked'));
+        $('#with_tax_id').on('change', function(){
+            if ($('#with_tax_id').is(':checked')){
+                $('#without_tax_id').prop('checked', false);
+                $('#personal').prop('checked', false);
+                $('#tax_id').show();
+            }
+            else {
+                $('#tax_id').hide() ;
+            }
+        });
+        $('#without_tax_id').on('change', function() {
+            if ($('#without_tax_id').is(':checked')){
+                $('#with_tax_id').prop('checked', false);
+                $('#personal').prop('checked', false);
+                $('#tax_id').hide();
+            }
+        });
+        $('#personal').on('change', function() {
+            if ($('#personal').is(':checked')){
+                $('#with_tax_id').prop('checked', false);
+                $('#without_tax_id').prop('checked', false);
+                $('#tax_id').hide();
+            }
+        });
+    })
+</script>
+</body>
+</html>

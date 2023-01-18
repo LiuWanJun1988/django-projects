@@ -1,0 +1,1085 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>calculators.options package &mdash; Black-Scholes-Merton Options Calculator  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Black-Scholes-Merton Options Calculator
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">calculators.options package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-calculators.options.bsm">calculators.options.bsm module</a></li>
+<li><a class="reference internal" href="#module-calculators.options">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Black-Scholes-Merton Options Calculator</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>calculators.options package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/calculators.options.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="calculators-options-package">
+<h1>calculators.options package<a class="headerlink" href="#calculators-options-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-calculators.options.bsm">
+<span id="calculators-options-bsm-module"></span><h2>calculators.options.bsm module<a class="headerlink" href="#module-calculators.options.bsm" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="calculators.options.bsm.Option">
+<em class="property">class </em><code class="sig-prename descclassname">calculators.options.bsm.</code><code class="sig-name descname">Option</code><a class="headerlink" href="#calculators.options.bsm.Option" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Option class to calculate option pricing for multiple strategies with Black-Scholes-Merton formula.
+The class is created without initializing any parameters so they must be provided explicitly.</p>
+<dl class="py method">
+<dt id="calculators.options.bsm.Option.back_spread">
+<code class="sig-name descname">back_spread</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">spot_price</span></em>, <em class="sig-param"><span class="n">expiration_date</span></em>, <em class="sig-param"><span class="n">long_contracts</span></em>, <em class="sig-param"><span class="n">long_price</span></em>, <em class="sig-param"><span class="n">long_type</span></em>, <em class="sig-param"><span class="n">long_strike_price</span></em>, <em class="sig-param"><span class="n">long_risk_free_rate</span></em>, <em class="sig-param"><span class="n">long_dividend_yield</span></em>, <em class="sig-param"><span class="n">long_volatility</span></em>, <em class="sig-param"><span class="n">ratio</span></em>, <em class="sig-param"><span class="n">short_contracts</span></em>, <em class="sig-param"><span class="n">short_price</span></em>, <em class="sig-param"><span class="n">short_type</span></em>, <em class="sig-param"><span class="n">short_strike_price</span></em>, <em class="sig-param"><span class="n">short_risk_free_rate</span></em>, <em class="sig-param"><span class="n">short_dividend_yield</span></em>, <em class="sig-param"><span class="n">short_volatility</span></em>, <em class="sig-param"><span class="n">graph_type</span></em>, <em class="sig-param"><span class="n">graph_profile</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calculators.options.bsm.Option.back_spread" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Displays calculated option values for the back spread strategy:</dt><dd><p>Short one ITM option
+Long ratio * OTM options</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spot_price</strong> – (float) underlying stock price</p></li>
+<li><p><strong>expiration_date</strong> – (str) expiration date</p></li>
+<li><p><strong>long_contracts</strong> – (int) # of contracts to buy/write for long option</p></li>
+<li><p><strong>long_price</strong> – (float) ask price for long option</p></li>
+<li><p><strong>long_type</strong> – (str) ‘put’ or ‘call’ option type for long option</p></li>
+<li><p><strong>long_strike_price</strong> – (float) strike price for long option</p></li>
+<li><p><strong>long_risk_free_rate</strong> – (float) risk-free interest rate for long option</p></li>
+<li><p><strong>long_dividend_yield</strong> – (float) dividend yield for long option</p></li>
+<li><p><strong>long_volatility</strong> – (float) implied volatility for long option</p></li>
+<li><p><strong>ratio</strong> – (int) ratio for long option, it should be twice as # contracts for short option</p></li>
+<li><p><strong>short_contracts</strong> – (int) # of contracts to buy/write for short option</p></li>
+<li><p><strong>short_price</strong> – (float) ask price for short option</p></li>
+<li><p><strong>short_type</strong> – (str) ‘put’ or ‘call’ option type for short option</p></li>
+<li><p><strong>short_strike_price</strong> – (float) strike price for short option</p></li>
+<li><p><strong>short_risk_free_rate</strong> – (float) risk-free interest rate for short option</p></li>
+<li><p><strong>short_dividend_yield</strong> – (float) dividend yield for short option</p></li>
+<li><p><strong>short_volatility</strong> – (float) implied volatility for short option</p></li>
+<li><p><strong>graph_type</strong> – (str) graph type such as ‘table’, ‘graph’, or ‘both’</p></li>
+<li><p><strong>graph_profile</strong> – (str) graph profile such as ‘pnl’, ‘risk’ or ‘option/spread’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>annotated heatmap table and/or graph traces with calculated results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calculators.options.bsm.Option.butterfly">
+<code class="sig-name descname">butterfly</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">spot_price</span></em>, <em class="sig-param"><span class="n">expiration_date</span></em>, <em class="sig-param"><span class="n">lower_contracts</span></em>, <em class="sig-param"><span class="n">lower_price</span></em>, <em class="sig-param"><span class="n">lower_option</span></em>, <em class="sig-param"><span class="n">lower_strike_price</span></em>, <em class="sig-param"><span class="n">lower_risk_free_rate</span></em>, <em class="sig-param"><span class="n">lower_dividend_yield</span></em>, <em class="sig-param"><span class="n">lower_volatility</span></em>, <em class="sig-param"><span class="n">middle_contracts</span></em>, <em class="sig-param"><span class="n">middle_price</span></em>, <em class="sig-param"><span class="n">middle_option</span></em>, <em class="sig-param"><span class="n">middle_strike_price</span></em>, <em class="sig-param"><span class="n">middle_risk_free_rate</span></em>, <em class="sig-param"><span class="n">middle_dividend_yield</span></em>, <em class="sig-param"><span class="n">middle_volatility</span></em>, <em class="sig-param"><span class="n">upper_contracts</span></em>, <em class="sig-param"><span class="n">upper_price</span></em>, <em class="sig-param"><span class="n">upper_option</span></em>, <em class="sig-param"><span class="n">upper_strike_price</span></em>, <em class="sig-param"><span class="n">upper_risk_free_rate</span></em>, <em class="sig-param"><span class="n">upper_dividend_yield</span></em>, <em class="sig-param"><span class="n">upper_volatility</span></em>, <em class="sig-param"><span class="n">graph_type</span></em>, <em class="sig-param"><span class="n">graph_profile</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calculators.options.bsm.Option.butterfly" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Displays calculated option values for the butterfly strategy:</dt><dd><p>Long one ITM option
+Short two ATM options
+Long one OTM option</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spot_price</strong> – (float) underlying stock price</p></li>
+<li><p><strong>expiration_date</strong> – (str) expiration date</p></li>
+<li><p><strong>lower_contracts</strong> – (int) # of contracts to buy for lower wing option</p></li>
+<li><p><strong>lower_price</strong> – (float) ask price for lower wing option</p></li>
+<li><p><strong>lower_option</strong> – (str) ‘put’ or ‘call’ option type for lower wing option</p></li>
+<li><p><strong>lower_strike_price</strong> – (float) strike price for lower wing option</p></li>
+<li><p><strong>lower_risk_free_rate</strong> – (float) risk-free interest rate for lower wing option</p></li>
+<li><p><strong>lower_dividend_yield</strong> – (float) dividend yield for lower wing option</p></li>
+<li><p><strong>lower_volatility</strong> – (float) implied volatility for lower wing option</p></li>
+<li><p><strong>middle_contracts</strong> – (int) # of contracts to write for middle wing option</p></li>
+<li><p><strong>middle_price</strong> – (float) bid price for middle wing option</p></li>
+<li><p><strong>middle_option</strong> – (str) ‘put’ or ‘call’ option type for middle wing option</p></li>
+<li><p><strong>middle_strike_price</strong> – (float) strike price for middle wing option</p></li>
+<li><p><strong>middle_risk_free_rate</strong> – (float) risk-free interest rate for middle wing option</p></li>
+<li><p><strong>middle_dividend_yield</strong> – (float) dividend yield for middle wing option</p></li>
+<li><p><strong>middle_volatility</strong> – (float) implied volatility for middle wing option</p></li>
+<li><p><strong>upper_contracts</strong> – (int) # of contracts to buy for upper wing option</p></li>
+<li><p><strong>upper_price</strong> – (float) ask price for upper wing option</p></li>
+<li><p><strong>upper_option</strong> – (str) ‘put’ or ‘call’ option type for upper wing option</p></li>
+<li><p><strong>upper_strike_price</strong> – (float) strike price for upper wing option</p></li>
+<li><p><strong>upper_risk_free_rate</strong> – (float) risk-free interest rate for upper wing option</p></li>
+<li><p><strong>upper_dividend_yield</strong> – (float) dividend yield for upper wing option</p></li>
+<li><p><strong>upper_volatility</strong> – (float) implied volatility for upper wing option</p></li>
+<li><p><strong>graph_type</strong> – (str) graph type such as ‘table’, ‘graph’, or ‘both’</p></li>
+<li><p><strong>graph_profile</strong> – (str) graph profile such as ‘pnl’, ‘risk’ or ‘option/spread’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>annotated heatmap table and/or graph traces with calculated results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calculators.options.bsm.Option.call_put">
+<code class="sig-name descname">call_put</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">spot_price</span></em>, <em class="sig-param"><span class="n">expiration_date</span></em>, <em class="sig-param"><span class="n">action</span></em>, <em class="sig-param"><span class="n">contracts</span></em>, <em class="sig-param"><span class="n">option_price</span></em>, <em class="sig-param"><span class="n">option_type</span></em>, <em class="sig-param"><span class="n">strike_price</span></em>, <em class="sig-param"><span class="n">risk_free_rate</span></em>, <em class="sig-param"><span class="n">dividend_yield</span></em>, <em class="sig-param"><span class="n">volatility</span></em>, <em class="sig-param"><span class="n">graph_type</span></em>, <em class="sig-param"><span class="n">graph_profile</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calculators.options.bsm.Option.call_put" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays calculated option values for the long/short call or long/short put strategy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spot_price</strong> – (float) underlying stock price</p></li>
+<li><p><strong>expiration_date</strong> – (str) expiration date</p></li>
+<li><p><strong>action</strong> – (str) whether the action is a buy or write</p></li>
+<li><p><strong>contracts</strong> – (int) # of contracts to buy/write</p></li>
+<li><p><strong>option_price</strong> – (float) bid/ask price per option</p></li>
+<li><p><strong>option_type</strong> – (str) ‘put’ or ‘call’ option type</p></li>
+<li><p><strong>strike_price</strong> – (float) strike price</p></li>
+<li><p><strong>risk_free_rate</strong> – (float) risk-free interest rate</p></li>
+<li><p><strong>dividend_yield</strong> – (float) dividend yield</p></li>
+<li><p><strong>volatility</strong> – (float) implied volatility</p></li>
+<li><p><strong>graph_type</strong> – (str) graph type such as ‘table’, ‘graph’, or ‘both’</p></li>
+<li><p><strong>graph_profile</strong> – (str) graph profile such as ‘pnl’, ‘risk’ or ‘option/spread’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>annotated heatmap table and/or graph traces with calculated results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calculators.options.bsm.Option.collar">
+<code class="sig-name descname">collar</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">spot_price</span></em>, <em class="sig-param"><span class="n">expiration_date</span></em>, <em class="sig-param"><span class="n">num_shares</span></em>, <em class="sig-param"><span class="n">long_contracts</span></em>, <em class="sig-param"><span class="n">long_price</span></em>, <em class="sig-param"><span class="n">long_type</span></em>, <em class="sig-param"><span class="n">long_strike_price</span></em>, <em class="sig-param"><span class="n">long_risk_free_rate</span></em>, <em class="sig-param"><span class="n">long_dividend_yield</span></em>, <em class="sig-param"><span class="n">long_volatility</span></em>, <em class="sig-param"><span class="n">short_contracts</span></em>, <em class="sig-param"><span class="n">short_price</span></em>, <em class="sig-param"><span class="n">short_type</span></em>, <em class="sig-param"><span class="n">short_strike_price</span></em>, <em class="sig-param"><span class="n">short_risk_free_rate</span></em>, <em class="sig-param"><span class="n">short_dividend_yield</span></em>, <em class="sig-param"><span class="n">short_volatility</span></em>, <em class="sig-param"><span class="n">graph_type</span></em>, <em class="sig-param"><span class="n">graph_profile</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calculators.options.bsm.Option.collar" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Displays calculated option values for the collar strategy:</dt><dd><p>Long one OTM put
+Short one OTM call</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spot_price</strong> – (float) underlying stock price</p></li>
+<li><p><strong>expiration_date</strong> – (str) expiration date</p></li>
+<li><p><strong>num_shares</strong> – (int) # of shares of the underlying stock to hold</p></li>
+<li><p><strong>long_contracts</strong> – (int) # of contracts to buy/write for long option</p></li>
+<li><p><strong>long_price</strong> – (float) ask price for long option</p></li>
+<li><p><strong>long_type</strong> – (str) ‘put’ or ‘call’ option type for long option</p></li>
+<li><p><strong>long_strike_price</strong> – (float) strike price for long option</p></li>
+<li><p><strong>long_risk_free_rate</strong> – (float) risk-free interest rate for long option</p></li>
+<li><p><strong>long_dividend_yield</strong> – (float) dividend yield for long option</p></li>
+<li><p><strong>long_volatility</strong> – (float) implied volatility for long option</p></li>
+<li><p><strong>ratio</strong> – (int) ratio for long option, it should be twice as # contracts for short option</p></li>
+<li><p><strong>short_contracts</strong> – (int) # of contracts to buy/write for short option</p></li>
+<li><p><strong>short_price</strong> – (float) ask price for short option</p></li>
+<li><p><strong>short_type</strong> – (str) ‘put’ or ‘call’ option type for short option</p></li>
+<li><p><strong>short_strike_price</strong> – (float) strike price for short option</p></li>
+<li><p><strong>short_risk_free_rate</strong> – (float) risk-free interest rate for short option</p></li>
+<li><p><strong>short_dividend_yield</strong> – (float) dividend yield for short option</p></li>
+<li><p><strong>short_volatility</strong> – (float) implied volatility for short option</p></li>
+<li><p><strong>graph_type</strong> – (str) graph type such as ‘table’, ‘graph’, or ‘both’</p></li>
+<li><p><strong>graph_profile</strong> – (str) graph profile such as ‘pnl’, ‘risk’ or ‘option/spread’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>annotated heatmap table and/or graph traces with calculated results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calculators.options.bsm.Option.covered_call">
+<code class="sig-name descname">covered_call</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">spot_price</span></em>, <em class="sig-param"><span class="n">expiration_date</span></em>, <em class="sig-param"><span class="n">num_shares</span></em>, <em class="sig-param"><span class="n">contracts</span></em>, <em class="sig-param"><span class="n">option_price</span></em>, <em class="sig-param"><span class="n">strike_price</span></em>, <em class="sig-param"><span class="n">risk_free_rate</span></em>, <em class="sig-param"><span class="n">dividend_yield</span></em>, <em class="sig-param"><span class="n">volatility</span></em>, <em class="sig-param"><span class="n">graph_type</span></em>, <em class="sig-param"><span class="n">graph_profile</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calculators.options.bsm.Option.covered_call" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays calculated option values for the covered call strategy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spot_price</strong> – (float) underlying stock price</p></li>
+<li><p><strong>expiration_date</strong> – (str) expiration date</p></li>
+<li><p><strong>contracts</strong> – (int) # of contracts to buy/write</p></li>
+<li><p><strong>option_price</strong> – (float) bid/ask price per option</p></li>
+<li><p><strong>strike_price</strong> – (float) strike price</p></li>
+<li><p><strong>risk_free_rate</strong> – (float) risk-free interest rate</p></li>
+<li><p><strong>dividend_yield</strong> – (float) dividend yield</p></li>
+<li><p><strong>volatility</strong> – (float) implied volatility</p></li>
+<li><p><strong>graph_type</strong> – (str) graph type such as ‘table’, ‘graph’, or ‘both’</p></li>
+<li><p><strong>graph_profile</strong> – (str) graph profile such as ‘pnl’, ‘risk’ or ‘option/spread’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Para num_shares</dt>
+<dd class="field-even"><p>(int) # of shares of the underlying stock to hold</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>annotated heatmap table and/or graph traces with calculated results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calculators.options.bsm.Option.covered_strangle">
+<code class="sig-name descname">covered_strangle</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">spot_price</span></em>, <em class="sig-param"><span class="n">expiration_date</span></em>, <em class="sig-param"><span class="n">num_shares</span></em>, <em class="sig-param"><span class="n">short_call_contracts</span></em>, <em class="sig-param"><span class="n">short_call_price</span></em>, <em class="sig-param"><span class="n">short_call_strike_price</span></em>, <em class="sig-param"><span class="n">short_call_risk_free_rate</span></em>, <em class="sig-param"><span class="n">short_call_dividend_yield</span></em>, <em class="sig-param"><span class="n">short_call_volatility</span></em>, <em class="sig-param"><span class="n">short_put_contracts</span></em>, <em class="sig-param"><span class="n">short_put_price</span></em>, <em class="sig-param"><span class="n">short_put_strike_price</span></em>, <em class="sig-param"><span class="n">short_put_risk_free_rate</span></em>, <em class="sig-param"><span class="n">short_put_dividend_yield</span></em>, <em class="sig-param"><span class="n">short_put_volatility</span></em>, <em class="sig-param"><span class="n">graph_type</span></em>, <em class="sig-param"><span class="n">graph_profile</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calculators.options.bsm.Option.covered_strangle" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Displays calculated option values for the strangle strategy:</dt><dd><p>Short one OTM put
+Short one OTM call</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spot_price</strong> – (float) underlying stock price</p></li>
+<li><p><strong>expiration_date</strong> – (str) expiration date</p></li>
+<li><p><strong>num_shares</strong> – (int) # of shares of the underlying stock to hold</p></li>
+<li><p><strong>short_call_contracts</strong> – (int) # of contracts to buy/write for short call option</p></li>
+<li><p><strong>short_call_price</strong> – (float) bid price for short call option</p></li>
+<li><p><strong>short_call_strike_price</strong> – (float) strike price for short call option</p></li>
+<li><p><strong>short_call_risk_free_rate</strong> – (float) risk-free interest rate for short call option</p></li>
+<li><p><strong>short_call_dividend_yield</strong> – (float) dividend yield for short call option</p></li>
+<li><p><strong>short_call_volatility</strong> – (float) implied volatility for short call option</p></li>
+<li><p><strong>short_put_contracts</strong> – (int) # of contracts to buy/write for short put option</p></li>
+<li><p><strong>short_put_price</strong> – (float) bid price for short put option</p></li>
+<li><p><strong>short_put_strike_price</strong> – (float) strike price for short put option</p></li>
+<li><p><strong>short_put_risk_free_rate</strong> – (float) risk-free interest rate for short put option</p></li>
+<li><p><strong>short_put_dividend_yield</strong> – (float) dividend yield for short put option</p></li>
+<li><p><strong>short_put_volatility</strong> – (float) implied volatility for short put option</p></li>
+<li><p><strong>graph_type</strong> – (str) graph type such as ‘table’, ‘graph’, or ‘both’</p></li>
+<li><p><strong>graph_profile</strong> – (str) graph profile such as ‘pnl’, ‘risk’ or ‘option/spread’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>annotated heatmap table and/or graph traces with calculated results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calculators.options.bsm.Option.diagonal_spread">
+<code class="sig-name descname">diagonal_spread</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">spot_price</span></em>, <em class="sig-param"><span class="n">expiration_date</span></em>, <em class="sig-param"><span class="n">long_contracts</span></em>, <em class="sig-param"><span class="n">long_price</span></em>, <em class="sig-param"><span class="n">long_type</span></em>, <em class="sig-param"><span class="n">long_strike_price</span></em>, <em class="sig-param"><span class="n">long_risk_free_rate</span></em>, <em class="sig-param"><span class="n">long_dividend_yield</span></em>, <em class="sig-param"><span class="n">long_volatility</span></em>, <em class="sig-param"><span class="n">short_contracts</span></em>, <em class="sig-param"><span class="n">short_price</span></em>, <em class="sig-param"><span class="n">short_type</span></em>, <em class="sig-param"><span class="n">short_strike_price</span></em>, <em class="sig-param"><span class="n">short_risk_free_rate</span></em>, <em class="sig-param"><span class="n">short_dividend_yield</span></em>, <em class="sig-param"><span class="n">short_volatility</span></em>, <em class="sig-param"><span class="n">graph_type</span></em>, <em class="sig-param"><span class="n">graph_profile</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calculators.options.bsm.Option.diagonal_spread" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays calculated option values for the diagonal spread strategy:
+Long and short position on two options, usually at different strikes price</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spot_price</strong> – (float) underlying stock price</p></li>
+<li><p><strong>expiration_date</strong> – (str) expiration date</p></li>
+<li><p><strong>long_contracts</strong> – (int) # of contracts to buy/write for long option</p></li>
+<li><p><strong>long_price</strong> – (float) ask price for long option</p></li>
+<li><p><strong>long_type</strong> – (str) ‘put’ or ‘call’ option type for long option</p></li>
+<li><p><strong>long_strike_price</strong> – (float) strike price for long option</p></li>
+<li><p><strong>long_risk_free_rate</strong> – (float) risk-free interest rate for long option</p></li>
+<li><p><strong>long_dividend_yield</strong> – (float) dividend yield for long option</p></li>
+<li><p><strong>long_volatility</strong> – (float) implied volatility for long option</p></li>
+<li><p><strong>ratio</strong> – (int) ratio for long option, it should be twice as # contracts for short option</p></li>
+<li><p><strong>short_contracts</strong> – (int) # of contracts to buy/write for short option</p></li>
+<li><p><strong>short_price</strong> – (float) ask price for short option</p></li>
+<li><p><strong>short_type</strong> – (str) ‘put’ or ‘call’ option type for short option</p></li>
+<li><p><strong>short_strike_price</strong> – (float) strike price for short option</p></li>
+<li><p><strong>short_risk_free_rate</strong> – (float) risk-free interest rate for short option</p></li>
+<li><p><strong>short_dividend_yield</strong> – (float) dividend yield for short option</p></li>
+<li><p><strong>short_volatility</strong> – (float) implied volatility for short option</p></li>
+<li><p><strong>graph_type</strong> – (str) graph type such as ‘table’, ‘graph’, or ‘both’</p></li>
+<li><p><strong>graph_profile</strong> – (str) graph profile such as ‘pnl’, ‘risk’ or ‘option/spread’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>annotated heatmap table and/or graph traces with calculated results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calculators.options.bsm.Option.double_diagonal">
+<code class="sig-name descname">double_diagonal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">spot_price</span></em>, <em class="sig-param"><span class="n">expiration_date</span></em>, <em class="sig-param"><span class="n">long_put_price</span></em>, <em class="sig-param"><span class="n">long_put_strike_price</span></em>, <em class="sig-param"><span class="n">long_put_risk_free_rate</span></em>, <em class="sig-param"><span class="n">long_put_dividend_yield</span></em>, <em class="sig-param"><span class="n">long_put_volatility</span></em>, <em class="sig-param"><span class="n">long_put_contracts</span></em>, <em class="sig-param"><span class="n">short_put_price</span></em>, <em class="sig-param"><span class="n">short_put_strike_price</span></em>, <em class="sig-param"><span class="n">short_put_risk_free_rate</span></em>, <em class="sig-param"><span class="n">short_put_dividend_yield</span></em>, <em class="sig-param"><span class="n">short_put_volatility</span></em>, <em class="sig-param"><span class="n">short_put_contracts</span></em>, <em class="sig-param"><span class="n">short_call_price</span></em>, <em class="sig-param"><span class="n">short_call_strike_price</span></em>, <em class="sig-param"><span class="n">short_call_risk_free_rate</span></em>, <em class="sig-param"><span class="n">short_call_dividend_yield</span></em>, <em class="sig-param"><span class="n">short_call_volatility</span></em>, <em class="sig-param"><span class="n">short_call_contracts</span></em>, <em class="sig-param"><span class="n">long_call_price</span></em>, <em class="sig-param"><span class="n">long_call_strike_price</span></em>, <em class="sig-param"><span class="n">long_call_risk_free_rate</span></em>, <em class="sig-param"><span class="n">long_call_dividend_yield</span></em>, <em class="sig-param"><span class="n">long_call_volatility</span></em>, <em class="sig-param"><span class="n">long_call_contracts</span></em>, <em class="sig-param"><span class="n">graph_type</span></em>, <em class="sig-param"><span class="n">graph_profile</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calculators.options.bsm.Option.double_diagonal" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Displays calculated option values for the double diagonal strategy.</dt><dd><p>This strategy combines a diagonal put spread and diagonal call spread.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spot_price</strong> – (float) underlying stock price</p></li>
+<li><p><strong>expiration_date</strong> – (str) expiration date</p></li>
+<li><p><strong>long_put_price</strong> – (float) ask price for long put option</p></li>
+<li><p><strong>long_put_strike_price</strong> – (float) strike price for long put option</p></li>
+<li><p><strong>long_put_risk_free_rate</strong> – (float) risk-free interest rate for long put option</p></li>
+<li><p><strong>long_put_dividend_yield</strong> – (float) dividend yield for long put option</p></li>
+<li><p><strong>long_put_volatility</strong> – (float) implied volatility for long put option</p></li>
+<li><p><strong>long_put_contracts</strong> – (int) # of contracts to buy/write for long put option</p></li>
+<li><p><strong>short_put_price</strong> – (float) bid price for short put option</p></li>
+<li><p><strong>short_put_strike_price</strong> – (float) strike price for short put option</p></li>
+<li><p><strong>short_put_risk_free_rate</strong> – (float) risk-free interest rate for short put option</p></li>
+<li><p><strong>short_put_dividend_yield</strong> – (float) dividend yield for short put option</p></li>
+<li><p><strong>short_put_volatility</strong> – (float) implied volatility for short put option</p></li>
+<li><p><strong>short_put_contracts</strong> – (int) # of contracts to buy/write for short put option</p></li>
+<li><p><strong>short_call_price</strong> – (float) bid price for short call option</p></li>
+<li><p><strong>short_call_strike_price</strong> – (float) strike price for short call option</p></li>
+<li><p><strong>short_call_risk_free_rate</strong> – (float) risk-free interest rate for short call option</p></li>
+<li><p><strong>short_call_dividend_yield</strong> – (float) dividend yield for short call option</p></li>
+<li><p><strong>short_call_volatility</strong> – (float) implied volatility for short call option</p></li>
+<li><p><strong>short_call_contracts</strong> – (int) # of contracts to buy/write for short call option</p></li>
+<li><p><strong>long_call_price</strong> – (float) ask price for long call option</p></li>
+<li><p><strong>long_call_strike_price</strong> – (float) strike price for long call option</p></li>
+<li><p><strong>long_call_risk_free_rate</strong> – (float) risk-free interest rate for long call option</p></li>
+<li><p><strong>long_call_dividend_yield</strong> – (float) implied volatility for long call option</p></li>
+<li><p><strong>long_call_volatility</strong> – (float) implied volatility for long call option</p></li>
+<li><p><strong>long_call_contracts</strong> – (int) # of contracts to buy/write for long call option</p></li>
+<li><p><strong>graph_type</strong> – (str) graph type such as ‘table’, ‘graph’, or ‘both’</p></li>
+<li><p><strong>graph_profile</strong> – (str) graph profile such as ‘pnl’, ‘risk’ or ‘option/spread’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>annotated heatmap table and/or graph traces with calculated results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calculators.options.bsm.Option.eight_legs">
+<code class="sig-name descname">eight_legs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">spot_price</span></em>, <em class="sig-param"><span class="n">expiration_date</span></em>, <em class="sig-param"><span class="n">action_leg_1</span></em>, <em class="sig-param"><span class="n">contracts_leg_1</span></em>, <em class="sig-param"><span class="n">price_leg_1</span></em>, <em class="sig-param"><span class="n">option_leg_1</span></em>, <em class="sig-param"><span class="n">strike_leg_1</span></em>, <em class="sig-param"><span class="n">risk_leg_1</span></em>, <em class="sig-param"><span class="n">dividend_yield_leg_1</span></em>, <em class="sig-param"><span class="n">volatility_leg_1</span></em>, <em class="sig-param"><span class="n">action_leg_2</span></em>, <em class="sig-param"><span class="n">contracts_leg_2</span></em>, <em class="sig-param"><span class="n">price_leg_2</span></em>, <em class="sig-param"><span class="n">option_leg_2</span></em>, <em class="sig-param"><span class="n">strike_leg_2</span></em>, <em class="sig-param"><span class="n">risk_leg_2</span></em>, <em class="sig-param"><span class="n">dividend_yield_leg_2</span></em>, <em class="sig-param"><span class="n">volatility_leg_2</span></em>, <em class="sig-param"><span class="n">action_leg_3</span></em>, <em class="sig-param"><span class="n">contracts_leg_3</span></em>, <em class="sig-param"><span class="n">price_leg_3</span></em>, <em class="sig-param"><span class="n">option_leg_3</span></em>, <em class="sig-param"><span class="n">strike_leg_3</span></em>, <em class="sig-param"><span class="n">risk_leg_3</span></em>, <em class="sig-param"><span class="n">dividend_yield_leg_3</span></em>, <em class="sig-param"><span class="n">volatility_leg_3</span></em>, <em class="sig-param"><span class="n">action_leg_4</span></em>, <em class="sig-param"><span class="n">contracts_leg_4</span></em>, <em class="sig-param"><span class="n">price_leg_4</span></em>, <em class="sig-param"><span class="n">option_leg_4</span></em>, <em class="sig-param"><span class="n">strike_leg_4</span></em>, <em class="sig-param"><span class="n">risk_leg_4</span></em>, <em class="sig-param"><span class="n">dividend_yield_leg_4</span></em>, <em class="sig-param"><span class="n">volatility_leg_4</span></em>, <em class="sig-param"><span class="n">action_leg_5</span></em>, <em class="sig-param"><span class="n">contracts_leg_5</span></em>, <em class="sig-param"><span class="n">price_leg_5</span></em>, <em class="sig-param"><span class="n">option_leg_5</span></em>, <em class="sig-param"><span class="n">strike_leg_5</span></em>, <em class="sig-param"><span class="n">risk_leg_5</span></em>, <em class="sig-param"><span class="n">dividend_yield_leg_5</span></em>, <em class="sig-param"><span class="n">volatility_leg_5</span></em>, <em class="sig-param"><span class="n">action_leg_6</span></em>, <em class="sig-param"><span class="n">contracts_leg_6</span></em>, <em class="sig-param"><span class="n">price_leg_6</span></em>, <em class="sig-param"><span class="n">option_leg_6</span></em>, <em class="sig-param"><span class="n">strike_leg_6</span></em>, <em class="sig-param"><span class="n">risk_leg_6</span></em>, <em class="sig-param"><span class="n">dividend_yield_leg_6</span></em>, <em class="sig-param"><span class="n">volatility_leg_6</span></em>, <em class="sig-param"><span class="n">action_leg_7</span></em>, <em class="sig-param"><span class="n">contracts_leg_7</span></em>, <em class="sig-param"><span class="n">price_leg_7</span></em>, <em class="sig-param"><span class="n">option_leg_7</span></em>, <em class="sig-param"><span class="n">strike_leg_7</span></em>, <em class="sig-param"><span class="n">risk_leg_7</span></em>, <em class="sig-param"><span class="n">dividend_yield_leg_7</span></em>, <em class="sig-param"><span class="n">volatility_leg_7</span></em>, <em class="sig-param"><span class="n">action_leg_8</span></em>, <em class="sig-param"><span class="n">contracts_leg_8</span></em>, <em class="sig-param"><span class="n">price_leg_8</span></em>, <em class="sig-param"><span class="n">option_leg_8</span></em>, <em class="sig-param"><span class="n">strike_leg_8</span></em>, <em class="sig-param"><span class="n">risk_leg_8</span></em>, <em class="sig-param"><span class="n">dividend_yield_leg_8</span></em>, <em class="sig-param"><span class="n">volatility_leg_8</span></em>, <em class="sig-param"><span class="n">graph_type</span></em>, <em class="sig-param"><span class="n">graph_profile</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calculators.options.bsm.Option.eight_legs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays calculated option values for the 8 legs strategy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spot_price</strong> – (float) underlying stock price</p></li>
+<li><p><strong>expiration_date</strong> – (str) expiration date</p></li>
+<li><p><strong>action_leg_1</strong> – (str) whether the action is a buy or write for leg 1</p></li>
+<li><p><strong>contracts_leg_1</strong> – (int) # of contracts to buy/write for leg 1</p></li>
+<li><p><strong>price_leg_1</strong> – (float) ask price for leg 1</p></li>
+<li><p><strong>option_leg_1</strong> – (str) ‘put’ or ‘call’ option type for leg 1</p></li>
+<li><p><strong>strike_leg_1</strong> – (float) strike price for leg 1</p></li>
+<li><p><strong>risk_leg_1</strong> – (float) risk-free interest rate for leg 1</p></li>
+<li><p><strong>dividend_yield_leg_1</strong> – float) dividend yield for leg 1</p></li>
+<li><p><strong>volatility_leg_1</strong> – (float) implied volatility for leg 1</p></li>
+<li><p><strong>action_leg_2</strong> – (str) whether the action is a buy or write for leg 2</p></li>
+<li><p><strong>contracts_leg_2</strong> – (int) # of contracts to buy/write for leg 2</p></li>
+<li><p><strong>price_leg_2</strong> – (float) ask price for leg 2</p></li>
+<li><p><strong>option_leg_2</strong> – (str) ‘put’ or ‘call’ option type for leg 2</p></li>
+<li><p><strong>strike_leg_2</strong> – (float) strike price for leg 2</p></li>
+<li><p><strong>risk_leg_2</strong> – (float) risk-free interest rate for leg 2</p></li>
+<li><p><strong>dividend_yield_leg_2</strong> – float) dividend yield for leg 2</p></li>
+<li><p><strong>volatility_leg_2</strong> – (float) implied volatility for leg 2</p></li>
+<li><p><strong>action_leg_1</strong> – (str) whether the action is a buy or write for leg 3</p></li>
+<li><p><strong>contracts_leg_1</strong> – (int) # of contracts to buy/write for leg 3</p></li>
+<li><p><strong>price_leg_3</strong> – (float) ask price for leg 3</p></li>
+<li><p><strong>option_leg_3</strong> – (str) ‘put’ or ‘call’ option type for leg 3</p></li>
+<li><p><strong>strike_leg_3</strong> – (float) strike price for leg 3</p></li>
+<li><p><strong>risk_leg_3</strong> – (float) risk-free interest rate for leg 3</p></li>
+<li><p><strong>dividend_yield_leg_3</strong> – float) dividend yield for leg 3</p></li>
+<li><p><strong>volatility_leg_3</strong> – (float) implied volatility for leg 3</p></li>
+<li><p><strong>action_leg_4</strong> – (str) whether the action is a buy or write for leg 4</p></li>
+<li><p><strong>contracts_leg_4</strong> – (int) # of contracts to buy/write for leg 4</p></li>
+<li><p><strong>price_leg_4</strong> – (float) ask price for leg 4</p></li>
+<li><p><strong>option_leg_4</strong> – (str) ‘put’ or ‘call’ option type for leg 4</p></li>
+<li><p><strong>strike_leg_4</strong> – (float) strike price for leg 4</p></li>
+<li><p><strong>risk_leg_4</strong> – (float) risk-free interest rate for leg 4</p></li>
+<li><p><strong>dividend_yield_leg_4</strong> – float) dividend yield for leg 4</p></li>
+<li><p><strong>volatility_leg_4</strong> – (float) implied volatility for leg 4</p></li>
+<li><p><strong>action_leg_5</strong> – (str) whether the action is a buy or write for leg 5</p></li>
+<li><p><strong>contracts_leg_5</strong> – (int) # of contracts to buy/write for leg 5</p></li>
+<li><p><strong>price_leg_5</strong> – (float) ask price for leg 5</p></li>
+<li><p><strong>option_leg_5</strong> – (str) ‘put’ or ‘call’ option type for leg 5</p></li>
+<li><p><strong>strike_leg_5</strong> – (float) strike price for leg 5</p></li>
+<li><p><strong>risk_leg_5</strong> – (float) risk-free interest rate for leg 5</p></li>
+<li><p><strong>dividend_yield_leg_5</strong> – float) dividend yield for leg 5</p></li>
+<li><p><strong>volatility_leg_5</strong> – (float) implied volatility for leg 5</p></li>
+<li><p><strong>action_leg_6</strong> – (str) whether the action is a buy or write for leg 6</p></li>
+<li><p><strong>contracts_leg_6</strong> – (int) # of contracts to buy/write for leg 6</p></li>
+<li><p><strong>price_leg_6</strong> – (float) ask price for leg 6</p></li>
+<li><p><strong>option_leg_6</strong> – (str) ‘put’ or ‘call’ option type for leg 6</p></li>
+<li><p><strong>strike_leg_6</strong> – (float) strike price for leg 6</p></li>
+<li><p><strong>risk_leg_6</strong> – (float) risk-free interest rate for leg 6</p></li>
+<li><p><strong>dividend_yield_leg_6</strong> – float) dividend yield for leg 6</p></li>
+<li><p><strong>volatility_leg_6</strong> – (float) implied volatility for leg 6</p></li>
+<li><p><strong>action_leg_7</strong> – (str) whether the action is a buy or write for leg 7</p></li>
+<li><p><strong>contracts_leg_7</strong> – (int) # of contracts to buy/write for leg 7</p></li>
+<li><p><strong>price_leg_7</strong> – (float) ask price for leg 7</p></li>
+<li><p><strong>option_leg_7</strong> – (str) ‘put’ or ‘call’ option type for leg 7</p></li>
+<li><p><strong>strike_leg_7</strong> – (float) strike price for leg 7</p></li>
+<li><p><strong>risk_leg_7</strong> – (float) risk-free interest rate for leg 7</p></li>
+<li><p><strong>dividend_yield_leg_7</strong> – float) dividend yield for leg 7</p></li>
+<li><p><strong>volatility_leg_7</strong> – (float) implied volatility for leg 7</p></li>
+<li><p><strong>action_leg_8</strong> – (str) whether the action is a buy or write for leg 8</p></li>
+<li><p><strong>contracts_leg_8</strong> – (int) # of contracts to buy/write for leg 8</p></li>
+<li><p><strong>price_leg_8</strong> – (float) ask price for leg 8</p></li>
+<li><p><strong>option_leg_8</strong> – (str) ‘put’ or ‘call’ option type for leg 8</p></li>
+<li><p><strong>strike_leg_8</strong> – (float) strike price for leg 8</p></li>
+<li><p><strong>risk_leg_8</strong> – (float) risk-free interest rate for leg 8</p></li>
+<li><p><strong>dividend_yield_leg_8</strong> – float) dividend yield for leg 8</p></li>
+<li><p><strong>volatility_leg_8</strong> – (float) implied volatility for leg 8</p></li>
+<li><p><strong>graph_type</strong> – (str) graph type such as ‘table’, ‘graph’, or ‘both’</p></li>
+<li><p><strong>graph_profile</strong> – (str) graph profile such as ‘pnl’, ‘risk’ or ‘option/spread’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>annotated heatmap table and/or graph traces with calculated results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calculators.options.bsm.Option.five_legs">
+<code class="sig-name descname">five_legs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">spot_price</span></em>, <em class="sig-param"><span class="n">expiration_date</span></em>, <em class="sig-param"><span class="n">action_leg_1</span></em>, <em class="sig-param"><span class="n">contracts_leg_1</span></em>, <em class="sig-param"><span class="n">price_leg_1</span></em>, <em class="sig-param"><span class="n">option_leg_1</span></em>, <em class="sig-param"><span class="n">strike_leg_1</span></em>, <em class="sig-param"><span class="n">risk_leg_1</span></em>, <em class="sig-param"><span class="n">dividend_yield_leg_1</span></em>, <em class="sig-param"><span class="n">volatility_leg_1</span></em>, <em class="sig-param"><span class="n">action_leg_2</span></em>, <em class="sig-param"><span class="n">contracts_leg_2</span></em>, <em class="sig-param"><span class="n">price_leg_2</span></em>, <em class="sig-param"><span class="n">option_leg_2</span></em>, <em class="sig-param"><span class="n">strike_leg_2</span></em>, <em class="sig-param"><span class="n">risk_leg_2</span></em>, <em class="sig-param"><span class="n">dividend_yield_leg_2</span></em>, <em class="sig-param"><span class="n">volatility_leg_2</span></em>, <em class="sig-param"><span class="n">action_leg_3</span></em>, <em class="sig-param"><span class="n">contracts_leg_3</span></em>, <em class="sig-param"><span class="n">price_leg_3</span></em>, <em class="sig-param"><span class="n">option_leg_3</span></em>, <em class="sig-param"><span class="n">strike_leg_3</span></em>, <em class="sig-param"><span class="n">risk_leg_3</span></em>, <em class="sig-param"><span class="n">dividend_yield_leg_3</span></em>, <em class="sig-param"><span class="n">volatility_leg_3</span></em>, <em class="sig-param"><span class="n">action_leg_4</span></em>, <em class="sig-param"><span class="n">contracts_leg_4</span></em>, <em class="sig-param"><span class="n">price_leg_4</span></em>, <em class="sig-param"><span class="n">option_leg_4</span></em>, <em class="sig-param"><span class="n">strike_leg_4</span></em>, <em class="sig-param"><span class="n">risk_leg_4</span></em>, <em class="sig-param"><span class="n">dividend_yield_leg_4</span></em>, <em class="sig-param"><span class="n">volatility_leg_4</span></em>, <em class="sig-param"><span class="n">action_leg_5</span></em>, <em class="sig-param"><span class="n">contracts_leg_5</span></em>, <em class="sig-param"><span class="n">price_leg_5</span></em>, <em class="sig-param"><span class="n">option_leg_5</span></em>, <em class="sig-param"><span class="n">strike_leg_5</span></em>, <em class="sig-param"><span class="n">risk_leg_5</span></em>, <em class="sig-param"><span class="n">dividend_yield_leg_5</span></em>, <em class="sig-param"><span class="n">volatility_leg_5</span></em>, <em class="sig-param"><span class="n">graph_type</span></em>, <em class="sig-param"><span class="n">graph_profile</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calculators.options.bsm.Option.five_legs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays calculated option values for the 5 legs strategy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spot_price</strong> – (float) underlying stock price</p></li>
+<li><p><strong>expiration_date</strong> – (str) expiration date</p></li>
+<li><p><strong>action_leg_1</strong> – (str) whether the action is a buy or write for leg 1</p></li>
+<li><p><strong>contracts_leg_1</strong> – (int) # of contracts to buy/write for leg 1</p></li>
+<li><p><strong>price_leg_1</strong> – (float) ask price for leg 1</p></li>
+<li><p><strong>option_leg_1</strong> – (str) ‘put’ or ‘call’ option type for leg 1</p></li>
+<li><p><strong>strike_leg_1</strong> – (float) strike price for leg 1</p></li>
+<li><p><strong>risk_leg_1</strong> – (float) risk-free interest rate for leg 1</p></li>
+<li><p><strong>dividend_yield_leg_1</strong> – float) dividend yield for leg 1</p></li>
+<li><p><strong>volatility_leg_1</strong> – (float) implied volatility for leg 1</p></li>
+<li><p><strong>action_leg_2</strong> – (str) whether the action is a buy or write for leg 2</p></li>
+<li><p><strong>contracts_leg_2</strong> – (int) # of contracts to buy/write for leg 2</p></li>
+<li><p><strong>price_leg_2</strong> – (float) ask price for leg 2</p></li>
+<li><p><strong>option_leg_2</strong> – (str) ‘put’ or ‘call’ option type for leg 2</p></li>
+<li><p><strong>strike_leg_2</strong> – (float) strike price for leg 2</p></li>
+<li><p><strong>risk_leg_2</strong> – (float) risk-free interest rate for leg 2</p></li>
+<li><p><strong>dividend_yield_leg_2</strong> – float) dividend yield for leg 2</p></li>
+<li><p><strong>volatility_leg_2</strong> – (float) implied volatility for leg 2</p></li>
+<li><p><strong>action_leg_3</strong> – (str) whether the action is a buy or write for leg 3</p></li>
+<li><p><strong>contracts_leg_3</strong> – (int) # of contracts to buy/write for leg 3</p></li>
+<li><p><strong>price_leg_3</strong> – (float) ask price for leg 3</p></li>
+<li><p><strong>option_leg_3</strong> – (str) ‘put’ or ‘call’ option type for leg 3</p></li>
+<li><p><strong>strike_leg_3</strong> – (float) strike price for leg 3</p></li>
+<li><p><strong>risk_leg_3</strong> – (float) risk-free interest rate for leg 3</p></li>
+<li><p><strong>dividend_yield_leg_3</strong> – float) dividend yield for leg 3</p></li>
+<li><p><strong>volatility_leg_3</strong> – (float) implied volatility for leg 3</p></li>
+<li><p><strong>action_leg_4</strong> – (str) whether the action is a buy or write for leg 4</p></li>
+<li><p><strong>contracts_leg_4</strong> – (int) # of contracts to buy/write for leg 4</p></li>
+<li><p><strong>price_leg_4</strong> – (float) ask price for leg 4</p></li>
+<li><p><strong>option_leg_4</strong> – (str) ‘put’ or ‘call’ option type for leg 4</p></li>
+<li><p><strong>strike_leg_4</strong> – (float) strike price for leg 4</p></li>
+<li><p><strong>risk_leg_4</strong> – (float) risk-free interest rate for leg 4</p></li>
+<li><p><strong>dividend_yield_leg_4</strong> – float) dividend yield for leg 4</p></li>
+<li><p><strong>volatility_leg_4</strong> – (float) implied volatility for leg 4</p></li>
+<li><p><strong>action_leg_5</strong> – (str) whether the action is a buy or write for leg 5</p></li>
+<li><p><strong>contracts_leg_5</strong> – (int) # of contracts to buy/write for leg 5</p></li>
+<li><p><strong>price_leg_5</strong> – (float) ask price for leg 5</p></li>
+<li><p><strong>option_leg_5</strong> – (str) ‘put’ or ‘call’ option type for leg 5</p></li>
+<li><p><strong>strike_leg_5</strong> – (float) strike price for leg 5</p></li>
+<li><p><strong>risk_leg_5</strong> – (float) risk-free interest rate for leg 5</p></li>
+<li><p><strong>dividend_yield_leg_5</strong> – float) dividend yield for leg 5</p></li>
+<li><p><strong>volatility_leg_5</strong> – (float) implied volatility for leg 5</p></li>
+<li><p><strong>graph_type</strong> – (str) graph type such as ‘table’, ‘graph’, or ‘both’</p></li>
+<li><p><strong>graph_profile</strong> – (str) graph profile such as ‘pnl’, ‘risk’ or ‘option/spread’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>annotated heatmap table and/or graph traces with calculated results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calculators.options.bsm.Option.four_legs">
+<code class="sig-name descname">four_legs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">spot_price</span></em>, <em class="sig-param"><span class="n">expiration_date</span></em>, <em class="sig-param"><span class="n">action_leg_1</span></em>, <em class="sig-param"><span class="n">contracts_leg_1</span></em>, <em class="sig-param"><span class="n">price_leg_1</span></em>, <em class="sig-param"><span class="n">option_leg_1</span></em>, <em class="sig-param"><span class="n">strike_leg_1</span></em>, <em class="sig-param"><span class="n">risk_leg_1</span></em>, <em class="sig-param"><span class="n">dividend_yield_leg_1</span></em>, <em class="sig-param"><span class="n">volatility_leg_1</span></em>, <em class="sig-param"><span class="n">action_leg_2</span></em>, <em class="sig-param"><span class="n">contracts_leg_2</span></em>, <em class="sig-param"><span class="n">price_leg_2</span></em>, <em class="sig-param"><span class="n">option_leg_2</span></em>, <em class="sig-param"><span class="n">strike_leg_2</span></em>, <em class="sig-param"><span class="n">risk_leg_2</span></em>, <em class="sig-param"><span class="n">dividend_yield_leg_2</span></em>, <em class="sig-param"><span class="n">volatility_leg_2</span></em>, <em class="sig-param"><span class="n">action_leg_3</span></em>, <em class="sig-param"><span class="n">contracts_leg_3</span></em>, <em class="sig-param"><span class="n">price_leg_3</span></em>, <em class="sig-param"><span class="n">option_leg_3</span></em>, <em class="sig-param"><span class="n">strike_leg_3</span></em>, <em class="sig-param"><span class="n">risk_leg_3</span></em>, <em class="sig-param"><span class="n">dividend_yield_leg_3</span></em>, <em class="sig-param"><span class="n">volatility_leg_3</span></em>, <em class="sig-param"><span class="n">action_leg_4</span></em>, <em class="sig-param"><span class="n">contracts_leg_4</span></em>, <em class="sig-param"><span class="n">price_leg_4</span></em>, <em class="sig-param"><span class="n">option_leg_4</span></em>, <em class="sig-param"><span class="n">strike_leg_4</span></em>, <em class="sig-param"><span class="n">risk_leg_4</span></em>, <em class="sig-param"><span class="n">dividend_yield_leg_4</span></em>, <em class="sig-param"><span class="n">volatility_leg_4</span></em>, <em class="sig-param"><span class="n">graph_type</span></em>, <em class="sig-param"><span class="n">graph_profile</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calculators.options.bsm.Option.four_legs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays calculated option values for the 4 legs strategy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spot_price</strong> – (float) underlying stock price</p></li>
+<li><p><strong>expiration_date</strong> – (str) expiration date</p></li>
+<li><p><strong>action_leg_1</strong> – (str) whether the action is a buy or write for leg 1</p></li>
+<li><p><strong>contracts_leg_1</strong> – (int) # of contracts to buy/write for leg 1</p></li>
+<li><p><strong>price_leg_1</strong> – (float) ask price for leg 1</p></li>
+<li><p><strong>option_leg_1</strong> – (str) ‘put’ or ‘call’ option type for leg 1</p></li>
+<li><p><strong>strike_leg_1</strong> – (float) strike price for leg 1</p></li>
+<li><p><strong>risk_leg_1</strong> – (float) risk-free interest rate for leg 1</p></li>
+<li><p><strong>dividend_yield_leg_1</strong> – float) dividend yield for leg 1</p></li>
+<li><p><strong>volatility_leg_1</strong> – (float) implied volatility for leg 1</p></li>
+<li><p><strong>action_leg_2</strong> – (str) whether the action is a buy or write for leg 2</p></li>
+<li><p><strong>contracts_leg_2</strong> – (int) # of contracts to buy/write for leg 2</p></li>
+<li><p><strong>price_leg_2</strong> – (float) ask price for leg 2</p></li>
+<li><p><strong>option_leg_2</strong> – (str) ‘put’ or ‘call’ option type for leg 2</p></li>
+<li><p><strong>strike_leg_2</strong> – (float) strike price for leg 2</p></li>
+<li><p><strong>risk_leg_2</strong> – (float) risk-free interest rate for leg 2</p></li>
+<li><p><strong>dividend_yield_leg_2</strong> – float) dividend yield for leg 2</p></li>
+<li><p><strong>volatility_leg_2</strong> – (float) implied volatility for leg 2</p></li>
+<li><p><strong>action_leg_1</strong> – (str) whether the action is a buy or write for leg 1</p></li>
+<li><p><strong>contracts_leg_1</strong> – (int) # of contracts to buy/write for leg 1</p></li>
+<li><p><strong>price_leg_3</strong> – (float) ask price for leg 3</p></li>
+<li><p><strong>option_leg_3</strong> – (str) ‘put’ or ‘call’ option type for leg 3</p></li>
+<li><p><strong>strike_leg_3</strong> – (float) strike price for leg 3</p></li>
+<li><p><strong>risk_leg_3</strong> – (float) risk-free interest rate for leg 3</p></li>
+<li><p><strong>dividend_yield_leg_3</strong> – float) dividend yield for leg 3</p></li>
+<li><p><strong>volatility_leg_3</strong> – (float) implied volatility for leg 3</p></li>
+<li><p><strong>action_leg_4</strong> – (str) whether the action is a buy or write for leg 1</p></li>
+<li><p><strong>contracts_leg_4</strong> – (int) # of contracts to buy/write for leg 1</p></li>
+<li><p><strong>price_leg_4</strong> – (float) ask price for leg 4</p></li>
+<li><p><strong>option_leg_4</strong> – (str) ‘put’ or ‘call’ option type for leg 4</p></li>
+<li><p><strong>strike_leg_4</strong> – (float) strike price for leg 4</p></li>
+<li><p><strong>risk_leg_4</strong> – (float) risk-free interest rate for leg 4</p></li>
+<li><p><strong>dividend_yield_leg_4</strong> – float) dividend yield for leg 4</p></li>
+<li><p><strong>volatility_leg_4</strong> – (float) implied volatility for leg 4</p></li>
+<li><p><strong>graph_type</strong> – (str) graph type such as ‘table’, ‘graph’, or ‘both’</p></li>
+<li><p><strong>graph_profile</strong> – (str) graph profile such as ‘pnl’, ‘risk’ or ‘option/spread’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>annotated heatmap table and/or graph traces with calculated results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calculators.options.bsm.Option.iron_condor">
+<code class="sig-name descname">iron_condor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">spot_price</span></em>, <em class="sig-param"><span class="n">expiration_date</span></em>, <em class="sig-param"><span class="n">long_put_price</span></em>, <em class="sig-param"><span class="n">long_put_strike_price</span></em>, <em class="sig-param"><span class="n">long_put_risk_free_rate</span></em>, <em class="sig-param"><span class="n">long_put_dividend_yield</span></em>, <em class="sig-param"><span class="n">long_put_volatility</span></em>, <em class="sig-param"><span class="n">long_put_contracts</span></em>, <em class="sig-param"><span class="n">short_put_price</span></em>, <em class="sig-param"><span class="n">short_put_strike_price</span></em>, <em class="sig-param"><span class="n">short_put_risk_free_rate</span></em>, <em class="sig-param"><span class="n">short_put_dividend_yield</span></em>, <em class="sig-param"><span class="n">short_put_volatility</span></em>, <em class="sig-param"><span class="n">short_put_contracts</span></em>, <em class="sig-param"><span class="n">short_call_price</span></em>, <em class="sig-param"><span class="n">short_call_strike_price</span></em>, <em class="sig-param"><span class="n">short_call_risk_free_rate</span></em>, <em class="sig-param"><span class="n">short_call_dividend_yield</span></em>, <em class="sig-param"><span class="n">short_call_volatility</span></em>, <em class="sig-param"><span class="n">short_call_contracts</span></em>, <em class="sig-param"><span class="n">long_call_price</span></em>, <em class="sig-param"><span class="n">long_call_strike_price</span></em>, <em class="sig-param"><span class="n">long_call_risk_free_rate</span></em>, <em class="sig-param"><span class="n">long_call_dividend_yield</span></em>, <em class="sig-param"><span class="n">long_call_volatility</span></em>, <em class="sig-param"><span class="n">long_call_contracts</span></em>, <em class="sig-param"><span class="n">graph_type</span></em>, <em class="sig-param"><span class="n">graph_profile</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calculators.options.bsm.Option.iron_condor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Displays calculated option values for the iron condor strategy:</dt><dd><p>Long one OTM put
+Short one OTM put with a higher strike
+Short one OTM call
+Long one OTM call with a higher strike
+Akin to having a long strangle inside a larger short strangle
+(or vice-versa)</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spot_price</strong> – (float) underlying stock price</p></li>
+<li><p><strong>expiration_date</strong> – (str) expiration date</p></li>
+<li><p><strong>long_put_price</strong> – (float) ask price for long put option</p></li>
+<li><p><strong>long_put_strike_price</strong> – (float) strike price for long put option</p></li>
+<li><p><strong>long_put_risk_free_rate</strong> – (float) risk-free interest rate for long put option</p></li>
+<li><p><strong>long_put_dividend_yield</strong> – (float) dividend yield for long put option</p></li>
+<li><p><strong>long_put_volatility</strong> – (float) implied volatility for long put option</p></li>
+<li><p><strong>long_put_contracts</strong> – (int) # of contracts to buy/write for long put option</p></li>
+<li><p><strong>short_put_price</strong> – (float) bid price for short put option</p></li>
+<li><p><strong>short_put_strike_price</strong> – (float) strike price for short put option</p></li>
+<li><p><strong>short_put_risk_free_rate</strong> – (float) risk-free interest rate for short put option</p></li>
+<li><p><strong>short_put_dividend_yield</strong> – (float) dividend yield for short put option</p></li>
+<li><p><strong>short_put_volatility</strong> – (float) implied volatility for short put option</p></li>
+<li><p><strong>short_put_contracts</strong> – (int) # of contracts to buy/write for short put option</p></li>
+<li><p><strong>short_call_price</strong> – (float) bid price for short call option</p></li>
+<li><p><strong>short_call_strike_price</strong> – (float) strike price for short call option</p></li>
+<li><p><strong>short_call_risk_free_rate</strong> – (float) risk-free interest rate for short call option</p></li>
+<li><p><strong>short_call_dividend_yield</strong> – (float) dividend yield for short call option</p></li>
+<li><p><strong>short_call_volatility</strong> – (float) implied volatility for short call option</p></li>
+<li><p><strong>short_call_contracts</strong> – (int) # of contracts to buy/write for short call option</p></li>
+<li><p><strong>long_call_price</strong> – (float) ask price for long call option</p></li>
+<li><p><strong>long_call_strike_price</strong> – (float) strike price for long call option</p></li>
+<li><p><strong>long_call_risk_free_rate</strong> – (float) risk-free interest rate for long call option</p></li>
+<li><p><strong>long_call_dividend_yield</strong> – (float) implied volatility for long call option</p></li>
+<li><p><strong>long_call_volatility</strong> – (float) implied volatility for long call option</p></li>
+<li><p><strong>long_call_contracts</strong> – (int) # of contracts to buy/write for long call option</p></li>
+<li><p><strong>graph_type</strong> – (str) graph type such as ‘table’, ‘graph’, or ‘both’</p></li>
+<li><p><strong>graph_profile</strong> – (str) graph profile such as ‘pnl’, ‘risk’ or ‘option/spread’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>annotated heatmap table and/or graph traces with calculated results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calculators.options.bsm.Option.reverse_conversion">
+<code class="sig-name descname">reverse_conversion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">spot_price</span></em>, <em class="sig-param"><span class="n">expiration_date</span></em>, <em class="sig-param"><span class="n">num_shares</span></em>, <em class="sig-param"><span class="n">long_type</span></em>, <em class="sig-param"><span class="n">long_price</span></em>, <em class="sig-param"><span class="n">long_strike_price</span></em>, <em class="sig-param"><span class="n">long_risk_free_rate</span></em>, <em class="sig-param"><span class="n">long_dividend_yield</span></em>, <em class="sig-param"><span class="n">long_volatility</span></em>, <em class="sig-param"><span class="n">long_contracts</span></em>, <em class="sig-param"><span class="n">short_type</span></em>, <em class="sig-param"><span class="n">short_price</span></em>, <em class="sig-param"><span class="n">short_strike_price</span></em>, <em class="sig-param"><span class="n">short_risk_free_rate</span></em>, <em class="sig-param"><span class="n">short_dividend_yield</span></em>, <em class="sig-param"><span class="n">short_volatility</span></em>, <em class="sig-param"><span class="n">short_contracts</span></em>, <em class="sig-param"><span class="n">graph_type</span></em>, <em class="sig-param"><span class="n">graph_profile</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calculators.options.bsm.Option.reverse_conversion" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Displays calculated option values for the reverse conversion strategy:</dt><dd><p>Sell a put
+Buy a call to create a synthetic long position
+Short the underlying stock</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spot_price</strong> – (float) underlying stock price</p></li>
+<li><p><strong>expiration_date</strong> – (str) expiration date</p></li>
+<li><p><strong>num_shares</strong> – (int) # of shares of the underlying stock to hold</p></li>
+<li><p><strong>long_type</strong> – (str) ‘put’ or ‘call’ option type for long option</p></li>
+<li><p><strong>long_price</strong> – (float) ask price for long option</p></li>
+<li><p><strong>long_strike_price</strong> – (float) strike price for long option</p></li>
+<li><p><strong>long_risk_free_rate</strong> – (float) risk-free interest rate for long option</p></li>
+<li><p><strong>long_dividend_yield</strong> – (float) dividend yield for long option</p></li>
+<li><p><strong>long_volatility</strong> – (float) implied volatility for long option</p></li>
+<li><p><strong>long_contracts</strong> – (int) # of contracts to buy/write for long option</p></li>
+<li><p><strong>short_type</strong> – (str) ‘put’ or ‘call’ option type for short option</p></li>
+<li><p><strong>short_price</strong> – (float) ask price for short option</p></li>
+<li><p><strong>short_strike_price</strong> – (float) strike price for short option</p></li>
+<li><p><strong>short_risk_free_rate</strong> – (float) risk-free interest rate for short option</p></li>
+<li><p><strong>short_dividend_yield</strong> – (float) dividend yield for short option</p></li>
+<li><p><strong>short_volatility</strong> – (float) implied volatility for short option</p></li>
+<li><p><strong>short_contracts</strong> – (int) # of contracts to buy/write for short option</p></li>
+<li><p><strong>graph_type</strong> – (str) graph type such as ‘table’, ‘graph’, or ‘both’</p></li>
+<li><p><strong>graph_profile</strong> – (str) graph profile such as ‘pnl’, ‘risk’ or ‘option/spread’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>annotated heatmap table and/or graph traces with calculated results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calculators.options.bsm.Option.six_legs">
+<code class="sig-name descname">six_legs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">spot_price</span></em>, <em class="sig-param"><span class="n">expiration_date</span></em>, <em class="sig-param"><span class="n">action_leg_1</span></em>, <em class="sig-param"><span class="n">contracts_leg_1</span></em>, <em class="sig-param"><span class="n">price_leg_1</span></em>, <em class="sig-param"><span class="n">option_leg_1</span></em>, <em class="sig-param"><span class="n">strike_leg_1</span></em>, <em class="sig-param"><span class="n">risk_leg_1</span></em>, <em class="sig-param"><span class="n">dividend_yield_leg_1</span></em>, <em class="sig-param"><span class="n">volatility_leg_1</span></em>, <em class="sig-param"><span class="n">action_leg_2</span></em>, <em class="sig-param"><span class="n">contracts_leg_2</span></em>, <em class="sig-param"><span class="n">price_leg_2</span></em>, <em class="sig-param"><span class="n">option_leg_2</span></em>, <em class="sig-param"><span class="n">strike_leg_2</span></em>, <em class="sig-param"><span class="n">risk_leg_2</span></em>, <em class="sig-param"><span class="n">dividend_yield_leg_2</span></em>, <em class="sig-param"><span class="n">volatility_leg_2</span></em>, <em class="sig-param"><span class="n">action_leg_3</span></em>, <em class="sig-param"><span class="n">contracts_leg_3</span></em>, <em class="sig-param"><span class="n">price_leg_3</span></em>, <em class="sig-param"><span class="n">option_leg_3</span></em>, <em class="sig-param"><span class="n">strike_leg_3</span></em>, <em class="sig-param"><span class="n">risk_leg_3</span></em>, <em class="sig-param"><span class="n">dividend_yield_leg_3</span></em>, <em class="sig-param"><span class="n">volatility_leg_3</span></em>, <em class="sig-param"><span class="n">action_leg_4</span></em>, <em class="sig-param"><span class="n">contracts_leg_4</span></em>, <em class="sig-param"><span class="n">price_leg_4</span></em>, <em class="sig-param"><span class="n">option_leg_4</span></em>, <em class="sig-param"><span class="n">strike_leg_4</span></em>, <em class="sig-param"><span class="n">risk_leg_4</span></em>, <em class="sig-param"><span class="n">dividend_yield_leg_4</span></em>, <em class="sig-param"><span class="n">volatility_leg_4</span></em>, <em class="sig-param"><span class="n">action_leg_5</span></em>, <em class="sig-param"><span class="n">contracts_leg_5</span></em>, <em class="sig-param"><span class="n">price_leg_5</span></em>, <em class="sig-param"><span class="n">option_leg_5</span></em>, <em class="sig-param"><span class="n">strike_leg_5</span></em>, <em class="sig-param"><span class="n">risk_leg_5</span></em>, <em class="sig-param"><span class="n">dividend_yield_leg_5</span></em>, <em class="sig-param"><span class="n">volatility_leg_5</span></em>, <em class="sig-param"><span class="n">action_leg_6</span></em>, <em class="sig-param"><span class="n">contracts_leg_6</span></em>, <em class="sig-param"><span class="n">price_leg_6</span></em>, <em class="sig-param"><span class="n">option_leg_6</span></em>, <em class="sig-param"><span class="n">strike_leg_6</span></em>, <em class="sig-param"><span class="n">risk_leg_6</span></em>, <em class="sig-param"><span class="n">dividend_yield_leg_6</span></em>, <em class="sig-param"><span class="n">volatility_leg_6</span></em>, <em class="sig-param"><span class="n">graph_type</span></em>, <em class="sig-param"><span class="n">graph_profile</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calculators.options.bsm.Option.six_legs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays calculated option values for the 6 legs strategy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spot_price</strong> – (float) underlying stock price</p></li>
+<li><p><strong>expiration_date</strong> – (str) expiration date</p></li>
+<li><p><strong>action_leg_1</strong> – (str) whether the action is a buy or write for leg 1</p></li>
+<li><p><strong>contracts_leg_1</strong> – (int) # of contracts to buy/write for leg 1</p></li>
+<li><p><strong>price_leg_1</strong> – (float) ask price for leg 1</p></li>
+<li><p><strong>option_leg_1</strong> – (str) ‘put’ or ‘call’ option type for leg 1</p></li>
+<li><p><strong>strike_leg_1</strong> – (float) strike price for leg 1</p></li>
+<li><p><strong>risk_leg_1</strong> – (float) risk-free interest rate for leg 1</p></li>
+<li><p><strong>dividend_yield_leg_1</strong> – float) dividend yield for leg 1</p></li>
+<li><p><strong>volatility_leg_1</strong> – (float) implied volatility for leg 1</p></li>
+<li><p><strong>action_leg_2</strong> – (str) whether the action is a buy or write for leg 2</p></li>
+<li><p><strong>contracts_leg_2</strong> – (int) # of contracts to buy/write for leg 2</p></li>
+<li><p><strong>price_leg_2</strong> – (float) ask price for leg 2</p></li>
+<li><p><strong>option_leg_2</strong> – (str) ‘put’ or ‘call’ option type for leg 2</p></li>
+<li><p><strong>strike_leg_2</strong> – (float) strike price for leg 2</p></li>
+<li><p><strong>risk_leg_2</strong> – (float) risk-free interest rate for leg 2</p></li>
+<li><p><strong>dividend_yield_leg_2</strong> – float) dividend yield for leg 2</p></li>
+<li><p><strong>volatility_leg_2</strong> – (float) implied volatility for leg 2</p></li>
+<li><p><strong>action_leg_3</strong> – (str) whether the action is a buy or write for leg 3</p></li>
+<li><p><strong>contracts_leg_3</strong> – (int) # of contracts to buy/write for leg 3</p></li>
+<li><p><strong>price_leg_3</strong> – (float) ask price for leg 3</p></li>
+<li><p><strong>option_leg_3</strong> – (str) ‘put’ or ‘call’ option type for leg 3</p></li>
+<li><p><strong>strike_leg_3</strong> – (float) strike price for leg 3</p></li>
+<li><p><strong>risk_leg_3</strong> – (float) risk-free interest rate for leg 3</p></li>
+<li><p><strong>dividend_yield_leg_3</strong> – float) dividend yield for leg 3</p></li>
+<li><p><strong>volatility_leg_3</strong> – (float) implied volatility for leg 3</p></li>
+<li><p><strong>action_leg_4</strong> – (str) whether the action is a buy or write for leg 4</p></li>
+<li><p><strong>contracts_leg_4</strong> – (int) # of contracts to buy/write for leg 4</p></li>
+<li><p><strong>price_leg_4</strong> – (float) ask price for leg 4</p></li>
+<li><p><strong>option_leg_4</strong> – (str) ‘put’ or ‘call’ option type for leg 4</p></li>
+<li><p><strong>strike_leg_4</strong> – (float) strike price for leg 4</p></li>
+<li><p><strong>risk_leg_4</strong> – (float) risk-free interest rate for leg 4</p></li>
+<li><p><strong>dividend_yield_leg_4</strong> – float) dividend yield for leg 4</p></li>
+<li><p><strong>volatility_leg_4</strong> – (float) implied volatility for leg 4</p></li>
+<li><p><strong>action_leg_5</strong> – (str) whether the action is a buy or write for leg 5</p></li>
+<li><p><strong>contracts_leg_5</strong> – (int) # of contracts to buy/write for leg 5</p></li>
+<li><p><strong>price_leg_5</strong> – (float) ask price for leg 5</p></li>
+<li><p><strong>option_leg_5</strong> – (str) ‘put’ or ‘call’ option type for leg 5</p></li>
+<li><p><strong>strike_leg_5</strong> – (float) strike price for leg 5</p></li>
+<li><p><strong>risk_leg_5</strong> – (float) risk-free interest rate for leg 5</p></li>
+<li><p><strong>dividend_yield_leg_5</strong> – float) dividend yield for leg 5</p></li>
+<li><p><strong>volatility_leg_5</strong> – (float) implied volatility for leg 5</p></li>
+<li><p><strong>action_leg_6</strong> – (str) whether the action is a buy or write for leg 6</p></li>
+<li><p><strong>contracts_leg_6</strong> – (int) # of contracts to buy/write for leg 6</p></li>
+<li><p><strong>price_leg_6</strong> – (float) ask price for leg 6</p></li>
+<li><p><strong>option_leg_6</strong> – (str) ‘put’ or ‘call’ option type for leg 6</p></li>
+<li><p><strong>strike_leg_6</strong> – (float) strike price for leg 6</p></li>
+<li><p><strong>risk_leg_6</strong> – (float) risk-free interest rate for leg 6</p></li>
+<li><p><strong>dividend_yield_leg_6</strong> – float) dividend yield for leg 6</p></li>
+<li><p><strong>volatility_leg_6</strong> – (float) implied volatility for leg 6</p></li>
+<li><p><strong>graph_type</strong> – (str) graph type such as ‘table’, ‘graph’, or ‘both’</p></li>
+<li><p><strong>graph_profile</strong> – (str) graph profile such as ‘pnl’, ‘risk’ or ‘option/spread’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>annotated heatmap table and/or graph traces with calculated results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calculators.options.bsm.Option.spread">
+<code class="sig-name descname">spread</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">spot_price</span></em>, <em class="sig-param"><span class="n">expiration_date</span></em>, <em class="sig-param"><span class="n">long_contracts</span></em>, <em class="sig-param"><span class="n">long_price</span></em>, <em class="sig-param"><span class="n">long_type</span></em>, <em class="sig-param"><span class="n">long_strike_price</span></em>, <em class="sig-param"><span class="n">long_risk_free_rate</span></em>, <em class="sig-param"><span class="n">long_dividend_yield</span></em>, <em class="sig-param"><span class="n">long_volatility</span></em>, <em class="sig-param"><span class="n">short_contracts</span></em>, <em class="sig-param"><span class="n">short_price</span></em>, <em class="sig-param"><span class="n">short_type</span></em>, <em class="sig-param"><span class="n">short_strike_price</span></em>, <em class="sig-param"><span class="n">short_risk_free_rate</span></em>, <em class="sig-param"><span class="n">short_dividend_yield</span></em>, <em class="sig-param"><span class="n">short_volatility</span></em>, <em class="sig-param"><span class="n">graph_type</span></em>, <em class="sig-param"><span class="n">graph_profile</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calculators.options.bsm.Option.spread" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays calculated option values for spread strategies: credit, call, put and calendar.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spot_price</strong> – (float) underlying stock price</p></li>
+<li><p><strong>expiration_date</strong> – (str) expiration date</p></li>
+<li><p><strong>long_contracts</strong> – (int) # of contracts to buy/write for long option</p></li>
+<li><p><strong>long_price</strong> – (float) ask price for long option</p></li>
+<li><p><strong>long_type</strong> – (str) ‘put’ or ‘call’ option type for long option</p></li>
+<li><p><strong>long_strike_price</strong> – (float) strike price for long option</p></li>
+<li><p><strong>long_risk_free_rate</strong> – (float) risk-free interest rate for long option</p></li>
+<li><p><strong>long_dividend_yield</strong> – (float) dividend yield for long option</p></li>
+<li><p><strong>long_volatility</strong> – (float) implied volatility for long option</p></li>
+<li><p><strong>short_contracts</strong> – (int) # of contracts to buy/write for short option</p></li>
+<li><p><strong>short_price</strong> – (float) ask price for short option</p></li>
+<li><p><strong>short_type</strong> – (str) ‘put’ or ‘call’ option type for short option</p></li>
+<li><p><strong>short_strike_price</strong> – (float) strike price for short option</p></li>
+<li><p><strong>short_risk_free_rate</strong> – (float) risk-free interest rate for short option</p></li>
+<li><p><strong>short_dividend_yield</strong> – (float) dividend yield for short option</p></li>
+<li><p><strong>short_volatility</strong> – (float) implied volatility for short option</p></li>
+<li><p><strong>graph_type</strong> – (str) graph type such as ‘table’, ‘graph’, or ‘both’</p></li>
+<li><p><strong>graph_profile</strong> – (str) graph profile such as ‘pnl’, ‘risk’ or ‘option/spread’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>annotated heatmap table and/or graph traces with calculated results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calculators.options.bsm.Option.straddle">
+<code class="sig-name descname">straddle</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">spot_price</span></em>, <em class="sig-param"><span class="n">expiration_date</span></em>, <em class="sig-param"><span class="n">strike_price</span></em>, <em class="sig-param"><span class="n">long_call_contracts</span></em>, <em class="sig-param"><span class="n">long_call_price</span></em>, <em class="sig-param"><span class="n">long_call_risk_free_rate</span></em>, <em class="sig-param"><span class="n">long_call_dividend_yield</span></em>, <em class="sig-param"><span class="n">long_call_volatility</span></em>, <em class="sig-param"><span class="n">long_put_contracts</span></em>, <em class="sig-param"><span class="n">long_put_price</span></em>, <em class="sig-param"><span class="n">long_put_risk_free_rate</span></em>, <em class="sig-param"><span class="n">long_put_dividend_yield</span></em>, <em class="sig-param"><span class="n">long_put_volatility</span></em>, <em class="sig-param"><span class="n">graph_type</span></em>, <em class="sig-param"><span class="n">graph_profile</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calculators.options.bsm.Option.straddle" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Displays calculated option values for the straddle strategy:</dt><dd><ul class="simple">
+<li><p>Long one ATM put</p></li>
+<li><p>Long one ATM call</p></li>
+</ul>
+</dd>
+</dl>
+<p>Both have the same strike price</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spot_price</strong> – (float) underlying stock price</p></li>
+<li><p><strong>expiration_date</strong> – (str) expiration date</p></li>
+<li><p><strong>strike_price</strong> – (float) strike price for long call and long put option</p></li>
+<li><p><strong>long_call_contracts</strong> – (int) # of contracts to buy/write for long call option</p></li>
+<li><p><strong>long_call_price</strong> – (float) ask price for long call option</p></li>
+<li><p><strong>long_call_risk_free_rate</strong> – (float) risk-free interest rate for long call option</p></li>
+<li><p><strong>long_call_dividend_yield</strong> – (float) implied volatility for long call option</p></li>
+<li><p><strong>long_call_volatility</strong> – (float) implied volatility for long call option</p></li>
+<li><p><strong>long_put_contracts</strong> – (int) # of contracts to buy/write for long put option</p></li>
+<li><p><strong>long_put_price</strong> – (float) ask price for long put option</p></li>
+<li><p><strong>long_put_risk_free_rate</strong> – (float) risk-free interest rate for long put option</p></li>
+<li><p><strong>long_put_dividend_yield</strong> – (float) dividend yield for long put option</p></li>
+<li><p><strong>long_put_volatility</strong> – (float) implied volatility for long put option</p></li>
+<li><p><strong>graph_type</strong> – (str) graph type such as ‘table’, ‘graph’, or ‘both’</p></li>
+<li><p><strong>graph_profile</strong> – (str) graph profile such as ‘pnl’, ‘risk’ or ‘option/spread’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>annotated heatmap table and/or graph traces with calculated results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calculators.options.bsm.Option.strangle">
+<code class="sig-name descname">strangle</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">spot_price</span></em>, <em class="sig-param"><span class="n">expiration_date</span></em>, <em class="sig-param"><span class="n">long_call_contracts</span></em>, <em class="sig-param"><span class="n">long_call_price</span></em>, <em class="sig-param"><span class="n">long_call_strike_price</span></em>, <em class="sig-param"><span class="n">long_call_risk_free_rate</span></em>, <em class="sig-param"><span class="n">long_call_dividend_yield</span></em>, <em class="sig-param"><span class="n">long_call_volatility</span></em>, <em class="sig-param"><span class="n">long_put_contracts</span></em>, <em class="sig-param"><span class="n">long_put_price</span></em>, <em class="sig-param"><span class="n">long_put_strike_price</span></em>, <em class="sig-param"><span class="n">long_put_risk_free_rate</span></em>, <em class="sig-param"><span class="n">long_put_dividend_yield</span></em>, <em class="sig-param"><span class="n">long_put_volatility</span></em>, <em class="sig-param"><span class="n">graph_type</span></em>, <em class="sig-param"><span class="n">graph_profile</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calculators.options.bsm.Option.strangle" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Displays calculated option values for the strangle strategy:</dt><dd><p>Long one OTM put
+Long one OTM call</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spot_price</strong> – (float) underlying stock price</p></li>
+<li><p><strong>expiration_date</strong> – (str) expiration date</p></li>
+<li><p><strong>long_call_contracts</strong> – (int) # of contracts to buy/write for long call option</p></li>
+<li><p><strong>long_call_price</strong> – (float) ask price for long call option</p></li>
+<li><p><strong>long_call_strike_price</strong> – (float) strike price for long call option</p></li>
+<li><p><strong>long_call_risk_free_rate</strong> – (float) risk-free interest rate for long call option</p></li>
+<li><p><strong>long_call_dividend_yield</strong> – (float) implied volatility for long call option</p></li>
+<li><p><strong>long_call_volatility</strong> – (float) implied volatility for long call option</p></li>
+<li><p><strong>long_put_contracts</strong> – (int) # of contracts to buy/write for long put option</p></li>
+<li><p><strong>long_put_price</strong> – (float) ask price for long put option</p></li>
+<li><p><strong>long_put_strike_price</strong> – (float) strike price for long put option</p></li>
+<li><p><strong>long_put_risk_free_rate</strong> – (float) risk-free interest rate for long put option</p></li>
+<li><p><strong>long_put_dividend_yield</strong> – (float) dividend yield for long put option</p></li>
+<li><p><strong>long_put_volatility</strong> – (float) implied volatility for long put option</p></li>
+<li><p><strong>graph_type</strong> – (str) graph type such as ‘table’, ‘graph’, or ‘both’</p></li>
+<li><p><strong>graph_profile</strong> – (str) graph profile such as ‘pnl’, ‘risk’ or ‘option/spread’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calculators.options.bsm.Option.synthetic_put">
+<code class="sig-name descname">synthetic_put</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">spot_price</span></em>, <em class="sig-param"><span class="n">expiration_date</span></em>, <em class="sig-param"><span class="n">num_shares</span></em>, <em class="sig-param"><span class="n">contracts</span></em>, <em class="sig-param"><span class="n">option_price</span></em>, <em class="sig-param"><span class="n">strike_price</span></em>, <em class="sig-param"><span class="n">risk_free_rate</span></em>, <em class="sig-param"><span class="n">dividend_yield</span></em>, <em class="sig-param"><span class="n">volatility</span></em>, <em class="sig-param"><span class="n">graph_type</span></em>, <em class="sig-param"><span class="n">graph_profile</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calculators.options.bsm.Option.synthetic_put" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Displays calculated option values for the synthetic put strategy:</dt><dd><p>Long a call option
+Short the equivalent amount of the underlying stock</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spot_price</strong> – (float) underlying stock price</p></li>
+<li><p><strong>expiration_date</strong> – (str) expiration date</p></li>
+<li><p><strong>contracts</strong> – (int) # of contracts to buy/write</p></li>
+<li><p><strong>option_price</strong> – (float) bid/ask price per option</p></li>
+<li><p><strong>strike_price</strong> – (float) strike price</p></li>
+<li><p><strong>risk_free_rate</strong> – (float) risk-free interest rate</p></li>
+<li><p><strong>dividend_yield</strong> – (float) dividend yield</p></li>
+<li><p><strong>volatility</strong> – (float) implied volatility</p></li>
+<li><p><strong>graph_type</strong> – (str) graph type such as ‘table’, ‘graph’, or ‘both’</p></li>
+<li><p><strong>graph_profile</strong> – (str) graph profile such as ‘pnl’, ‘risk’ or ‘option/spread’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Para num_shares</dt>
+<dd class="field-even"><p>(int) # of shares of the underlying stock to hold</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>annotated heatmap table and/or graph traces with calculated results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calculators.options.bsm.Option.three_legs">
+<code class="sig-name descname">three_legs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">spot_price</span></em>, <em class="sig-param"><span class="n">expiration_date</span></em>, <em class="sig-param"><span class="n">action_leg_1</span></em>, <em class="sig-param"><span class="n">contracts_leg_1</span></em>, <em class="sig-param"><span class="n">price_leg_1</span></em>, <em class="sig-param"><span class="n">option_leg_1</span></em>, <em class="sig-param"><span class="n">strike_leg_1</span></em>, <em class="sig-param"><span class="n">risk_leg_1</span></em>, <em class="sig-param"><span class="n">dividend_yield_leg_1</span></em>, <em class="sig-param"><span class="n">volatility_leg_1</span></em>, <em class="sig-param"><span class="n">action_leg_2</span></em>, <em class="sig-param"><span class="n">contracts_leg_2</span></em>, <em class="sig-param"><span class="n">price_leg_2</span></em>, <em class="sig-param"><span class="n">option_leg_2</span></em>, <em class="sig-param"><span class="n">strike_leg_2</span></em>, <em class="sig-param"><span class="n">risk_leg_2</span></em>, <em class="sig-param"><span class="n">dividend_yield_leg_2</span></em>, <em class="sig-param"><span class="n">volatility_leg_2</span></em>, <em class="sig-param"><span class="n">action_leg_3</span></em>, <em class="sig-param"><span class="n">contracts_leg_3</span></em>, <em class="sig-param"><span class="n">price_leg_3</span></em>, <em class="sig-param"><span class="n">option_leg_3</span></em>, <em class="sig-param"><span class="n">strike_leg_3</span></em>, <em class="sig-param"><span class="n">risk_leg_3</span></em>, <em class="sig-param"><span class="n">dividend_yield_leg_3</span></em>, <em class="sig-param"><span class="n">volatility_leg_3</span></em>, <em class="sig-param"><span class="n">graph_type</span></em>, <em class="sig-param"><span class="n">graph_profile</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calculators.options.bsm.Option.three_legs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays calculated option values for the 3 legs strategy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spot_price</strong> – (float) underlying stock price</p></li>
+<li><p><strong>expiration_date</strong> – (str) expiration date</p></li>
+<li><p><strong>action_leg_1</strong> – (str) whether the action is a buy or write for leg 1</p></li>
+<li><p><strong>contracts_leg_1</strong> – (int) # of contracts to buy/write for leg 1</p></li>
+<li><p><strong>price_leg_1</strong> – (float) ask price for leg 1</p></li>
+<li><p><strong>option_leg_1</strong> – (str) ‘put’ or ‘call’ option type for leg 1</p></li>
+<li><p><strong>strike_leg_1</strong> – (float) strike price for leg 1</p></li>
+<li><p><strong>risk_leg_1</strong> – (float) risk-free interest rate for leg 1</p></li>
+<li><p><strong>dividend_yield_leg_1</strong> – float) dividend yield for leg 1</p></li>
+<li><p><strong>volatility_leg_1</strong> – (float) implied volatility for leg 1</p></li>
+<li><p><strong>action_leg_2</strong> – (str) whether the action is a buy or write for leg 2</p></li>
+<li><p><strong>contracts_leg_2</strong> – (int) # of contracts to buy/write for leg 2</p></li>
+<li><p><strong>price_leg_2</strong> – (float) ask price for leg 2</p></li>
+<li><p><strong>option_leg_2</strong> – (str) ‘put’ or ‘call’ option type for leg 2</p></li>
+<li><p><strong>strike_leg_2</strong> – (float) strike price for leg 2</p></li>
+<li><p><strong>risk_leg_2</strong> – (float) risk-free interest rate for leg 2</p></li>
+<li><p><strong>dividend_yield_leg_2</strong> – float) dividend yield for leg 2</p></li>
+<li><p><strong>volatility_leg_2</strong> – (float) implied volatility for leg 2</p></li>
+<li><p><strong>action_leg_1</strong> – (str) whether the action is a buy or write for leg 1</p></li>
+<li><p><strong>contracts_leg_1</strong> – (int) # of contracts to buy/write for leg 1</p></li>
+<li><p><strong>price_leg_3</strong> – (float) ask price for leg 3</p></li>
+<li><p><strong>option_leg_3</strong> – (str) ‘put’ or ‘call’ option type for leg 3</p></li>
+<li><p><strong>strike_leg_3</strong> – (float) strike price for leg 3</p></li>
+<li><p><strong>risk_leg_3</strong> – (float) risk-free interest rate for leg 3</p></li>
+<li><p><strong>dividend_yield_leg_3</strong> – float) dividend yield for leg 3</p></li>
+<li><p><strong>volatility_leg_3</strong> – (float) implied volatility for leg 3</p></li>
+<li><p><strong>graph_type</strong> – (str) graph type such as ‘table’, ‘graph’, or ‘both’</p></li>
+<li><p><strong>graph_profile</strong> – (str) graph profile such as ‘pnl’, ‘risk’ or ‘option/spread’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>annotated heatmap table and/or graph traces with calculated results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calculators.options.bsm.Option.two_legs">
+<code class="sig-name descname">two_legs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">spot_price</span></em>, <em class="sig-param"><span class="n">expiration_date</span></em>, <em class="sig-param"><span class="n">action_leg_1</span></em>, <em class="sig-param"><span class="n">contracts_leg_1</span></em>, <em class="sig-param"><span class="n">price_leg_1</span></em>, <em class="sig-param"><span class="n">option_leg_1</span></em>, <em class="sig-param"><span class="n">strike_leg_1</span></em>, <em class="sig-param"><span class="n">risk_leg_1</span></em>, <em class="sig-param"><span class="n">dividend_yield_leg_1</span></em>, <em class="sig-param"><span class="n">volatility_leg_1</span></em>, <em class="sig-param"><span class="n">action_leg_2</span></em>, <em class="sig-param"><span class="n">contracts_leg_2</span></em>, <em class="sig-param"><span class="n">price_leg_2</span></em>, <em class="sig-param"><span class="n">option_leg_2</span></em>, <em class="sig-param"><span class="n">strike_leg_2</span></em>, <em class="sig-param"><span class="n">risk_leg_2</span></em>, <em class="sig-param"><span class="n">dividend_yield_leg_2</span></em>, <em class="sig-param"><span class="n">volatility_leg_2</span></em>, <em class="sig-param"><span class="n">graph_type</span></em>, <em class="sig-param"><span class="n">graph_profile</span></em><span class="sig-paren">)</span><a class="headerlink" href="#calculators.options.bsm.Option.two_legs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays calculated option values for the 2 legs strategy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spot_price</strong> – (float) underlying stock price</p></li>
+<li><p><strong>expiration_date</strong> – (str) expiration date</p></li>
+<li><p><strong>action_leg_1</strong> – (str) whether the action is a buy or write for leg 1</p></li>
+<li><p><strong>contracts_leg_1</strong> – (int) # of contracts to buy/write for leg 1</p></li>
+<li><p><strong>price_leg_1</strong> – (float) ask price for leg 1</p></li>
+<li><p><strong>option_leg_1</strong> – (str) ‘put’ or ‘call’ option type for leg 1</p></li>
+<li><p><strong>strike_leg_1</strong> – (float) strike price for leg 1</p></li>
+<li><p><strong>risk_leg_1</strong> – (float) risk-free interest rate for leg 1</p></li>
+<li><p><strong>dividend_yield_leg_1</strong> – float) dividend yield for leg 1</p></li>
+<li><p><strong>volatility_leg_1</strong> – (float) implied volatility for leg 1</p></li>
+<li><p><strong>action_leg_2</strong> – (str) whether the action is a buy or write for leg 2</p></li>
+<li><p><strong>contracts_leg_2</strong> – (int) # of contracts to buy/write for leg 2</p></li>
+<li><p><strong>price_leg_2</strong> – (float) ask price for leg 2</p></li>
+<li><p><strong>option_leg_2</strong> – (str) ‘put’ or ‘call’ option type for leg 2</p></li>
+<li><p><strong>strike_leg_2</strong> – (float) strike price for leg 2</p></li>
+<li><p><strong>risk_leg_2</strong> – (float) risk-free interest rate for leg 2</p></li>
+<li><p><strong>dividend_yield_leg_2</strong> – float) dividend yield for leg 2</p></li>
+<li><p><strong>volatility_leg_2</strong> – (float) implied volatility for leg 2</p></li>
+<li><p><strong>graph_type</strong> – (str) graph type such as ‘table’, ‘graph’, or ‘both’</p></li>
+<li><p><strong>graph_profile</strong> – (str) graph profile such as ‘pnl’, ‘risk’ or ‘option/spread’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>annotated heatmap table and/or graph traces with calculated results</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-calculators.options">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-calculators.options" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Brian CG.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

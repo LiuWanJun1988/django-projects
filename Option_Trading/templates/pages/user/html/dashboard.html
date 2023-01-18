@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Analytical Option Navigator</title>
+  <meta name="description" content="Admin, Dashboard, Bootstrap, Bootstrap 4, Angular, AngularJS" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  {% load staticfiles %}
+  <!-- for ios 7 style, multi-resolution icon of 152x152 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+  <link rel="apple-touch-icon" href="{% static 'user/assets/images/logo.png' %}">
+  <meta name="apple-mobile-web-app-title" content="Flatkit">
+  <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  {% comment %}<link rel="shortcut icon" sizes="196x196" href="{% static 'user/assets/images/logo.png' %}">{% endcomment %}
+  <link rel="icon" type="image/png" href="{% static 'landingpage/icon/favicon-32x32.png' %}" sizes="32x32">
+  <link rel="apple-touch-icon" href="{% static 'landingpage/icon/favicon-32x32.png' %}">
+  <!-- style -->
+  <link rel="stylesheet" href="{% static 'user/assets/animate.css/animate.min.css' %}" type="text/css" />
+  <link rel="stylesheet" href="{% static 'user/assets/glyphicons/glyphicons.css' %}" type="text/css" />
+  <link rel="stylesheet" href="{% static 'user/assets/font-awesome/css/font-awesome.min.css' %}" type="text/css" />
+  <link rel="stylesheet" href="{% static 'user/assets/material-design-icons/material-design-icons.css' %}" type="text/css" />
+
+  <link rel="stylesheet" href="{% static 'user/assets/bootstrap/dist/css/bootstrap.min.css' %}" type="text/css" />
+  <!-- build:css ../assets/styles/app.min.css -->
+  <link rel="stylesheet" href="{% static 'user/assets/styles/app.css' %}" type="text/css" />
+  <!-- endbuild -->
+  <link rel="stylesheet" href="{% static 'user/assets/styles/font.css' %}" type="text/css" />
+  <!-- new defined style-->
+  <link rel="stylesheet" href="../static/user/assets/styles/new_defined.css" type="text/css" />
+  <link rel="stylesheet" href="../static/user/assets/styles/new_rangeslider.css" type="text/css" />
+  <link rel="stylesheet" href="../static/user/assets/styles/rangeslider.css" type="text/css" />
+  <link rel="stylesheet" href="../static/user/assets/styles/multiselect.css" type="text/css" />
+  <script src="../static/user/libs/new_defined/multiselect.js"></script>
+</head>
+<body class="dark">
+  <div class="app" id="app">
+
+<!-- ############ LAYOUT START-->
+
+  <!-- aside -->
+  <div id="aside" class="app-aside modal nav-dropdown">
+  	<!-- fluid app aside -->
+    <div class="left navside dark dk" data-layout="column">
+  	  <div class="navbar no-radius">
+        <!-- brand -->
+        <a class="navbar-brand">
+        	{% comment %}<div ui-include="'../static/user/assets/images/logo.svg'"></div>{% endcomment %}
+        	<img src="../static/landingpage/img/title.png" alt="." >
+        	{% comment %}<span class="hidden-folded inline">Site Name</span>{% endcomment %}
+        </a>
+        <!-- / brand -->
+      </div>
+      <div class="hide-scroll" data-flex>
+          <nav class="scroll nav-light">
+              <ul class="nav" ui-nav>
+                {% comment %}<li class="nav-header hidden-folded">
+                  <small class="text-muted">Main</small>
+                </li>{% endcomment %}
+      <!-- Dashboard -->
+                <li>
+                  <a href={% url 'dashboard' id='all'%} >
+                    <div class="row">
+                      <span class="nav-icon fa fa-dashboard" style="margin-left: 10px">
+                      </span>
+                      <span class="nav-text">Security List</span>
+                    </div>
+                  </a>
+                </li>
+
+      {% comment %}<!-- strategy -->
+                <li>
+                  <a href="/strategy_book">
+                    <div class="row">
+                      <span class="nav-icon fa fa-database" style="margin-left: 10px">
+                      </span>
+                      <span class="nav-text">Strategy Settings</span>
+                    </div>
+                  </a>
+                </li>
+      <!-- Reporting -->
+                <li>
+                  <a href="/reporting">
+                    <div class="row">
+                      <span class="nav-icon fa fa-bars" style="margin-left: 10px">
+                      </span>
+                      <span class="nav-text">Reporting</span>
+                    </div>
+                  </a>
+                </li>
+      <!-- Subscription -->
+                <li>
+                  <a href="/trading">
+                    <div class="row">
+                      <span class="nav-icon fa fa-tags" style="margin-left: 10px">
+                      </span>
+                      <span class="nav-text">Subscription Plan</span>
+                    </div>
+                  </a>
+                </li>
+      <!-- Payment -->
+                <li>
+                  <a href="/history">
+                    <div class="row">
+                      <span class="nav-icon fa fa-money" style="margin-left: 10px">
+                      </span>
+                      <span class="nav-text">Payment Gateway</span>
+                    </div>
+                  </a>
+                </li>
+      <!-- Exchange information -->
+                <li>
+                  <a href="/exchange_info">
+                    <div class="row">
+                      <span class="nav-icon fa fa-key" style="margin-left: 10px">
+                      </span>
+                      <span class="nav-text">Exchange</span>
+                    </div>
+                  </a>
+                </li>
+      <!-- Affiliate -->
+                <li>
+                  <a href="/user_setting">
+                    <div class="row">
+                      <span class="nav-icon fa fa-ticket" style="margin-left: 10px">
+                      </span>
+                      <span class="nav-text">Affiiate</span>
+                    </div>
+                  </a>
+                </li>
+      <!-- Email templates -->
+                <li>
+                  <a href="/user_setting">
+                    <div class="row">
+                      <span class="nav-icon fa fa-envelope" style="margin-left: 10px">
+                      </span>
+                      <span class="nav-text">Email Templates</span>
+                    </div>
+                  </a>
+                </li>
+      <!-- Logs -->
+                <li>
+                  <a href="/history">
+                    <div class="row">
+                      <span class="nav-icon fa fa-bars" style="margin-left: 10px">
+                      </span>
+                      <span class="nav-text">Logs</span>
+                    </div>
+                  </a>
+                </li>
+      <!-- Landingpage Content -->
+                <li>
+                  <a href="/doc_manage">
+                    <div class="row">
+                      <span class="nav-icon fa fa-sitemap" style="margin-left: 10px">
+                      </span>
+                      <span class="nav-text">Document Manage</span>
+                    </div>
+                  </a>
+                </li>
+      <!-- Languages -->
+                <li>
+                  <a href="/user_setting">
+                    <div class="row">
+                      <span class="nav-icon fa fa-language" style="margin-left: 10px">
+                      </span>
+                      <span class="nav-text">Languages</span>
+                    </div>
+                  </a>
+                </li>
+      <!-- Backup -->
+                <li>
+                  <a href="/user_setting">
+                    <div class="row">
+                      <span class="nav-icon fa fa-database" style="margin-left: 10px">
+                      </span>
+                      <span class="nav-text">Backup</span>
+                    </div>
+                  </a>
+                </li>{% endcomment %}
+              </ul>
+          </nav>
+      </div>
+      {% comment %}<div class="b-t">
+        <div class="nav-fold">
+        	<a href="profile.html">
+        	    <span class="pull-left">
+        	      <img src="{% static 'user/assets/images/a0.jpg' %}" alt="..." class="w-40 img-circle">
+        	    </span>
+        	    <span class="clear hidden-folded p-x">
+        	      <span class="block _500">Jean Reyes</span>
+        	      <small class="block text-muted"><i class="fa fa-circle text-success m-r-sm"></i>online</small>
+        	    </span>
+        	</a>
+        </div>
+      </div>{% endcomment %}
+    </div>
+  </div>
+  <!-- / -->
+
+  <!-- content -->
+  <div id="content" class="app-content box-shadow-z0" role="main">
+    <div class="app-header white box-shadow">
+        <div class="navbar navbar-toggleable-sm flex-row align-items-center">
+            <!-- Open side - Naviation on mobile -->
+            <a data-toggle="modal" data-target="#aside" class="hidden-lg-up mr-3">
+              <i class="material-icons">&#xe5d2;</i>
+            </a>
+            <!-- / -->
+
+            <!-- Page title - Bind to $state's title -->
+            <div class="mb-0 h5 no-wrap" ng-bind="$state.current.data.title" id="pageTitle"></div>
+
+            <!-- navbar collapse -->
+            <div class="collapse navbar-collapse" id="collapse">
+
+              <ul class="nav navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <h4 style="margin-bottom: 0px">Today: <span id="today">{{ today }}(Chicago TimeZone)</span></h4>
+                    {% comment %}<small class="text-muted">Today: <strong id="today"></strong> </small>{% endcomment %}
+                </li>
+              </ul>
+              <div ui-include="{% static 'user/views/blocks/navbar.form.html' %}"></div>
+              <!-- / -->
+            </div>
+
+        </div>
+    </div>
+    <div class="app-footer">
+      <div class="p-2 text-xs">
+        <div class="pull-right text-muted py-1">
+          &copy; <strong>OPTIONPARIS.COM</strong> <span class="hidden-xs-down">- Analytical Option Navigator <img width="20px" height="22px" src="../../../../static/landingpage/icon/heart.png"></span>
+        </div>
+        {% comment %}<div class="nav">
+          <a class="nav-link" href="{% static 'user/' %}">About</a>
+          <a class="nav-link" href="http://themeforest.net/user/flatfull/portfolio?ref=flatfull">Get it</a>
+        </div>{% endcomment %}
+      </div>
+    </div>
+    <div ui-view class="app-body" id="view">
+
+<!-- ############ PAGE START-->
+    <div class="padding">
+      {% include 'pages/message.html' %}
+      <div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h2>Security List</h2>
+                    </div>
+                    <div class="m-0" style="border-bottom: 3px solid rgba(120, 130, 140, 0.13)"></div>
+                    <div class="box-body">
+                        <form action="" method="post">{% csrf_token %}
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="b-b b-primary nav-active-primary">
+                                    <ul class="nav nav-tabs">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href data-toggle="tab" data-target="#tab1">All Securitys</a>
+                                        </li>
+                                        <li class="nav-item dropdown" style="position: absolute; right: 70px">
+                                            <a class="nav-link" href data-toggle="modal" data-target="#add_security">
+                                                <i class="fa fa-fw fa-plus text-muted"></i>
+                                                <span>Add Security</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="tab-content p-a m-b-md">
+                                    <div class="tab-pane active" id="tab1">
+                                        <div class="box">
+                                            <div class="box-body">
+                                                Search: <input id="filter" type="text" class="form-control input-sm w-auto inline m-r"/>
+                                            </div>
+                                            <div>
+                                                <table class="table m-b-none" ui-jp="footable" data-filter="#filter" data-page-size="5">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Type</th>
+                                                            <th>Security Name</th>
+                                                            <th>Expire Date</th>
+                                                            <th>Days Left</th>
+                                                            <th>Symbol Count</th>
+                                                            <th>View</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    {% if security_list %}
+                                                        {% for security in security_list %}
+                                                        <tr>
+                                                            <td>{{security.type}}</td>
+                                                            <td>{{ security.name }}</td>
+                                                            <td>{{ security.expire_date }}</td>
+                                                            <td>{{ security.rest_days }}</td>
+                                                            <td>{{ security.symbol_count }}</td>
+                                                            <td>
+                                                                {%  if security.rest_days == "Expired" %}
+                                                                    <a class="label danger" href="#" disabled="disabled">View</a></td>
+                                                                {% else %}
+                                                                    <a class="label primary" href="/dashboard/{{ security.id }}">View</a></td>
+                                                                {% endif %}
+                                                            <td>
+                                                                <a class="label info" href="#" onclick="edit_security({{ security.id }})">Edit</a>
+                                                                <a class="label danger" href="/delete_security/{{ security.id }}">Delete</a>
+                                                            </td>
+                                                        </tr>
+                                                        {% endfor %}
+                                                    {% endif %}
+
+                                                    </tbody>
+                                                    <tfoot class="hide-if-no-paging">
+                                                        <tr>
+                                                            <td colspan="5" class="text-center">
+                                                                <ul class="pagination"></ul>
+                                                            </td>
+                                                        </tr>
+                                                    </tfoot>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      </div>
+    </div>
+<!-- .modal -->
+<div id="edit_security" class="modal black-overlay" data-backdrop="true">
+    <div class="modal-dialog">
+      <div class="modal-content box-shadow-md black lt m-b">
+        <div class="modal-header">
+      	  <div class="col-sm-12 row"  >
+                <div class="col-sm-6">
+                    <h3 class="modal-title">Edit Security</h3>
+                </div>
+                <div class="col-sm-6 text-lg-right m-m">
+                    <a class="text-info " href="{% url 'dashboard' id='all' %}"><h6>Back</h6></a>
+                </div>
+            </div>
+        </div>
+        <div class="modal-body p-lg">
+          <form id="edit_security_form" method="post">{% csrf_token %}
+            <input type="hidden" id="edit_id" name="edit_id">
+      <!--   Security Name  -->
+            <div class="form-group row">
+              <label class="col-sm-4 form-control-label" style="text-align: right">Security Name</label>
+              <div class="col-sm-8">
+                <input type="text" id="edit_security_name" name="edit_security_name" class="form-control"  required/>
+              </div>
+            </div>
+      <!--  Security Type  -->
+            <div class="form-group row">
+              <label class="col-sm-4 form-control-label" style="text-align: right">Security Type</label>
+              <div class="col-sm-8">
+                <select required name="edit_security_type" id="edit_security_type" style="background-color: rgb(72,87,103);" class="form-control">
+                    <option value=""></option>
+                    <option value="STOCK">Stock</option>
+                    <option value="CFD">CFD</option>
+                    <option value="CFD_INDEX">CFD Index</option>
+                    <option value="FOREX">Forex</option>
+                </select>
+              </div>
+            </div>
+      <!--  Expire Date -->
+            <div class="form-group row">
+                <label class="col-sm-4 form-control-label" style="text-align: right">Expire Date</label>
+                <div class="col-sm-8">
+                    <div class="form-group">
+                                                        <div class='input-group date' ui-jp="datetimepicker" ui-options="{
+                                                            format: 'YYYY-M-D',
+                                                                icons: {
+                                                                    time: 'fa fa-clock-o',
+                                                                    date: 'fa fa-calendar',
+                                                                    up: 'fa fa-chevron-up',
+                                                                    down: 'fa fa-chevron-down',
+                                                                    previous: 'fa fa-chevron-left',
+                                                                    next: 'fa fa-chevron-right',
+                                                                    today: 'fa fa-screenshot',
+                                                                    clear: 'fa fa-trash',
+                                                                    close: 'fa fa-remove'
+                                                                }
+                                                        }">
+                                                            <input type='text' class="form-control" name="edit_expire_date" id="edit_expire_date" required/>
+                                                            <span class="input-group-addon">
+                                                                <span class="fa fa-calendar"></span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                </div>
+            </div>
+      <!--  Number of Bars  -->
+            <div class="form-group row">
+              <label class="col-sm-4 form-control-label text-right">Number of Bars</label>
+              <div class="col-sm-8">
+                <input type="text" id="edit_bar_size" name="edit_bar_size" class="form-control"  required/>
+              </div>
+            </div>
+     {% comment %} <!--  Long Min  -->
+            <div class="form-group row">
+              <label class="col-sm-4 form-control-label m-m" style="text-align: right">Long Min</label>
+              <div class="range-slider col-sm-8">
+                <input class="range-slider__range" id="edit_long_min1" name="edit_long_min1" value="" type="range" min="0" max="95"/>
+                <span id="edit_long_min2" name="edit_long_min2" class="range-slider__value"></span>
+              </div>
+            </div>
+      <!--  Long Max  -->
+            <div class="form-group row">
+              <label class="col-sm-4 form-control-label m-m" style="text-align: right">Long Max</label>
+              <div class="range-slider col-sm-8">
+                <input class="range-slider__range" id="edit_long_max1" name="edit_long_max1" type="range" value="0" min="0" max="95"/>
+                <span id="edit_long_max2" name="edit_long_max2" class="range-slider__value">0</span>
+              </div>
+            </div>
+      <!--  Short Min  -->
+            <div class="form-group row">
+              <label class="col-sm-4 form-control-label m-m" style="text-align: right">Short Min</label>
+              <div class="range-slider col-sm-8">
+                <input class="range-slider__range" id="edit_short_min1" name="edit_short_min1" type="range" value="0" min="0" max="95"/>
+                <span id="edit_short_min2" name="edit_short_min2" class="range-slider__value">0</span>
+              </div>
+            </div>
+      <!--  Short Max  -->
+            <div class="form-group row">
+              <label class="col-sm-4 form-control-label m-m" style="text-align: right">Short Max</label>
+              <div class="range-slider col-sm-8">
+                <input class="range-slider__range" id="edit_short_max1" name="edit_short_max1" type="range" value="0" min="0" max="95"/>
+                <span id="edit_short_max2" name="edit_short_max2" class="range-slider__value">0</span>
+              </div>
+            </div>{% endcomment %}
+      <!--  Symbols -->
+            <div class="form-group row">
+              <label class="col-sm-4 form-control-label" style="text-align: right">Symbols</label>
+              <div class="col-sm-8">
+                  {% comment %}<div class="box form-control">
+                      <input id="add_filter" type="text" class="form-control"/>
+                      <table id="" class="table m-b-none" ui-jp="footable" data-filter="#add_filter" data-page-size="5" >
+                          <tbody id="symbol_list">
+                              <tr><td><label class="md-check"><input type="checkbox" name=""  class="has-value"><i class="green"></i>Checkbox: red</label></td></tr>
+                              <tr><td><label class="md-check"><input type="checkbox" name=""  class="has-value"><i class="green"></i>Checkbox: red</label></td></tr>
+                              <tr><td><label class="md-check"><input type="checkbox" name=""  class="has-value"><i class="green"></i>Checkbox: red</label></td></tr>
+                              <tr><td><label class="md-check"><input type="checkbox" name=""  class="has-value"><i class="green"></i>Checkbox: red</label></td></tr>
+                              <tr><td><label class="md-check"><input type="checkbox" name=""  class="has-value"><i class="green"></i>Checkbox: red</label></td></tr>
+                              <tr><td><label class="md-check"><input type="checkbox" name=""  class="has-value"><i class="green"></i>Checkbox: red</label></td></tr>
+                          </tbody>
+                          <tfoot class="hide-if-no-paging">
+          <tr>
+              <td colspan="5" class="text-center">
+                  <ul class="pagination"></ul>
+              </td>
+          </tr>
+        </tfoot>
+                      </table>
+                  </div>{% endcomment %}
+                  <select id='edit_symbol_list' multiple>
+                  </select>
+              </div>
+            </div>
+      <!--  Button  -->
+            <div class="modal-footer">
+              {% comment %}<button type="button" class="btn white p-x-md" style="background-color: #2e3e4e" data-dismiss="modal">Cancel</button>{% endcomment %}
+              <button type="submit" class="btn white p-x-md" style="background-color: #2e3e4e" >Update</button>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+<div id="add_security" class="modal black-overlay" data-backdrop="true">
+    <div class="modal-dialog">
+      <div class="modal-content box-shadow-md black lt m-b">
+        <div class="modal-header">
+      	  <h5 class="modal-title">Add Security</h5>
+        </div>
+        <div class="modal-body p-lg">
+          <form id="add_security_form" method="post">{% csrf_token %}
+      <!--   Security Name  -->
+            <div class="form-group row">
+              <label class="col-sm-4 form-control-label" style="text-align: right">Security Name</label>
+              <div class="col-sm-8">
+                <input type="text" id="security_name" name="security_name" class="form-control"  required/>
+              </div>
+            </div>
+      <!--  Security Type  -->
+            <div class="form-group row">
+              <label class="col-sm-4 form-control-label" style="text-align: right">Security Type</label>
+              <div class="col-sm-8">
+                <select required name="security_type" id="security_type" style="background-color: rgb(72,87,103);" class="form-control">
+                    <option value=""></option>
+                    <option value="STOCK">Stock</option>
+                    <option value="CFD">CFD</option>
+                    <option value="CFD_INDEX" disabled>CFD Index</option>
+                    <option value="FOREX" disabled>Forex</option>
+                </select>
+              </div>
+            </div>
+
+      <!--  Expire Date -->
+            <div class="form-group row">
+                <label class="col-sm-4 form-control-label" style="text-align: right">Expire Date</label>
+                <div class="col-sm-8">
+                    <div class="form-group">
+                                                        <div class='input-group date' ui-jp="datetimepicker" ui-options="{
+                                                            format: 'YYYY-M-D',
+                                                                icons: {
+                                                                    time: 'fa fa-clock-o',
+                                                                    date: 'fa fa-calendar',
+                                                                    up: 'fa fa-chevron-up',
+                                                                    down: 'fa fa-chevron-down',
+                                                                    previous: 'fa fa-chevron-left',
+                                                                    next: 'fa fa-chevron-right',
+                                                                    today: 'fa fa-screenshot',
+                                                                    clear: 'fa fa-trash',
+                                                                    close: 'fa fa-remove'
+                                                                }
+                                                        }">
+                                                            <input type='text' class="form-control" name="expire_date" id="expire_date" required/>
+                                                            <span class="input-group-addon">
+                                                                <span class="fa fa-calendar"></span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                </div>
+            </div>
+      <!--  Number of Bars  -->
+            <div class="form-group row">
+              <label class="col-sm-4 form-control-label text-right">Number of Bars</label>
+              <div class="col-sm-8">
+                <input type="text" id="bar_size" name="bar_size" class="form-control"  required/>
+              </div>
+            </div>
+     {% comment %} <!--  Long Min  -->
+            <div class="form-group row">
+              <label class="col-sm-4 form-control-label m-m" style="text-align: right">Long Min</label>
+              <div class="range-slider col-sm-8">
+                <input class="range-slider__range" id="long_min1" name="long_min1" type="range" value="0" min="0" max="95"/>
+                <span id="long_min2" name="long_min2" class="range-slider__value">0</span>
+              </div>
+            </div>
+      <!--  Long Max  -->
+            <div class="form-group row">
+              <label class="col-sm-4 form-control-label m-m" style="text-align: right">Long Max</label>
+              <div class="range-slider col-sm-8">
+                <input class="range-slider__range" id="long_max1" name="long_max1" type="range" value="0" min="0" max="95"/>
+                <span id="long_max2" name="long_max2" class="range-slider__value">0</span>
+              </div>
+            </div>
+      <!--  Short Min  -->
+            <div class="form-group row">
+              <label class="col-sm-4 form-control-label m-m" style="text-align: right">Short Min</label>
+              <div class="range-slider col-sm-8">
+                <input class="range-slider__range" id="short_min1" name="short_min1" type="range" value="0" min="0" max="95"/>
+                <span id="short_min2" name="short_min2" class="range-slider__value">0</span>
+              </div>
+            </div>
+      <!--  Short Max  -->
+            <div class="form-group row">
+              <label class="col-sm-4 form-control-label m-m" style="text-align: right">Short Max</label>
+              <div class="range-slider col-sm-8">
+                <input class="range-slider__range" id="short_max1" name="short_max1" type="range" value="0" min="0" max="95"/>
+                <span id="short_max2" name="short_max2" class="range-slider__value">0</span>
+              </div>
+            </div>{% endcomment %}
+      <!--  Symbols -->
+            <div class="form-group row">
+              <label class="col-sm-4 form-control-label" style="text-align: right">Symbols</label>
+              <div class="col-sm-8">
+                  {% comment %}<div class="box form-control">
+                      <input id="add_filter" type="text" class="form-control"/>
+                      <table id="" class="table m-b-none" ui-jp="footable" data-filter="#add_filter" data-page-size="5" >
+                          <tbody id="symbol_list">
+                              <tr><td><label class="md-check"><input type="checkbox" name=""  class="has-value"><i class="green"></i>Checkbox: red</label></td></tr>
+                              <tr><td><label class="md-check"><input type="checkbox" name=""  class="has-value"><i class="green"></i>Checkbox: red</label></td></tr>
+                              <tr><td><label class="md-check"><input type="checkbox" name=""  class="has-value"><i class="green"></i>Checkbox: red</label></td></tr>
+                              <tr><td><label class="md-check"><input type="checkbox" name=""  class="has-value"><i class="green"></i>Checkbox: red</label></td></tr>
+                              <tr><td><label class="md-check"><input type="checkbox" name=""  class="has-value"><i class="green"></i>Checkbox: red</label></td></tr>
+                              <tr><td><label class="md-check"><input type="checkbox" name=""  class="has-value"><i class="green"></i>Checkbox: red</label></td></tr>
+                          </tbody>
+                          <tfoot class="hide-if-no-paging">
+          <tr>
+              <td colspan="5" class="text-center">
+                  <ul class="pagination"></ul>
+              </td>
+          </tr>
+        </tfoot>
+                      </table>
+                  </div>{% endcomment %}
+                  <select id='symbol_list' multiple>
+                  </select>
+              </div>
+            </div>
+      <!--  Button  -->
+            <div class="modal-footer">
+              {% comment %}<button type="button" class="btn white p-x-md" style="background-color: #2e3e4e" data-dismiss="modal">Cancel</button>{% endcomment %}
+              <button type="submit" class="btn white p-x-md" style="background-color: #2e3e4e" >Add</button>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- / .modal -->
+
+<input type="hidden" id="stock_list" value="{{ stock_list }}"/>
+<input type="hidden" id="cfd_list" value="{{ cfd_list }}"/>
+<input type="hidden" id="cfd_index_list" value="{{ cfd_index_list }}"/>
+<input type="hidden" id="forex_list" value="{{ forex_list }}"/>
+<!-- ############ PAGE END-->
+
+    </div>
+  </div>
+  <!-- / -->
+
+
+
+<!-- ############ LAYOUT END-->
+
+  </div>
+
+<!-- build:js scripts/app.html.js -->
+<!-- jQuery -->
+  <script src="{% static 'user/libs/jquery/jquery/dist/jquery.js' %}"></script>
+<!-- Bootstrap -->
+  <script src="{% static 'user/libs/jquery/tether/dist/js/tether.min.js' %}"></script>
+  <script src="{% static 'user/libs/jquery/bootstrap/dist/js/bootstrap.js' %}"></script>
+<!-- core -->
+  <script src="{% static 'user/libs/jquery/underscore/underscore-min.js' %}"></script>
+  <script src="{% static 'user/libs/jquery/jQuery-Storage-API/jquery.storageapi.min.js' %}"></script>
+  <script src="{% static 'user/libs/jquery/PACE/pace.min.js' %}"></script>
+{% comment %}<!-- flot -->
+  <script src="{% static 'user/libs/jquery/flot/jquery.flot.js' %}"></script>
+  <script src="{% static 'user/libs/jquery/flot/jquery.flot.pie.js' %}"></script>
+  <script src="{% static 'user/libs/jquery/flot/jquery.flot.resize.js' %}"></script>
+<!-- flot-spline -->
+  <script src="{% static 'user/libs/jquery/flot-spline/js/jquery.flot.spline.min.js' %}"></script>
+<!-- flot.orderbars -->
+  <script src="{% static 'user/libs/jquery/flot.orderbars/js/jquery.flot.orderBars.js' %}"></script>
+<!-- flot.tooltip -->
+  <script src="{% static 'user/libs/jquery/flot.tooltip/js/jquery.flot.tooltip.min.js' %}"></script>
+<!-- jquery.sparkline -->
+  <script src="{% static 'user/libs/jquery/jquery.sparkline/dist/jquery.sparkline.retina.js' %}"></script>
+<!-- screenfull -->
+  <script src="{% static 'user/libs/jquery/screenfull/dist/screenfull.min.js' %}"></script>{% endcomment %}
+
+  <script src="{% static 'user/scripts/config.lazyload.js' %}"></script>
+
+  <script src="{% static 'user/scripts/palette.js' %}"></script>
+  <script src="{% static 'user/scripts/ui-load.js' %}"></script>
+  <script src="{% static 'user/scripts/ui-jp.js' %}"></script>
+  <script src="{% static 'user/scripts/ui-include.js' %}"></script>
+  <script src="{% static 'user/scripts/ui-device.js' %}"></script>
+  <script src="{% static 'user/scripts/ui-form.js' %}"></script>
+  <script src="{% static 'user/scripts/ui-nav.js' %}"></script>
+  <script src="{% static 'user/scripts/ui-screenfull.js' %}"></script>
+  <script src="{% static 'user/scripts/ui-scroll-to.js' %}"></script>
+  <script src="{% static 'user/scripts/ui-toggle-class.js' %}"></script>
+
+  <script src="{% static 'user/scripts/app.js' %}"></script>
+
+  <!-- ajax -->
+  <script src="{% static 'user/libs/jquery/jquery-pjax/jquery.pjax.js' %}"></script>
+  <script src="{% static 'user/scripts/ajax.js' %}"></script>
+<!-- endbuild -->
+  <script>
+      document.multiselect("#symbol_list");
+      document.multiselect("#edit_symbol_list");
+  </script>
+  <script>
+    var rangeSlider = function(){
+      var slider = $('.range-slider'), range = $('.range-slider__range'), value = $('.range-slider__value');
+      slider.each(function(){
+        value.each(function(){
+          var value = $(this).prev().attr('value');
+          $(this).html(value+"%");
+        });
+        range.on('input', function(){
+          $(this).next(value).html(this.value + "%");
+        });
+      });
+    };
+    rangeSlider();
+  </script>
+
+  <script>
+    $(document).ready(function(){
+      {% comment %}var today = new Date();
+      var dd = String(today.getDate()).padStart(2, '0');
+      var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+      var yyyy = today.getFullYear();
+      today = mm + '-' + dd + '-' + yyyy;
+      $('#today').html(today);{% endcomment %}
+
+      var security_element = document.getElementById("security_type");
+      security_element.addEventListener("change", function(){
+      //$('#security_type').addEventListener("change", function(e){
+          //e.defaultPrevented();
+          var html_string = "";
+          $('#symbol_list').html("");
+          switch ($('#security_type').val()){
+              case "STOCK":
+                  var ticker_list = $('#stock_list').val().split(",");
+                  for(var i=0; i< ticker_list.length; i++){
+                      //html_string += "<tr><td><label class='md-check'><input type='checkbox' name='STOCK_" + ticker_list[i] + "' class='has-value'><i class='green'></i>Stock " + ticker_list[i] + "</label></td></tr>";
+                      html_string += "<option value='" + ticker_list[i] + "'>" + ticker_list[i] + "</option>"
+                  }
+                  break;
+              case "CFD":
+                  var ticker_list = $('#cfd_list').val().split(",");
+                  for(var i=0; i< ticker_list.length; i++){
+                      //html_string += "<tr><td><label class='md-check'><input type='checkbox' name='CFD_" + ticker_list[i] + "' class='has-value'><i class='green'></i>CFD " + ticker_list[i] + "</label></td></tr>";
+                      html_string += "<option value='" + ticker_list[i] + "'>" + ticker_list[i] + "</option>"
+                  }
+                  break;
+              case "CFD_INDEX":
+                  var ticker_list = $('#cfd_index_list').val().split(",");
+                  for(var i=0; i< ticker_list.length; i++){
+                      //html_string += "<tr><td><label class='md-check'><input type='checkbox' name='CFD_INDEX'" + ticker_list[i] + "' class='has-value'><i class='green'></i>CFD Index " + ticker_list[i] + "</label></td></tr>";
+                      html_string += "<option value='" + ticker_list[i] + "'>" + ticker_list[i] + "</option>"
+                  }
+                  break;
+              case "FOREX":
+                  var ticker_list = $('#forex_list').val().split(",");
+                  for(var i=0; i< ticker_list.length; i++){
+                      //html_string += "<tr><td><label class='md-check'><input type='checkbox' name='FOREX_" + ticker_list[i] + "' class='has-value'><i class='green'></i>Forex " + ticker_list[i] + "</label></td></tr>";
+                      html_string += "<option value='" + ticker_list[i] + "'>" + ticker_list[i] + "</option>"
+                  }
+                  break;
+              default:
+                  break;
+          }
+          $('#symbol_list').html(html_string);
+          //var parent = $('#symbol_list_itemList').parentNode
+          //$('#symbol_list_itemList').remove();
+
+          document.multiselect('#symbol_list');
+
+      });
+
+      var edit_security_element = document.getElementById("edit_security_type");
+      edit_security_element.addEventListener("change", function(){
+      //$('#security_type').addEventListener("change", function(e){
+          //e.defaultPrevented();
+          var html_string = "";
+          $('#edit_symbol_list').html("");
+          switch ($('#edit_security_type').val()){
+              case "STOCK":
+                  var ticker_list = $('#stock_list').val().split(",");
+                  for(var i=0; i< ticker_list.length; i++){
+                      html_string += "<option value='" + ticker_list[i] + "'>" + ticker_list[i] + "</option>"
+                  }
+                  break;
+              case "CFD":
+                  var ticker_list = $('#cfd_list').val().split(",");
+                  for(var i=0; i< ticker_list.length; i++){
+                      //html_string += "<tr><td><label class='md-check'><input type='checkbox' name='CFD_" + ticker_list[i] + "' class='has-value'><i class='green'></i>CFD " + ticker_list[i] + "</label></td></tr>";
+                      html_string += "<option value='" + ticker_list[i] + "'>" + ticker_list[i] + "</option>"
+                  }
+                  break;
+              case "CFD_INDEX":
+                  var ticker_list = $('#cfd_index_list').val().split(",");
+                  for(var i=0; i< ticker_list.length; i++){
+                      //html_string += "<tr><td><label class='md-check'><input type='checkbox' name='CFD_INDEX'" + ticker_list[i] + "' class='has-value'><i class='green'></i>CFD Index " + ticker_list[i] + "</label></td></tr>";
+                      html_string += "<option value='" + ticker_list[i] + "'>" + ticker_list[i] + "</option>"
+                  }
+                  break;
+              case "FOREX":
+                  var ticker_list = $('#forex_list').val().split(",");
+                  for(var i=0; i< ticker_list.length; i++){
+                      //html_string += "<tr><td><label class='md-check'><input type='checkbox' name='FOREX_" + ticker_list[i] + "' class='has-value'><i class='green'></i>Forex " + ticker_list[i] + "</label></td></tr>";
+                      html_string += "<option value='" + ticker_list[i] + "'>" + ticker_list[i] + "</option>"
+                  }
+                  break;
+              default:
+                  break;
+          }
+          $('#edit_symbol_list').html(html_string);
+          document.multiselect('#edit_symbol_list');
+
+      });
+
+
+      $('#add_security_form').on("submit", function(e){
+          e.preventDefault();
+          var add_element = document.getElementById('symbol_list_itemList');
+          var active_list = add_element.querySelectorAll('.active');
+          var symbol_list = "" ;
+          for(var i=0; i<active_list.length; i++){
+              var symbol = active_list[i]['textContent'];
+              if (symbol_list == "") symbol_list += symbol
+              else symbol_list += "," + symbol
+          }
+          var csrf_token = $('input[name=csrfmiddlewaretoken]').val();
+          var name = $('#security_name').val();
+          var type = $('#security_type').val();
+          var expire = $('#expire_date').val();
+          var bar_size = $('#bar_size').val();
+          $.ajax({
+            method: "POST",
+            url: "/add_security/",
+            data: {name: name, type: type, expire:expire, symbol: symbol_list, bar_size: bar_size, csrfmiddlewaretoken: csrf_token},
+            success: function (result) {
+                var permission = result.permission;
+                location.reload()
+          }
+    });
+
+      });
+
+      $('#edit_security_form').on("submit", function(e){
+          e.preventDefault();
+          var add_element = document.getElementById('edit_symbol_list_itemList');
+          var active_list = add_element.querySelectorAll('.active');
+          var symbol_list = "" ;
+          for(var i=0; i<active_list.length; i++){
+              var symbol = active_list[i]['textContent'];
+              if (symbol_list == "") symbol_list += symbol
+              else symbol_list += "," + symbol
+          }
+          var csrf_token = $('input[name=csrfmiddlewaretoken]').val();
+          var id = $('#edit_id').val();
+          var name = $('#edit_security_name').val();
+          var type = $('#edit_security_type').val();
+          var expire = $('#edit_expire_date').val();
+          var long_min = $('#edit_long_min2').text();
+          var long_max = $('#edit_long_max2').text();
+          var short_min = $('#edit_short_min2').text();
+          var short_max = $('#edit_short_max2').text();
+          var bar_size = $('#edit_bar_size').val();
+          $.ajax({
+            method: "POST",
+            url: "/update_security/",
+            data: {id: id, name: name, type: type, expire:expire, symbol: symbol_list, bar_size: bar_size, long_min:long_min, long_max: long_max, short_min: short_min, short_max: short_max, csrfmiddlewaretoken: csrf_token},
+            success: function (result) {
+                var permission = result.permission;
+                location.reload();
+          }
+    });
+
+      });
+  });
+  </script>
+  <script type="text/javascript">
+function edit_security(id)   {
+    var csrf_token = $('input[name=csrfmiddlewaretoken]').val();
+    $.ajax({
+        method: "POST",
+        url: "/get_security_info/",
+        data: {id: id, csrfmiddlewaretoken: csrf_token},
+        success: function (result) {
+            if (result == {}){
+                location.reload();
+            }else{
+                $('#edit_id').val(result.security['id']);
+                $('#edit_security_name').val(result.security['name']);
+                var security_type = result.security['type'];
+                var option_list = document.getElementById("edit_security_type").getElementsByTagName("option");
+                for(var i=0; i<option_list.length; i++){
+                    (option_list[i].value == security_type) ? option_list[i].disabled = false : option_list[i].disabled = true;
+                }
+                $('#edit_security_type').val(security_type);
+                $('#edit_expire_date').val(result.security['expire_date']);
+                $('#edit_long_min1').attr("value", result.security['long_min']);
+                $('#edit_long_max1').attr("value", result.security['long_max']);
+                $('#edit_short_min1').attr("value", result.security['short_min']);
+                $('#edit_short_max1').attr("value", result.security['short_max']);
+                rangeSlider();
+                var html_str = "";
+                switch(security_type){
+                    case "STOCK":
+                        var ticker_list = $('#stock_list').val().split(",");
+                        var active_list = result.security['symbols']
+                        for(var i=0; i < active_list.length; i ++){
+                            html_str += "<option value='" + active_list[i] + "' selected='selected'>" + active_list[i] + "</option>";
+
+                        }
+                        ticker_list = ticker_list.filter(item => !active_list.includes(item));
+                        for(var i=0; i< ticker_list.length; i++){
+                            html_str += "<option value='" + ticker_list[i] + "'>" + ticker_list[i] + "</option>"
+                        }
+                        break;
+                    case "CFD":
+                        var ticker_list = $('#cfd_list').val().split(",");
+                        var active_list = result.security['symbols']
+                        for(var i=0; i < active_list.length; i ++){
+                            html_str += "<option value='" + active_list[i] + "' selected='selected'>" + active_list[i] + "</option>";
+
+                        }
+                        ticker_list = ticker_list.filter(item => !active_list.includes(item));
+                        for(var i=0; i< ticker_list.length; i++){
+                            html_str += "<option value='" + ticker_list[i] + "'>" + ticker_list[i] + "</option>"
+                        }
+                        break;
+                    case "CFD_INDEX":
+                        var ticker_list = $('#cfd_index_list').val().split(",");
+                        var active_list = result.security['symbols']
+                        for(var i=0; i < active_list.length; i ++){
+                            html_str += "<option value='" + active_list[i] + "' selected='selected'>" + active_list[i] + "</option>";
+
+                        }
+                        ticker_list = ticker_list.filter(item => !active_list.includes(item));
+                        for(var i=0; i< ticker_list.length; i++){
+                            html_str += "<option value='" + ticker_list[i] + "'>" + ticker_list[i] + "</option>"
+                        }
+                        break;
+                    case "FOREX":
+                        var ticker_list = $('#forex_list').val().split(",");
+                        var active_list = result.security['symbols']
+                        for(var i=0; i < active_list.length; i ++){
+                            html_str += "<option value='" + active_list[i] + "' selected='selected'>" + active_list[i] + "</option>";
+
+                        }
+                        ticker_list = ticker_list.filter(item => !active_list.includes(item));
+                        for(var i=0; i< ticker_list.length; i++){
+                            html_str += "<option value='" + ticker_list[i] + "'>" + ticker_list[i] + "</option>"
+                        }
+                        break;
+                }
+                $('#edit_symbol_list').html(html_str);
+                document.multiselect('#edit_symbol_list');
+                $('#edit_bar_size').val(result.security['data_size']);
+                $('#edit_security').show();
+            }
+        }
+    });
+}
+  </script>
+</body>
+</html>

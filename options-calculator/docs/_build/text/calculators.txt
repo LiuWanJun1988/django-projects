@@ -1,0 +1,72 @@
+calculators package
+*******************
+
+
+Subpackages
+===========
+
+* calculators.options package
+
+  * Submodules
+
+  * calculators.options.bsm module
+
+  * Module contents
+
+
+Submodules
+==========
+
+
+calculators.advanced module
+===========================
+
+calculators.advanced.run()
+
+   Interface for running advanced strategies with BSM model.
+
+   Returns:
+      table and/or graph calculated option values and costs for iron
+      condor, collar, double diagonal, strangle, synthetic put,
+      butterfly, diagonal spread, straddle, covered strangle and
+      reverse conversion strategies
+
+
+calculators.basic module
+========================
+
+calculators.basic.run()
+
+   Interface for running basic strategies with BSM model.
+
+   Returns:
+      table and/or graph calculated option values and costs for
+      long/short call, long/short put, or covered call strategies
+
+
+calculators.custom module
+=========================
+
+calculators.custom.run()
+
+   Interface for running custom strategies with BSM model.
+
+   Returns:
+      table and/or graph calculated option values and costs for 8, 6,
+      5, 4, 3 and 2 legs strategies
+
+
+calculators.spreads module
+==========================
+
+calculators.spreads.run()
+
+   Interface for running spread strategies with BSM model.
+
+   Returns:
+      table and/or graph calculated option values and costs for
+      call/put spreads, and back spread strategies
+
+
+Module contents
+===============

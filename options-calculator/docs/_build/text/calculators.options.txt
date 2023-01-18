@@ -1,0 +1,1556 @@
+calculators.options package
+***************************
+
+
+Submodules
+==========
+
+
+calculators.options.bsm module
+==============================
+
+class calculators.options.bsm.Option
+
+   Bases: "object"
+
+   Option class to calculate option pricing for multiple strategies
+   with Black-Scholes-Merton formula. The class is created without
+   initializing any parameters so they must be provided explicitly.
+
+   back_spread(spot_price, expiration_date, long_contracts, long_price, long_type, long_strike_price, long_risk_free_rate, long_dividend_yield, long_volatility, ratio, short_contracts, short_price, short_type, short_strike_price, short_risk_free_rate, short_dividend_yield, short_volatility, graph_type, graph_profile)
+
+      Displays calculated option values for the back spread strategy:
+         Short one ITM option Long ratio * OTM options
+
+      Parameters:
+         * **spot_price** -- (float) underlying stock price
+
+         * **expiration_date** -- (str) expiration date
+
+         * **long_contracts** -- (int) # of contracts to buy/write for
+           long option
+
+         * **long_price** -- (float) ask price for long option
+
+         * **long_type** -- (str) 'put' or 'call' option type for long
+           option
+
+         * **long_strike_price** -- (float) strike price for long
+           option
+
+         * **long_risk_free_rate** -- (float) risk-free interest rate
+           for long option
+
+         * **long_dividend_yield** -- (float) dividend yield for long
+           option
+
+         * **long_volatility** -- (float) implied volatility for long
+           option
+
+         * **ratio** -- (int) ratio for long option, it should be
+           twice as # contracts for short option
+
+         * **short_contracts** -- (int) # of contracts to buy/write
+           for short option
+
+         * **short_price** -- (float) ask price for short option
+
+         * **short_type** -- (str) 'put' or 'call' option type for
+           short option
+
+         * **short_strike_price** -- (float) strike price for short
+           option
+
+         * **short_risk_free_rate** -- (float) risk-free interest rate
+           for short option
+
+         * **short_dividend_yield** -- (float) dividend yield for
+           short option
+
+         * **short_volatility** -- (float) implied volatility for
+           short option
+
+         * **graph_type** -- (str) graph type such as 'table',
+           'graph', or 'both'
+
+         * **graph_profile** -- (str) graph profile such as 'pnl',
+           'risk' or 'option/spread'
+
+      Returns:
+         annotated heatmap table and/or graph traces with calculated
+         results
+
+   butterfly(spot_price, expiration_date, lower_contracts, lower_price, lower_option, lower_strike_price, lower_risk_free_rate, lower_dividend_yield, lower_volatility, middle_contracts, middle_price, middle_option, middle_strike_price, middle_risk_free_rate, middle_dividend_yield, middle_volatility, upper_contracts, upper_price, upper_option, upper_strike_price, upper_risk_free_rate, upper_dividend_yield, upper_volatility, graph_type, graph_profile)
+
+      Displays calculated option values for the butterfly strategy:
+         Long one ITM option Short two ATM options Long one OTM option
+
+      Parameters:
+         * **spot_price** -- (float) underlying stock price
+
+         * **expiration_date** -- (str) expiration date
+
+         * **lower_contracts** -- (int) # of contracts to buy for
+           lower wing option
+
+         * **lower_price** -- (float) ask price for lower wing option
+
+         * **lower_option** -- (str) 'put' or 'call' option type for
+           lower wing option
+
+         * **lower_strike_price** -- (float) strike price for lower
+           wing option
+
+         * **lower_risk_free_rate** -- (float) risk-free interest rate
+           for lower wing option
+
+         * **lower_dividend_yield** -- (float) dividend yield for
+           lower wing option
+
+         * **lower_volatility** -- (float) implied volatility for
+           lower wing option
+
+         * **middle_contracts** -- (int) # of contracts to write for
+           middle wing option
+
+         * **middle_price** -- (float) bid price for middle wing
+           option
+
+         * **middle_option** -- (str) 'put' or 'call' option type for
+           middle wing option
+
+         * **middle_strike_price** -- (float) strike price for middle
+           wing option
+
+         * **middle_risk_free_rate** -- (float) risk-free interest
+           rate for middle wing option
+
+         * **middle_dividend_yield** -- (float) dividend yield for
+           middle wing option
+
+         * **middle_volatility** -- (float) implied volatility for
+           middle wing option
+
+         * **upper_contracts** -- (int) # of contracts to buy for
+           upper wing option
+
+         * **upper_price** -- (float) ask price for upper wing option
+
+         * **upper_option** -- (str) 'put' or 'call' option type for
+           upper wing option
+
+         * **upper_strike_price** -- (float) strike price for upper
+           wing option
+
+         * **upper_risk_free_rate** -- (float) risk-free interest rate
+           for upper wing option
+
+         * **upper_dividend_yield** -- (float) dividend yield for
+           upper wing option
+
+         * **upper_volatility** -- (float) implied volatility for
+           upper wing option
+
+         * **graph_type** -- (str) graph type such as 'table',
+           'graph', or 'both'
+
+         * **graph_profile** -- (str) graph profile such as 'pnl',
+           'risk' or 'option/spread'
+
+      Returns:
+         annotated heatmap table and/or graph traces with calculated
+         results
+
+   call_put(spot_price, expiration_date, action, contracts, option_price, option_type, strike_price, risk_free_rate, dividend_yield, volatility, graph_type, graph_profile)
+
+      Displays calculated option values for the long/short call or
+      long/short put strategy.
+
+      Parameters:
+         * **spot_price** -- (float) underlying stock price
+
+         * **expiration_date** -- (str) expiration date
+
+         * **action** -- (str) whether the action is a buy or write
+
+         * **contracts** -- (int) # of contracts to buy/write
+
+         * **option_price** -- (float) bid/ask price per option
+
+         * **option_type** -- (str) 'put' or 'call' option type
+
+         * **strike_price** -- (float) strike price
+
+         * **risk_free_rate** -- (float) risk-free interest rate
+
+         * **dividend_yield** -- (float) dividend yield
+
+         * **volatility** -- (float) implied volatility
+
+         * **graph_type** -- (str) graph type such as 'table',
+           'graph', or 'both'
+
+         * **graph_profile** -- (str) graph profile such as 'pnl',
+           'risk' or 'option/spread'
+
+      Returns:
+         annotated heatmap table and/or graph traces with calculated
+         results
+
+   collar(spot_price, expiration_date, num_shares, long_contracts, long_price, long_type, long_strike_price, long_risk_free_rate, long_dividend_yield, long_volatility, short_contracts, short_price, short_type, short_strike_price, short_risk_free_rate, short_dividend_yield, short_volatility, graph_type, graph_profile)
+
+      Displays calculated option values for the collar strategy:
+         Long one OTM put Short one OTM call
+
+      Parameters:
+         * **spot_price** -- (float) underlying stock price
+
+         * **expiration_date** -- (str) expiration date
+
+         * **num_shares** -- (int) # of shares of the underlying stock
+           to hold
+
+         * **long_contracts** -- (int) # of contracts to buy/write for
+           long option
+
+         * **long_price** -- (float) ask price for long option
+
+         * **long_type** -- (str) 'put' or 'call' option type for long
+           option
+
+         * **long_strike_price** -- (float) strike price for long
+           option
+
+         * **long_risk_free_rate** -- (float) risk-free interest rate
+           for long option
+
+         * **long_dividend_yield** -- (float) dividend yield for long
+           option
+
+         * **long_volatility** -- (float) implied volatility for long
+           option
+
+         * **ratio** -- (int) ratio for long option, it should be
+           twice as # contracts for short option
+
+         * **short_contracts** -- (int) # of contracts to buy/write
+           for short option
+
+         * **short_price** -- (float) ask price for short option
+
+         * **short_type** -- (str) 'put' or 'call' option type for
+           short option
+
+         * **short_strike_price** -- (float) strike price for short
+           option
+
+         * **short_risk_free_rate** -- (float) risk-free interest rate
+           for short option
+
+         * **short_dividend_yield** -- (float) dividend yield for
+           short option
+
+         * **short_volatility** -- (float) implied volatility for
+           short option
+
+         * **graph_type** -- (str) graph type such as 'table',
+           'graph', or 'both'
+
+         * **graph_profile** -- (str) graph profile such as 'pnl',
+           'risk' or 'option/spread'
+
+      Returns:
+         annotated heatmap table and/or graph traces with calculated
+         results
+
+   covered_call(spot_price, expiration_date, num_shares, contracts, option_price, strike_price, risk_free_rate, dividend_yield, volatility, graph_type, graph_profile)
+
+      Displays calculated option values for the covered call strategy.
+
+      Parameters:
+         * **spot_price** -- (float) underlying stock price
+
+         * **expiration_date** -- (str) expiration date
+
+         * **contracts** -- (int) # of contracts to buy/write
+
+         * **option_price** -- (float) bid/ask price per option
+
+         * **strike_price** -- (float) strike price
+
+         * **risk_free_rate** -- (float) risk-free interest rate
+
+         * **dividend_yield** -- (float) dividend yield
+
+         * **volatility** -- (float) implied volatility
+
+         * **graph_type** -- (str) graph type such as 'table',
+           'graph', or 'both'
+
+         * **graph_profile** -- (str) graph profile such as 'pnl',
+           'risk' or 'option/spread'
+
+      Para num_shares:
+         (int) # of shares of the underlying stock to hold
+
+      Returns:
+         annotated heatmap table and/or graph traces with calculated
+         results
+
+   covered_strangle(spot_price, expiration_date, num_shares, short_call_contracts, short_call_price, short_call_strike_price, short_call_risk_free_rate, short_call_dividend_yield, short_call_volatility, short_put_contracts, short_put_price, short_put_strike_price, short_put_risk_free_rate, short_put_dividend_yield, short_put_volatility, graph_type, graph_profile)
+
+      Displays calculated option values for the strangle strategy:
+         Short one OTM put Short one OTM call
+
+      Parameters:
+         * **spot_price** -- (float) underlying stock price
+
+         * **expiration_date** -- (str) expiration date
+
+         * **num_shares** -- (int) # of shares of the underlying stock
+           to hold
+
+         * **short_call_contracts** -- (int) # of contracts to
+           buy/write for short call option
+
+         * **short_call_price** -- (float) bid price for short call
+           option
+
+         * **short_call_strike_price** -- (float) strike price for
+           short call option
+
+         * **short_call_risk_free_rate** -- (float) risk-free interest
+           rate for short call option
+
+         * **short_call_dividend_yield** -- (float) dividend yield for
+           short call option
+
+         * **short_call_volatility** -- (float) implied volatility for
+           short call option
+
+         * **short_put_contracts** -- (int) # of contracts to
+           buy/write for short put option
+
+         * **short_put_price** -- (float) bid price for short put
+           option
+
+         * **short_put_strike_price** -- (float) strike price for
+           short put option
+
+         * **short_put_risk_free_rate** -- (float) risk-free interest
+           rate for short put option
+
+         * **short_put_dividend_yield** -- (float) dividend yield for
+           short put option
+
+         * **short_put_volatility** -- (float) implied volatility for
+           short put option
+
+         * **graph_type** -- (str) graph type such as 'table',
+           'graph', or 'both'
+
+         * **graph_profile** -- (str) graph profile such as 'pnl',
+           'risk' or 'option/spread'
+
+      Returns:
+         annotated heatmap table and/or graph traces with calculated
+         results
+
+   diagonal_spread(spot_price, expiration_date, long_contracts, long_price, long_type, long_strike_price, long_risk_free_rate, long_dividend_yield, long_volatility, short_contracts, short_price, short_type, short_strike_price, short_risk_free_rate, short_dividend_yield, short_volatility, graph_type, graph_profile)
+
+      Displays calculated option values for the diagonal spread
+      strategy: Long and short position on two options, usually at
+      different strikes price
+
+      Parameters:
+         * **spot_price** -- (float) underlying stock price
+
+         * **expiration_date** -- (str) expiration date
+
+         * **long_contracts** -- (int) # of contracts to buy/write for
+           long option
+
+         * **long_price** -- (float) ask price for long option
+
+         * **long_type** -- (str) 'put' or 'call' option type for long
+           option
+
+         * **long_strike_price** -- (float) strike price for long
+           option
+
+         * **long_risk_free_rate** -- (float) risk-free interest rate
+           for long option
+
+         * **long_dividend_yield** -- (float) dividend yield for long
+           option
+
+         * **long_volatility** -- (float) implied volatility for long
+           option
+
+         * **ratio** -- (int) ratio for long option, it should be
+           twice as # contracts for short option
+
+         * **short_contracts** -- (int) # of contracts to buy/write
+           for short option
+
+         * **short_price** -- (float) ask price for short option
+
+         * **short_type** -- (str) 'put' or 'call' option type for
+           short option
+
+         * **short_strike_price** -- (float) strike price for short
+           option
+
+         * **short_risk_free_rate** -- (float) risk-free interest rate
+           for short option
+
+         * **short_dividend_yield** -- (float) dividend yield for
+           short option
+
+         * **short_volatility** -- (float) implied volatility for
+           short option
+
+         * **graph_type** -- (str) graph type such as 'table',
+           'graph', or 'both'
+
+         * **graph_profile** -- (str) graph profile such as 'pnl',
+           'risk' or 'option/spread'
+
+      Returns:
+         annotated heatmap table and/or graph traces with calculated
+         results
+
+   double_diagonal(spot_price, expiration_date, long_put_price, long_put_strike_price, long_put_risk_free_rate, long_put_dividend_yield, long_put_volatility, long_put_contracts, short_put_price, short_put_strike_price, short_put_risk_free_rate, short_put_dividend_yield, short_put_volatility, short_put_contracts, short_call_price, short_call_strike_price, short_call_risk_free_rate, short_call_dividend_yield, short_call_volatility, short_call_contracts, long_call_price, long_call_strike_price, long_call_risk_free_rate, long_call_dividend_yield, long_call_volatility, long_call_contracts, graph_type, graph_profile)
+
+      Displays calculated option values for the double diagonal
+      strategy.
+         This strategy combines a diagonal put spread and diagonal
+         call spread.
+
+      Parameters:
+         * **spot_price** -- (float) underlying stock price
+
+         * **expiration_date** -- (str) expiration date
+
+         * **long_put_price** -- (float) ask price for long put option
+
+         * **long_put_strike_price** -- (float) strike price for long
+           put option
+
+         * **long_put_risk_free_rate** -- (float) risk-free interest
+           rate for long put option
+
+         * **long_put_dividend_yield** -- (float) dividend yield for
+           long put option
+
+         * **long_put_volatility** -- (float) implied volatility for
+           long put option
+
+         * **long_put_contracts** -- (int) # of contracts to buy/write
+           for long put option
+
+         * **short_put_price** -- (float) bid price for short put
+           option
+
+         * **short_put_strike_price** -- (float) strike price for
+           short put option
+
+         * **short_put_risk_free_rate** -- (float) risk-free interest
+           rate for short put option
+
+         * **short_put_dividend_yield** -- (float) dividend yield for
+           short put option
+
+         * **short_put_volatility** -- (float) implied volatility for
+           short put option
+
+         * **short_put_contracts** -- (int) # of contracts to
+           buy/write for short put option
+
+         * **short_call_price** -- (float) bid price for short call
+           option
+
+         * **short_call_strike_price** -- (float) strike price for
+           short call option
+
+         * **short_call_risk_free_rate** -- (float) risk-free interest
+           rate for short call option
+
+         * **short_call_dividend_yield** -- (float) dividend yield for
+           short call option
+
+         * **short_call_volatility** -- (float) implied volatility for
+           short call option
+
+         * **short_call_contracts** -- (int) # of contracts to
+           buy/write for short call option
+
+         * **long_call_price** -- (float) ask price for long call
+           option
+
+         * **long_call_strike_price** -- (float) strike price for long
+           call option
+
+         * **long_call_risk_free_rate** -- (float) risk-free interest
+           rate for long call option
+
+         * **long_call_dividend_yield** -- (float) implied volatility
+           for long call option
+
+         * **long_call_volatility** -- (float) implied volatility for
+           long call option
+
+         * **long_call_contracts** -- (int) # of contracts to
+           buy/write for long call option
+
+         * **graph_type** -- (str) graph type such as 'table',
+           'graph', or 'both'
+
+         * **graph_profile** -- (str) graph profile such as 'pnl',
+           'risk' or 'option/spread'
+
+      Returns:
+         annotated heatmap table and/or graph traces with calculated
+         results
+
+   eight_legs(spot_price, expiration_date, action_leg_1, contracts_leg_1, price_leg_1, option_leg_1, strike_leg_1, risk_leg_1, dividend_yield_leg_1, volatility_leg_1, action_leg_2, contracts_leg_2, price_leg_2, option_leg_2, strike_leg_2, risk_leg_2, dividend_yield_leg_2, volatility_leg_2, action_leg_3, contracts_leg_3, price_leg_3, option_leg_3, strike_leg_3, risk_leg_3, dividend_yield_leg_3, volatility_leg_3, action_leg_4, contracts_leg_4, price_leg_4, option_leg_4, strike_leg_4, risk_leg_4, dividend_yield_leg_4, volatility_leg_4, action_leg_5, contracts_leg_5, price_leg_5, option_leg_5, strike_leg_5, risk_leg_5, dividend_yield_leg_5, volatility_leg_5, action_leg_6, contracts_leg_6, price_leg_6, option_leg_6, strike_leg_6, risk_leg_6, dividend_yield_leg_6, volatility_leg_6, action_leg_7, contracts_leg_7, price_leg_7, option_leg_7, strike_leg_7, risk_leg_7, dividend_yield_leg_7, volatility_leg_7, action_leg_8, contracts_leg_8, price_leg_8, option_leg_8, strike_leg_8, risk_leg_8, dividend_yield_leg_8, volatility_leg_8, graph_type, graph_profile)
+
+      Displays calculated option values for the 8 legs strategy.
+
+      Parameters:
+         * **spot_price** -- (float) underlying stock price
+
+         * **expiration_date** -- (str) expiration date
+
+         * **action_leg_1** -- (str) whether the action is a buy or
+           write for leg 1
+
+         * **contracts_leg_1** -- (int) # of contracts to buy/write
+           for leg 1
+
+         * **price_leg_1** -- (float) ask price for leg 1
+
+         * **option_leg_1** -- (str) 'put' or 'call' option type for
+           leg 1
+
+         * **strike_leg_1** -- (float) strike price for leg 1
+
+         * **risk_leg_1** -- (float) risk-free interest rate for leg 1
+
+         * **dividend_yield_leg_1** -- float) dividend yield for leg 1
+
+         * **volatility_leg_1** -- (float) implied volatility for leg
+           1
+
+         * **action_leg_2** -- (str) whether the action is a buy or
+           write for leg 2
+
+         * **contracts_leg_2** -- (int) # of contracts to buy/write
+           for leg 2
+
+         * **price_leg_2** -- (float) ask price for leg 2
+
+         * **option_leg_2** -- (str) 'put' or 'call' option type for
+           leg 2
+
+         * **strike_leg_2** -- (float) strike price for leg 2
+
+         * **risk_leg_2** -- (float) risk-free interest rate for leg 2
+
+         * **dividend_yield_leg_2** -- float) dividend yield for leg 2
+
+         * **volatility_leg_2** -- (float) implied volatility for leg
+           2
+
+         * **action_leg_1** -- (str) whether the action is a buy or
+           write for leg 3
+
+         * **contracts_leg_1** -- (int) # of contracts to buy/write
+           for leg 3
+
+         * **price_leg_3** -- (float) ask price for leg 3
+
+         * **option_leg_3** -- (str) 'put' or 'call' option type for
+           leg 3
+
+         * **strike_leg_3** -- (float) strike price for leg 3
+
+         * **risk_leg_3** -- (float) risk-free interest rate for leg 3
+
+         * **dividend_yield_leg_3** -- float) dividend yield for leg 3
+
+         * **volatility_leg_3** -- (float) implied volatility for leg
+           3
+
+         * **action_leg_4** -- (str) whether the action is a buy or
+           write for leg 4
+
+         * **contracts_leg_4** -- (int) # of contracts to buy/write
+           for leg 4
+
+         * **price_leg_4** -- (float) ask price for leg 4
+
+         * **option_leg_4** -- (str) 'put' or 'call' option type for
+           leg 4
+
+         * **strike_leg_4** -- (float) strike price for leg 4
+
+         * **risk_leg_4** -- (float) risk-free interest rate for leg 4
+
+         * **dividend_yield_leg_4** -- float) dividend yield for leg 4
+
+         * **volatility_leg_4** -- (float) implied volatility for leg
+           4
+
+         * **action_leg_5** -- (str) whether the action is a buy or
+           write for leg 5
+
+         * **contracts_leg_5** -- (int) # of contracts to buy/write
+           for leg 5
+
+         * **price_leg_5** -- (float) ask price for leg 5
+
+         * **option_leg_5** -- (str) 'put' or 'call' option type for
+           leg 5
+
+         * **strike_leg_5** -- (float) strike price for leg 5
+
+         * **risk_leg_5** -- (float) risk-free interest rate for leg 5
+
+         * **dividend_yield_leg_5** -- float) dividend yield for leg 5
+
+         * **volatility_leg_5** -- (float) implied volatility for leg
+           5
+
+         * **action_leg_6** -- (str) whether the action is a buy or
+           write for leg 6
+
+         * **contracts_leg_6** -- (int) # of contracts to buy/write
+           for leg 6
+
+         * **price_leg_6** -- (float) ask price for leg 6
+
+         * **option_leg_6** -- (str) 'put' or 'call' option type for
+           leg 6
+
+         * **strike_leg_6** -- (float) strike price for leg 6
+
+         * **risk_leg_6** -- (float) risk-free interest rate for leg 6
+
+         * **dividend_yield_leg_6** -- float) dividend yield for leg 6
+
+         * **volatility_leg_6** -- (float) implied volatility for leg
+           6
+
+         * **action_leg_7** -- (str) whether the action is a buy or
+           write for leg 7
+
+         * **contracts_leg_7** -- (int) # of contracts to buy/write
+           for leg 7
+
+         * **price_leg_7** -- (float) ask price for leg 7
+
+         * **option_leg_7** -- (str) 'put' or 'call' option type for
+           leg 7
+
+         * **strike_leg_7** -- (float) strike price for leg 7
+
+         * **risk_leg_7** -- (float) risk-free interest rate for leg 7
+
+         * **dividend_yield_leg_7** -- float) dividend yield for leg 7
+
+         * **volatility_leg_7** -- (float) implied volatility for leg
+           7
+
+         * **action_leg_8** -- (str) whether the action is a buy or
+           write for leg 8
+
+         * **contracts_leg_8** -- (int) # of contracts to buy/write
+           for leg 8
+
+         * **price_leg_8** -- (float) ask price for leg 8
+
+         * **option_leg_8** -- (str) 'put' or 'call' option type for
+           leg 8
+
+         * **strike_leg_8** -- (float) strike price for leg 8
+
+         * **risk_leg_8** -- (float) risk-free interest rate for leg 8
+
+         * **dividend_yield_leg_8** -- float) dividend yield for leg 8
+
+         * **volatility_leg_8** -- (float) implied volatility for leg
+           8
+
+         * **graph_type** -- (str) graph type such as 'table',
+           'graph', or 'both'
+
+         * **graph_profile** -- (str) graph profile such as 'pnl',
+           'risk' or 'option/spread'
+
+      Returns:
+         annotated heatmap table and/or graph traces with calculated
+         results
+
+   five_legs(spot_price, expiration_date, action_leg_1, contracts_leg_1, price_leg_1, option_leg_1, strike_leg_1, risk_leg_1, dividend_yield_leg_1, volatility_leg_1, action_leg_2, contracts_leg_2, price_leg_2, option_leg_2, strike_leg_2, risk_leg_2, dividend_yield_leg_2, volatility_leg_2, action_leg_3, contracts_leg_3, price_leg_3, option_leg_3, strike_leg_3, risk_leg_3, dividend_yield_leg_3, volatility_leg_3, action_leg_4, contracts_leg_4, price_leg_4, option_leg_4, strike_leg_4, risk_leg_4, dividend_yield_leg_4, volatility_leg_4, action_leg_5, contracts_leg_5, price_leg_5, option_leg_5, strike_leg_5, risk_leg_5, dividend_yield_leg_5, volatility_leg_5, graph_type, graph_profile)
+
+      Displays calculated option values for the 5 legs strategy.
+
+      Parameters:
+         * **spot_price** -- (float) underlying stock price
+
+         * **expiration_date** -- (str) expiration date
+
+         * **action_leg_1** -- (str) whether the action is a buy or
+           write for leg 1
+
+         * **contracts_leg_1** -- (int) # of contracts to buy/write
+           for leg 1
+
+         * **price_leg_1** -- (float) ask price for leg 1
+
+         * **option_leg_1** -- (str) 'put' or 'call' option type for
+           leg 1
+
+         * **strike_leg_1** -- (float) strike price for leg 1
+
+         * **risk_leg_1** -- (float) risk-free interest rate for leg 1
+
+         * **dividend_yield_leg_1** -- float) dividend yield for leg 1
+
+         * **volatility_leg_1** -- (float) implied volatility for leg
+           1
+
+         * **action_leg_2** -- (str) whether the action is a buy or
+           write for leg 2
+
+         * **contracts_leg_2** -- (int) # of contracts to buy/write
+           for leg 2
+
+         * **price_leg_2** -- (float) ask price for leg 2
+
+         * **option_leg_2** -- (str) 'put' or 'call' option type for
+           leg 2
+
+         * **strike_leg_2** -- (float) strike price for leg 2
+
+         * **risk_leg_2** -- (float) risk-free interest rate for leg 2
+
+         * **dividend_yield_leg_2** -- float) dividend yield for leg 2
+
+         * **volatility_leg_2** -- (float) implied volatility for leg
+           2
+
+         * **action_leg_3** -- (str) whether the action is a buy or
+           write for leg 3
+
+         * **contracts_leg_3** -- (int) # of contracts to buy/write
+           for leg 3
+
+         * **price_leg_3** -- (float) ask price for leg 3
+
+         * **option_leg_3** -- (str) 'put' or 'call' option type for
+           leg 3
+
+         * **strike_leg_3** -- (float) strike price for leg 3
+
+         * **risk_leg_3** -- (float) risk-free interest rate for leg 3
+
+         * **dividend_yield_leg_3** -- float) dividend yield for leg 3
+
+         * **volatility_leg_3** -- (float) implied volatility for leg
+           3
+
+         * **action_leg_4** -- (str) whether the action is a buy or
+           write for leg 4
+
+         * **contracts_leg_4** -- (int) # of contracts to buy/write
+           for leg 4
+
+         * **price_leg_4** -- (float) ask price for leg 4
+
+         * **option_leg_4** -- (str) 'put' or 'call' option type for
+           leg 4
+
+         * **strike_leg_4** -- (float) strike price for leg 4
+
+         * **risk_leg_4** -- (float) risk-free interest rate for leg 4
+
+         * **dividend_yield_leg_4** -- float) dividend yield for leg 4
+
+         * **volatility_leg_4** -- (float) implied volatility for leg
+           4
+
+         * **action_leg_5** -- (str) whether the action is a buy or
+           write for leg 5
+
+         * **contracts_leg_5** -- (int) # of contracts to buy/write
+           for leg 5
+
+         * **price_leg_5** -- (float) ask price for leg 5
+
+         * **option_leg_5** -- (str) 'put' or 'call' option type for
+           leg 5
+
+         * **strike_leg_5** -- (float) strike price for leg 5
+
+         * **risk_leg_5** -- (float) risk-free interest rate for leg 5
+
+         * **dividend_yield_leg_5** -- float) dividend yield for leg 5
+
+         * **volatility_leg_5** -- (float) implied volatility for leg
+           5
+
+         * **graph_type** -- (str) graph type such as 'table',
+           'graph', or 'both'
+
+         * **graph_profile** -- (str) graph profile such as 'pnl',
+           'risk' or 'option/spread'
+
+      Returns:
+         annotated heatmap table and/or graph traces with calculated
+         results
+
+   four_legs(spot_price, expiration_date, action_leg_1, contracts_leg_1, price_leg_1, option_leg_1, strike_leg_1, risk_leg_1, dividend_yield_leg_1, volatility_leg_1, action_leg_2, contracts_leg_2, price_leg_2, option_leg_2, strike_leg_2, risk_leg_2, dividend_yield_leg_2, volatility_leg_2, action_leg_3, contracts_leg_3, price_leg_3, option_leg_3, strike_leg_3, risk_leg_3, dividend_yield_leg_3, volatility_leg_3, action_leg_4, contracts_leg_4, price_leg_4, option_leg_4, strike_leg_4, risk_leg_4, dividend_yield_leg_4, volatility_leg_4, graph_type, graph_profile)
+
+      Displays calculated option values for the 4 legs strategy.
+
+      Parameters:
+         * **spot_price** -- (float) underlying stock price
+
+         * **expiration_date** -- (str) expiration date
+
+         * **action_leg_1** -- (str) whether the action is a buy or
+           write for leg 1
+
+         * **contracts_leg_1** -- (int) # of contracts to buy/write
+           for leg 1
+
+         * **price_leg_1** -- (float) ask price for leg 1
+
+         * **option_leg_1** -- (str) 'put' or 'call' option type for
+           leg 1
+
+         * **strike_leg_1** -- (float) strike price for leg 1
+
+         * **risk_leg_1** -- (float) risk-free interest rate for leg 1
+
+         * **dividend_yield_leg_1** -- float) dividend yield for leg 1
+
+         * **volatility_leg_1** -- (float) implied volatility for leg
+           1
+
+         * **action_leg_2** -- (str) whether the action is a buy or
+           write for leg 2
+
+         * **contracts_leg_2** -- (int) # of contracts to buy/write
+           for leg 2
+
+         * **price_leg_2** -- (float) ask price for leg 2
+
+         * **option_leg_2** -- (str) 'put' or 'call' option type for
+           leg 2
+
+         * **strike_leg_2** -- (float) strike price for leg 2
+
+         * **risk_leg_2** -- (float) risk-free interest rate for leg 2
+
+         * **dividend_yield_leg_2** -- float) dividend yield for leg 2
+
+         * **volatility_leg_2** -- (float) implied volatility for leg
+           2
+
+         * **action_leg_1** -- (str) whether the action is a buy or
+           write for leg 1
+
+         * **contracts_leg_1** -- (int) # of contracts to buy/write
+           for leg 1
+
+         * **price_leg_3** -- (float) ask price for leg 3
+
+         * **option_leg_3** -- (str) 'put' or 'call' option type for
+           leg 3
+
+         * **strike_leg_3** -- (float) strike price for leg 3
+
+         * **risk_leg_3** -- (float) risk-free interest rate for leg 3
+
+         * **dividend_yield_leg_3** -- float) dividend yield for leg 3
+
+         * **volatility_leg_3** -- (float) implied volatility for leg
+           3
+
+         * **action_leg_4** -- (str) whether the action is a buy or
+           write for leg 1
+
+         * **contracts_leg_4** -- (int) # of contracts to buy/write
+           for leg 1
+
+         * **price_leg_4** -- (float) ask price for leg 4
+
+         * **option_leg_4** -- (str) 'put' or 'call' option type for
+           leg 4
+
+         * **strike_leg_4** -- (float) strike price for leg 4
+
+         * **risk_leg_4** -- (float) risk-free interest rate for leg 4
+
+         * **dividend_yield_leg_4** -- float) dividend yield for leg 4
+
+         * **volatility_leg_4** -- (float) implied volatility for leg
+           4
+
+         * **graph_type** -- (str) graph type such as 'table',
+           'graph', or 'both'
+
+         * **graph_profile** -- (str) graph profile such as 'pnl',
+           'risk' or 'option/spread'
+
+      Returns:
+         annotated heatmap table and/or graph traces with calculated
+         results
+
+   iron_condor(spot_price, expiration_date, long_put_price, long_put_strike_price, long_put_risk_free_rate, long_put_dividend_yield, long_put_volatility, long_put_contracts, short_put_price, short_put_strike_price, short_put_risk_free_rate, short_put_dividend_yield, short_put_volatility, short_put_contracts, short_call_price, short_call_strike_price, short_call_risk_free_rate, short_call_dividend_yield, short_call_volatility, short_call_contracts, long_call_price, long_call_strike_price, long_call_risk_free_rate, long_call_dividend_yield, long_call_volatility, long_call_contracts, graph_type, graph_profile)
+
+      Displays calculated option values for the iron condor strategy:
+         Long one OTM put Short one OTM put with a higher strike Short
+         one OTM call Long one OTM call with a higher strike Akin to
+         having a long strangle inside a larger short strangle (or
+         vice-versa)
+
+      Parameters:
+         * **spot_price** -- (float) underlying stock price
+
+         * **expiration_date** -- (str) expiration date
+
+         * **long_put_price** -- (float) ask price for long put option
+
+         * **long_put_strike_price** -- (float) strike price for long
+           put option
+
+         * **long_put_risk_free_rate** -- (float) risk-free interest
+           rate for long put option
+
+         * **long_put_dividend_yield** -- (float) dividend yield for
+           long put option
+
+         * **long_put_volatility** -- (float) implied volatility for
+           long put option
+
+         * **long_put_contracts** -- (int) # of contracts to buy/write
+           for long put option
+
+         * **short_put_price** -- (float) bid price for short put
+           option
+
+         * **short_put_strike_price** -- (float) strike price for
+           short put option
+
+         * **short_put_risk_free_rate** -- (float) risk-free interest
+           rate for short put option
+
+         * **short_put_dividend_yield** -- (float) dividend yield for
+           short put option
+
+         * **short_put_volatility** -- (float) implied volatility for
+           short put option
+
+         * **short_put_contracts** -- (int) # of contracts to
+           buy/write for short put option
+
+         * **short_call_price** -- (float) bid price for short call
+           option
+
+         * **short_call_strike_price** -- (float) strike price for
+           short call option
+
+         * **short_call_risk_free_rate** -- (float) risk-free interest
+           rate for short call option
+
+         * **short_call_dividend_yield** -- (float) dividend yield for
+           short call option
+
+         * **short_call_volatility** -- (float) implied volatility for
+           short call option
+
+         * **short_call_contracts** -- (int) # of contracts to
+           buy/write for short call option
+
+         * **long_call_price** -- (float) ask price for long call
+           option
+
+         * **long_call_strike_price** -- (float) strike price for long
+           call option
+
+         * **long_call_risk_free_rate** -- (float) risk-free interest
+           rate for long call option
+
+         * **long_call_dividend_yield** -- (float) implied volatility
+           for long call option
+
+         * **long_call_volatility** -- (float) implied volatility for
+           long call option
+
+         * **long_call_contracts** -- (int) # of contracts to
+           buy/write for long call option
+
+         * **graph_type** -- (str) graph type such as 'table',
+           'graph', or 'both'
+
+         * **graph_profile** -- (str) graph profile such as 'pnl',
+           'risk' or 'option/spread'
+
+      Returns:
+         annotated heatmap table and/or graph traces with calculated
+         results
+
+   reverse_conversion(spot_price, expiration_date, num_shares, long_type, long_price, long_strike_price, long_risk_free_rate, long_dividend_yield, long_volatility, long_contracts, short_type, short_price, short_strike_price, short_risk_free_rate, short_dividend_yield, short_volatility, short_contracts, graph_type, graph_profile)
+
+      Displays calculated option values for the reverse conversion
+      strategy:
+         Sell a put Buy a call to create a synthetic long position
+         Short the underlying stock
+
+      Parameters:
+         * **spot_price** -- (float) underlying stock price
+
+         * **expiration_date** -- (str) expiration date
+
+         * **num_shares** -- (int) # of shares of the underlying stock
+           to hold
+
+         * **long_type** -- (str) 'put' or 'call' option type for long
+           option
+
+         * **long_price** -- (float) ask price for long option
+
+         * **long_strike_price** -- (float) strike price for long
+           option
+
+         * **long_risk_free_rate** -- (float) risk-free interest rate
+           for long option
+
+         * **long_dividend_yield** -- (float) dividend yield for long
+           option
+
+         * **long_volatility** -- (float) implied volatility for long
+           option
+
+         * **long_contracts** -- (int) # of contracts to buy/write for
+           long option
+
+         * **short_type** -- (str) 'put' or 'call' option type for
+           short option
+
+         * **short_price** -- (float) ask price for short option
+
+         * **short_strike_price** -- (float) strike price for short
+           option
+
+         * **short_risk_free_rate** -- (float) risk-free interest rate
+           for short option
+
+         * **short_dividend_yield** -- (float) dividend yield for
+           short option
+
+         * **short_volatility** -- (float) implied volatility for
+           short option
+
+         * **short_contracts** -- (int) # of contracts to buy/write
+           for short option
+
+         * **graph_type** -- (str) graph type such as 'table',
+           'graph', or 'both'
+
+         * **graph_profile** -- (str) graph profile such as 'pnl',
+           'risk' or 'option/spread'
+
+      Returns:
+         annotated heatmap table and/or graph traces with calculated
+         results
+
+   six_legs(spot_price, expiration_date, action_leg_1, contracts_leg_1, price_leg_1, option_leg_1, strike_leg_1, risk_leg_1, dividend_yield_leg_1, volatility_leg_1, action_leg_2, contracts_leg_2, price_leg_2, option_leg_2, strike_leg_2, risk_leg_2, dividend_yield_leg_2, volatility_leg_2, action_leg_3, contracts_leg_3, price_leg_3, option_leg_3, strike_leg_3, risk_leg_3, dividend_yield_leg_3, volatility_leg_3, action_leg_4, contracts_leg_4, price_leg_4, option_leg_4, strike_leg_4, risk_leg_4, dividend_yield_leg_4, volatility_leg_4, action_leg_5, contracts_leg_5, price_leg_5, option_leg_5, strike_leg_5, risk_leg_5, dividend_yield_leg_5, volatility_leg_5, action_leg_6, contracts_leg_6, price_leg_6, option_leg_6, strike_leg_6, risk_leg_6, dividend_yield_leg_6, volatility_leg_6, graph_type, graph_profile)
+
+      Displays calculated option values for the 6 legs strategy.
+
+      Parameters:
+         * **spot_price** -- (float) underlying stock price
+
+         * **expiration_date** -- (str) expiration date
+
+         * **action_leg_1** -- (str) whether the action is a buy or
+           write for leg 1
+
+         * **contracts_leg_1** -- (int) # of contracts to buy/write
+           for leg 1
+
+         * **price_leg_1** -- (float) ask price for leg 1
+
+         * **option_leg_1** -- (str) 'put' or 'call' option type for
+           leg 1
+
+         * **strike_leg_1** -- (float) strike price for leg 1
+
+         * **risk_leg_1** -- (float) risk-free interest rate for leg 1
+
+         * **dividend_yield_leg_1** -- float) dividend yield for leg 1
+
+         * **volatility_leg_1** -- (float) implied volatility for leg
+           1
+
+         * **action_leg_2** -- (str) whether the action is a buy or
+           write for leg 2
+
+         * **contracts_leg_2** -- (int) # of contracts to buy/write
+           for leg 2
+
+         * **price_leg_2** -- (float) ask price for leg 2
+
+         * **option_leg_2** -- (str) 'put' or 'call' option type for
+           leg 2
+
+         * **strike_leg_2** -- (float) strike price for leg 2
+
+         * **risk_leg_2** -- (float) risk-free interest rate for leg 2
+
+         * **dividend_yield_leg_2** -- float) dividend yield for leg 2
+
+         * **volatility_leg_2** -- (float) implied volatility for leg
+           2
+
+         * **action_leg_3** -- (str) whether the action is a buy or
+           write for leg 3
+
+         * **contracts_leg_3** -- (int) # of contracts to buy/write
+           for leg 3
+
+         * **price_leg_3** -- (float) ask price for leg 3
+
+         * **option_leg_3** -- (str) 'put' or 'call' option type for
+           leg 3
+
+         * **strike_leg_3** -- (float) strike price for leg 3
+
+         * **risk_leg_3** -- (float) risk-free interest rate for leg 3
+
+         * **dividend_yield_leg_3** -- float) dividend yield for leg 3
+
+         * **volatility_leg_3** -- (float) implied volatility for leg
+           3
+
+         * **action_leg_4** -- (str) whether the action is a buy or
+           write for leg 4
+
+         * **contracts_leg_4** -- (int) # of contracts to buy/write
+           for leg 4
+
+         * **price_leg_4** -- (float) ask price for leg 4
+
+         * **option_leg_4** -- (str) 'put' or 'call' option type for
+           leg 4
+
+         * **strike_leg_4** -- (float) strike price for leg 4
+
+         * **risk_leg_4** -- (float) risk-free interest rate for leg 4
+
+         * **dividend_yield_leg_4** -- float) dividend yield for leg 4
+
+         * **volatility_leg_4** -- (float) implied volatility for leg
+           4
+
+         * **action_leg_5** -- (str) whether the action is a buy or
+           write for leg 5
+
+         * **contracts_leg_5** -- (int) # of contracts to buy/write
+           for leg 5
+
+         * **price_leg_5** -- (float) ask price for leg 5
+
+         * **option_leg_5** -- (str) 'put' or 'call' option type for
+           leg 5
+
+         * **strike_leg_5** -- (float) strike price for leg 5
+
+         * **risk_leg_5** -- (float) risk-free interest rate for leg 5
+
+         * **dividend_yield_leg_5** -- float) dividend yield for leg 5
+
+         * **volatility_leg_5** -- (float) implied volatility for leg
+           5
+
+         * **action_leg_6** -- (str) whether the action is a buy or
+           write for leg 6
+
+         * **contracts_leg_6** -- (int) # of contracts to buy/write
+           for leg 6
+
+         * **price_leg_6** -- (float) ask price for leg 6
+
+         * **option_leg_6** -- (str) 'put' or 'call' option type for
+           leg 6
+
+         * **strike_leg_6** -- (float) strike price for leg 6
+
+         * **risk_leg_6** -- (float) risk-free interest rate for leg 6
+
+         * **dividend_yield_leg_6** -- float) dividend yield for leg 6
+
+         * **volatility_leg_6** -- (float) implied volatility for leg
+           6
+
+         * **graph_type** -- (str) graph type such as 'table',
+           'graph', or 'both'
+
+         * **graph_profile** -- (str) graph profile such as 'pnl',
+           'risk' or 'option/spread'
+
+      Returns:
+         annotated heatmap table and/or graph traces with calculated
+         results
+
+   spread(spot_price, expiration_date, long_contracts, long_price, long_type, long_strike_price, long_risk_free_rate, long_dividend_yield, long_volatility, short_contracts, short_price, short_type, short_strike_price, short_risk_free_rate, short_dividend_yield, short_volatility, graph_type, graph_profile)
+
+      Displays calculated option values for spread strategies: credit,
+      call, put and calendar.
+
+      Parameters:
+         * **spot_price** -- (float) underlying stock price
+
+         * **expiration_date** -- (str) expiration date
+
+         * **long_contracts** -- (int) # of contracts to buy/write for
+           long option
+
+         * **long_price** -- (float) ask price for long option
+
+         * **long_type** -- (str) 'put' or 'call' option type for long
+           option
+
+         * **long_strike_price** -- (float) strike price for long
+           option
+
+         * **long_risk_free_rate** -- (float) risk-free interest rate
+           for long option
+
+         * **long_dividend_yield** -- (float) dividend yield for long
+           option
+
+         * **long_volatility** -- (float) implied volatility for long
+           option
+
+         * **short_contracts** -- (int) # of contracts to buy/write
+           for short option
+
+         * **short_price** -- (float) ask price for short option
+
+         * **short_type** -- (str) 'put' or 'call' option type for
+           short option
+
+         * **short_strike_price** -- (float) strike price for short
+           option
+
+         * **short_risk_free_rate** -- (float) risk-free interest rate
+           for short option
+
+         * **short_dividend_yield** -- (float) dividend yield for
+           short option
+
+         * **short_volatility** -- (float) implied volatility for
+           short option
+
+         * **graph_type** -- (str) graph type such as 'table',
+           'graph', or 'both'
+
+         * **graph_profile** -- (str) graph profile such as 'pnl',
+           'risk' or 'option/spread'
+
+      Returns:
+         annotated heatmap table and/or graph traces with calculated
+         results
+
+   straddle(spot_price, expiration_date, strike_price, long_call_contracts, long_call_price, long_call_risk_free_rate, long_call_dividend_yield, long_call_volatility, long_put_contracts, long_put_price, long_put_risk_free_rate, long_put_dividend_yield, long_put_volatility, graph_type, graph_profile)
+
+      Displays calculated option values for the straddle strategy:
+         * Long one ATM put
+
+         * Long one ATM call
+
+      Both have the same strike price
+
+      Parameters:
+         * **spot_price** -- (float) underlying stock price
+
+         * **expiration_date** -- (str) expiration date
+
+         * **strike_price** -- (float) strike price for long call and
+           long put option
+
+         * **long_call_contracts** -- (int) # of contracts to
+           buy/write for long call option
+
+         * **long_call_price** -- (float) ask price for long call
+           option
+
+         * **long_call_risk_free_rate** -- (float) risk-free interest
+           rate for long call option
+
+         * **long_call_dividend_yield** -- (float) implied volatility
+           for long call option
+
+         * **long_call_volatility** -- (float) implied volatility for
+           long call option
+
+         * **long_put_contracts** -- (int) # of contracts to buy/write
+           for long put option
+
+         * **long_put_price** -- (float) ask price for long put option
+
+         * **long_put_risk_free_rate** -- (float) risk-free interest
+           rate for long put option
+
+         * **long_put_dividend_yield** -- (float) dividend yield for
+           long put option
+
+         * **long_put_volatility** -- (float) implied volatility for
+           long put option
+
+         * **graph_type** -- (str) graph type such as 'table',
+           'graph', or 'both'
+
+         * **graph_profile** -- (str) graph profile such as 'pnl',
+           'risk' or 'option/spread'
+
+      Returns:
+         annotated heatmap table and/or graph traces with calculated
+         results
+
+   strangle(spot_price, expiration_date, long_call_contracts, long_call_price, long_call_strike_price, long_call_risk_free_rate, long_call_dividend_yield, long_call_volatility, long_put_contracts, long_put_price, long_put_strike_price, long_put_risk_free_rate, long_put_dividend_yield, long_put_volatility, graph_type, graph_profile)
+
+      Displays calculated option values for the strangle strategy:
+         Long one OTM put Long one OTM call
+
+      Parameters:
+         * **spot_price** -- (float) underlying stock price
+
+         * **expiration_date** -- (str) expiration date
+
+         * **long_call_contracts** -- (int) # of contracts to
+           buy/write for long call option
+
+         * **long_call_price** -- (float) ask price for long call
+           option
+
+         * **long_call_strike_price** -- (float) strike price for long
+           call option
+
+         * **long_call_risk_free_rate** -- (float) risk-free interest
+           rate for long call option
+
+         * **long_call_dividend_yield** -- (float) implied volatility
+           for long call option
+
+         * **long_call_volatility** -- (float) implied volatility for
+           long call option
+
+         * **long_put_contracts** -- (int) # of contracts to buy/write
+           for long put option
+
+         * **long_put_price** -- (float) ask price for long put option
+
+         * **long_put_strike_price** -- (float) strike price for long
+           put option
+
+         * **long_put_risk_free_rate** -- (float) risk-free interest
+           rate for long put option
+
+         * **long_put_dividend_yield** -- (float) dividend yield for
+           long put option
+
+         * **long_put_volatility** -- (float) implied volatility for
+           long put option
+
+         * **graph_type** -- (str) graph type such as 'table',
+           'graph', or 'both'
+
+         * **graph_profile** -- (str) graph profile such as 'pnl',
+           'risk' or 'option/spread'
+
+      Returns:
+   synthetic_put(spot_price, expiration_date, num_shares, contracts, option_price, strike_price, risk_free_rate, dividend_yield, volatility, graph_type, graph_profile)
+
+      Displays calculated option values for the synthetic put
+      strategy:
+         Long a call option Short the equivalent amount of the
+         underlying stock
+
+      Parameters:
+         * **spot_price** -- (float) underlying stock price
+
+         * **expiration_date** -- (str) expiration date
+
+         * **contracts** -- (int) # of contracts to buy/write
+
+         * **option_price** -- (float) bid/ask price per option
+
+         * **strike_price** -- (float) strike price
+
+         * **risk_free_rate** -- (float) risk-free interest rate
+
+         * **dividend_yield** -- (float) dividend yield
+
+         * **volatility** -- (float) implied volatility
+
+         * **graph_type** -- (str) graph type such as 'table',
+           'graph', or 'both'
+
+         * **graph_profile** -- (str) graph profile such as 'pnl',
+           'risk' or 'option/spread'
+
+      Para num_shares:
+         (int) # of shares of the underlying stock to hold
+
+      Returns:
+         annotated heatmap table and/or graph traces with calculated
+         results
+
+   three_legs(spot_price, expiration_date, action_leg_1, contracts_leg_1, price_leg_1, option_leg_1, strike_leg_1, risk_leg_1, dividend_yield_leg_1, volatility_leg_1, action_leg_2, contracts_leg_2, price_leg_2, option_leg_2, strike_leg_2, risk_leg_2, dividend_yield_leg_2, volatility_leg_2, action_leg_3, contracts_leg_3, price_leg_3, option_leg_3, strike_leg_3, risk_leg_3, dividend_yield_leg_3, volatility_leg_3, graph_type, graph_profile)
+
+      Displays calculated option values for the 3 legs strategy.
+
+      Parameters:
+         * **spot_price** -- (float) underlying stock price
+
+         * **expiration_date** -- (str) expiration date
+
+         * **action_leg_1** -- (str) whether the action is a buy or
+           write for leg 1
+
+         * **contracts_leg_1** -- (int) # of contracts to buy/write
+           for leg 1
+
+         * **price_leg_1** -- (float) ask price for leg 1
+
+         * **option_leg_1** -- (str) 'put' or 'call' option type for
+           leg 1
+
+         * **strike_leg_1** -- (float) strike price for leg 1
+
+         * **risk_leg_1** -- (float) risk-free interest rate for leg 1
+
+         * **dividend_yield_leg_1** -- float) dividend yield for leg 1
+
+         * **volatility_leg_1** -- (float) implied volatility for leg
+           1
+
+         * **action_leg_2** -- (str) whether the action is a buy or
+           write for leg 2
+
+         * **contracts_leg_2** -- (int) # of contracts to buy/write
+           for leg 2
+
+         * **price_leg_2** -- (float) ask price for leg 2
+
+         * **option_leg_2** -- (str) 'put' or 'call' option type for
+           leg 2
+
+         * **strike_leg_2** -- (float) strike price for leg 2
+
+         * **risk_leg_2** -- (float) risk-free interest rate for leg 2
+
+         * **dividend_yield_leg_2** -- float) dividend yield for leg 2
+
+         * **volatility_leg_2** -- (float) implied volatility for leg
+           2
+
+         * **action_leg_1** -- (str) whether the action is a buy or
+           write for leg 1
+
+         * **contracts_leg_1** -- (int) # of contracts to buy/write
+           for leg 1
+
+         * **price_leg_3** -- (float) ask price for leg 3
+
+         * **option_leg_3** -- (str) 'put' or 'call' option type for
+           leg 3
+
+         * **strike_leg_3** -- (float) strike price for leg 3
+
+         * **risk_leg_3** -- (float) risk-free interest rate for leg 3
+
+         * **dividend_yield_leg_3** -- float) dividend yield for leg 3
+
+         * **volatility_leg_3** -- (float) implied volatility for leg
+           3
+
+         * **graph_type** -- (str) graph type such as 'table',
+           'graph', or 'both'
+
+         * **graph_profile** -- (str) graph profile such as 'pnl',
+           'risk' or 'option/spread'
+
+      Returns:
+         annotated heatmap table and/or graph traces with calculated
+         results
+
+   two_legs(spot_price, expiration_date, action_leg_1, contracts_leg_1, price_leg_1, option_leg_1, strike_leg_1, risk_leg_1, dividend_yield_leg_1, volatility_leg_1, action_leg_2, contracts_leg_2, price_leg_2, option_leg_2, strike_leg_2, risk_leg_2, dividend_yield_leg_2, volatility_leg_2, graph_type, graph_profile)
+
+      Displays calculated option values for the 2 legs strategy.
+
+      Parameters:
+         * **spot_price** -- (float) underlying stock price
+
+         * **expiration_date** -- (str) expiration date
+
+         * **action_leg_1** -- (str) whether the action is a buy or
+           write for leg 1
+
+         * **contracts_leg_1** -- (int) # of contracts to buy/write
+           for leg 1
+
+         * **price_leg_1** -- (float) ask price for leg 1
+
+         * **option_leg_1** -- (str) 'put' or 'call' option type for
+           leg 1
+
+         * **strike_leg_1** -- (float) strike price for leg 1
+
+         * **risk_leg_1** -- (float) risk-free interest rate for leg 1
+
+         * **dividend_yield_leg_1** -- float) dividend yield for leg 1
+
+         * **volatility_leg_1** -- (float) implied volatility for leg
+           1
+
+         * **action_leg_2** -- (str) whether the action is a buy or
+           write for leg 2
+
+         * **contracts_leg_2** -- (int) # of contracts to buy/write
+           for leg 2
+
+         * **price_leg_2** -- (float) ask price for leg 2
+
+         * **option_leg_2** -- (str) 'put' or 'call' option type for
+           leg 2
+
+         * **strike_leg_2** -- (float) strike price for leg 2
+
+         * **risk_leg_2** -- (float) risk-free interest rate for leg 2
+
+         * **dividend_yield_leg_2** -- float) dividend yield for leg 2
+
+         * **volatility_leg_2** -- (float) implied volatility for leg
+           2
+
+         * **graph_type** -- (str) graph type such as 'table',
+           'graph', or 'both'
+
+         * **graph_profile** -- (str) graph profile such as 'pnl',
+           'risk' or 'option/spread'
+
+      Returns:
+         annotated heatmap table and/or graph traces with calculated
+         results
+
+
+Module contents
+===============

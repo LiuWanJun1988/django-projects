@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600%7CRoboto:400,400i,500,700" rel="stylesheet">
+
+	{% load staticfiles %}
+	<!-- Icons -->
+	<link rel="stylesheet" href="{% static 'landingpage/css/themify-icons.css' %}">
+	<link rel="stylesheet" href="{% static 'landingpage/css/cryptocoins.css' %}">
+	<link rel="stylesheet" href="{% static 'landingpage/css/cryptocoins-colors.css' %}">
+
+    <!-- style -->
+    <link rel="stylesheet" href="../static/user/assets/animate.css/animate.min.css" type="text/css" />
+    <link rel="stylesheet" href="../static/user/assets/glyphicons/glyphicons.css" type="text/css" />
+    <link rel="stylesheet" href="../static/user/assets/font-awesome/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="../static/user/assets/material-design-icons/material-design-icons.css" type="text/css" />
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="{% static 'landingpage/css/bootstrap-reboot.min.css' %}">
+	<link rel="stylesheet" href="{% static 'landingpage/css/bootstrap-grid.min.css' %}">
+	<link rel="stylesheet" href="{% static 'landingpage/css/owl.carousel.min.css' %}">
+	<link rel="stylesheet" href="{% static 'landingpage/css/magnific-popup.css' %}">
+	<link rel="stylesheet" href="{% static 'landingpage/css/main-color1.css' %}">
+
+	<link rel="stylesheet" href="../static/user/assets/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../static/user/assets/styles/app.css" type="text/css" />
+    <link rel="stylesheet" href="../static/user/assets/styles/new_defined.css" type="text/css" />
+
+    <!-- Favicons -->
+	<link rel="icon" type="image/png" href="{% static 'landingpage/icon/favicon-32x32.png' %}" sizes="32x32">
+	<link rel="apple-touch-icon" href="{% static 'landingpage/icon/favicon-32x32.png' %}">
+	<link rel="apple-touch-icon" sizes="72x72" href="{% static 'landingpage/icon/apple-touch-icon-72x72.png' %}">
+	<link rel="apple-touch-icon" sizes="114x114" href="{% static 'landingpage/icon/apple-touch-icon-114x114.png' %}">
+	<link rel="apple-touch-icon" sizes="144x144" href="{% static 'landingpage/icon/apple-touch-icon-144x144.png' %}">
+
+	<meta name="description" content="Cryptocurrency trading bot">
+	<meta name="keywords" content="tradebot, robot, crypto, trading, ea, autotrading, bitcoin">
+
+	<title>Two-Factor Authentication - Cryptobyrd.io Crypto Trading Bot</title>
+
+</head>
+<body style="background-color: #292b2c">
+
+	<!-- sign form -->
+	<div class="sign" style="background-color: #292b2c">
+		<!-- particles -->
+		<div id="particles-js" class="sign__particles"></div>
+		<!-- end particles -->
+
+		<div class="sign__content" style="background-color: #292b2c; width: 450px">
+			<!-- form -->
+			<form action="{%  url 'two_step' %}" class="sign__form" style="background-color: #292b2c; border: 1px solid #fcc100" method="post">{% csrf_token %}
+				<a href="/"><img class="sign__logo" style="height:45px;" src="{% static 'landingpage/img/logo.png' %}" alt=""></a>
+
+                <div class="md-form-group float-label col-sm-12">
+                    <h5 class="text-warn text-center">Two-Factor Authentication</h5>
+                </div>
+                <div class="row md-form-group float-label col-sm-8">
+
+                </div>
+                <div class="row">
+                    <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-icon btn-social rounded btn-social-colored warn btn-lg btn--center" title="">
+                    <i class="fa fa-google"></i>
+                    <i class="fa fa-google"></i>
+                    </a>
+                    <h6 style="padding-top: 15px; padding-left: 5px" class="text-warn"><a href="{% url 'social:begin' 'google-oauth2' %}">Google Autheticator</a></h6>
+                </div>
+                {% comment %}<div class="row md-form-group float-label col-sm-12">
+                    <div class="col-sm-6">
+                        <label class="md-check">
+                            <input type="radio" id="sms" name="auth" value="sms" checked>
+                            <i class="blue"></i>
+                            Text Message(SMS)
+                        </label>
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="md-check">
+                            <input type="radio" id="google" name="auth" value="google">
+                            <i class="blue"></i>
+                            Google Authenticator
+                        </label>
+                    </div>
+                </div>{% endcomment %}
+                <div class="row md-form-group float-label col-sm-8">
+
+                </div>
+				{% comment %}<button class="btn" type="submit">Sign Up</button>{% endcomment %}
+                {% comment %}<button class="btn btn-outline b-warn text-warn" style="width: 100px; height: 40px; font-size: 16px; text-transform: none" type="submit">Next</button>{% endcomment %}
+
+			</form>
+			<!-- end form -->
+
+
+		</div>
+	</div>
+	<!-- end sign form -->
+
+	<script src="{% static 'landingpage/js/jquery-3.2.1.slim.min.js' %}"></script>
+	<script src="{% static 'landingpage/js/bootstrap.bundle.min.js' %}"></script>
+	<script src="{% static 'landingpage/js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'landingpage/js/smooth-scroll.min.js' %}"></script>
+	<script src="{% static 'landingpage/js/jquery.magnific-popup.min.js' %}"></script>
+	<script src="{% static 'landingpage/js/particles.min.js' %}"></script>
+	<script src="{% static 'landingpage/js/particles-app.js' %}"></script>
+	<script src="{% static 'landingpage/js/main.js' %}"></script>
+
+<!-- Bootstrap -->
+  <script src="../static/user/libs/jquery/tether/dist/js/tether.min.js"></script>
+  <script src="../static/user/libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
+<!-- core -->
+  <script src="../static/user/libs/jquery/underscore/underscore-min.js"></script>
+  <script src="../static/user/libs/jquery/jQuery-Storage-API/jquery.storageapi.min.js"></script>
+  <script src="../static/user/libs/jquery/PACE/pace.min.js"></script>
+
+  <script src="../static/user/scripts/config.lazyload.js"></script>
+
+  <script src="../static/user/scripts/palette.js"></script>
+  <script src="../static/user/scripts/ui-load.js"></script>
+  <script src="../static/user/scripts/ui-jp.js"></script>
+  <script src="../static/user/scripts/ui-include.js"></script>
+  <script src="../static/user/scripts/ui-device.js"></script>
+  <script src="../static/user/scripts/ui-form.js"></script>
+  <script src="../static/user/scripts/ui-nav.js"></script>
+  <script src="../static/user/scripts/ui-screenfull.js"></script>
+  <script src="../static/user/scripts/ui-scroll-to.js"></script>
+  <script src="../static/user/scripts/ui-toggle-class.js"></script>
+
+  <script src="../static/user/scripts/app.js"></script>
+<script>
+</script>
+</body>
+</html>

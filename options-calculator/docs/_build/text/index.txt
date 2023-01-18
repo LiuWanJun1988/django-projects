@@ -1,0 +1,12 @@
+Welcome to Black-Scholes-Merton Options Calculator's documentation!
+*******************************************************************
+
+
+Indices and tables
+******************
+
+* Index
+
+* Module Index
+
+* Search Page
